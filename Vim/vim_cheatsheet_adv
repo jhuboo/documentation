@@ -104,6 +104,7 @@ Write: ~> :write             // write the file
 Open : ~> vim one.py two.rb three.rs // open and edit a sequence of files
 Open : ~> vim -o one.py two.rb c.rs  // make vim open a window for each file, horizontally
 Open : ~> vim -O one.py two.rb c.rs  // make vim open a window for each file, vertically
+
 Next : ~> :next                      // go to next file (need to save changes first) use ! to override
 Next : ~> :wnext                     // same as write + next
 Where: ~> :args                      // shows one.py [two.rb] three.rs  -- at location 2/3
@@ -178,20 +179,41 @@ Window : ~> :vnew         // Opens a new empty file in the vertical window
 More   : ~> :vertical new // Use vertical command
 
 Adv
-Jump   : ~> Ctrl-W h      // Move to the window on the left
-Jump   : ~> Ctrl-W j      // Move to the window below
-Jump   : ~> Ctrl-W k      // Move to the window above
-Jump   : ~> Ctrl-W l      // Move to the window on the right
+Jump : ~> Ctrl-W h      // Move to the window on the left
+Jump : ~> Ctrl-W j      // Move to the window below
+Jump : ~> Ctrl-W k      // Move to the window above
+Jump : ~> Ctrl-W l      // Move to the window on the right
 Adv
-Jump   : ~> Ctrl-W t      // Move to the top window
-Jump   : ~> Ctrl-W b      // Move to the bottom window
+Jump : ~> Ctrl-W t      // Move to the top window
+Jump : ~> Ctrl-W b      // Move to the bottom window
 
-MoveWindow: ~> Ctrl-W K   // Move the window to the very top, with uppercase K
-MoveWindow: ~> Ctrl-W H   // Move the window to the far left
-MoveWindow: ~> Ctrl-W J   // Move the window to the bottom
-MoveWindow: ~> Ctrl-W L   // Move the window to the far right
+Move: ~> Ctrl-W K   // Move the window to the very top, with uppercase K
+Move: ~> Ctrl-W H   // Move the window to the far left
+Move: ~> Ctrl-W J   // Move the window to the bottom
+Move: ~> Ctrl-W L   // Move the window to the far right
 
-All: ~> :qall       // Quit all windows, Vim will not exit if any of the windows contain unwritten cahnges
-All: ~> :wall       // Write all windows
-All: ~> :wqall      // Write and Quit all windows (Careful, no way to undo this command!)
+All : ~> :qall       // Quit all windows, Vim will not exit if any of the windows contain unwritten cahnges
+All : ~> :wall       // Write all windows
+All : ~> :wqall      // Write and Quit all windows (Careful, no way to undo this command!)
 
+(Vimdiff)
+Terminal: vimdiff main.c~ main.c             // start two files side by side, showing differences between tow files
+In_Vim  : ~> :edit main.c                    // edit main.c
+In_Vim  : ~> :vertical diffsplit main.c~     // then make a split, and show the differences
+In_Vim  : ~> :vertical diffpatch main.c.diff // patch file must contain only one patch, otherwise you will get lot of error msgs
+Adv
+Scroll  : ~> :noscrollbind // don't bind the scroll for changes
+Jump    : ~> ]c            // Jump forward to next change
+Jump    : ~> [c            // Jump backward
+Adv
+Update  : ~> :diffupdate   // updates highlighting in all situations, when differences or additions are made
+Move    : ~> dp            // diff put,    (make changes)   make other window line as current window 
+Move    : ~> do            // diff obtain, (remove changes) make current window as other window
+
+Adv     : ~> Ctrl-W Ctrl-^     // Splits window and edits alternate file
+Adv     : ~> :tag              // Jumps a tag
+Adv     : ~> :stag             // Splits window and jumps to a tag
+
+TabPages: ~> :tabedit thatfile // create a new tab page to edit "thatfile"
+TabPages: ~> :tab split        // creates another copy of "thatfile" editing the same buffer
+TabHelp : ~> :tab help gt      // This will show help text for "gt" in a new tab page
