@@ -259,3 +259,38 @@ Global: ~> :[range]global/{pattern}/{command} // allows you to find a match for 
 *     : ~> :g=//=s/foobar/barfoo/g            // global g
 *                                             // pattern is //, enclosed by =//=
 *                                             // command is s/foobar/barfoo/g
+
+(Visual_Block)
+Visual_Block: ~> Ctrl-V
+Visual_Block: ~> $         // Select all until end of line
+Visual_Block: ~> I-[text]  // magically copies command on first line to all lines!!, after pressing Esc
+Visual_Block: ~> A-[text]  // works the same, but at the end of all lines
+
+Visual_Block: ~> c         // Deletes the block and starts insert mode, string will be inserted in each line in the block
+Visual_Block: ~> C         // Deletes text from the left edge of the block to the end of the line, then Insert mode
+
+Command: ~                 // Swap case
+Command: u                 // make lowercase
+Command: U                 // make uppercase
+
+Visual_Block: rx            // Replace all selected char in block with 'x'
+Shifting    : >             // Shift right
+Shifting    : <             // Shift left, limited by space that is already available
+Shift: ~> :set shiftwidth=4 // specifies shift amount
+
+Visual_Block: J            // Joins all selected lines together in one line, removing line breaks
+Visual_BLock: gJ           // Prevents white-space from being changed
+
+(Read & Write)
+Write : ~> :read patch     // File named "patch" will be inserted below cursor line
+Write : ~> :$r   patch     // Put at the end of the file
+Write : ~> :0r   patch     // Put at the beginning of the file
+
+Write : ~> :.,$w temp      // writes from current line to end of file into a FILENAME TEMPO
+
+Write : ~> :.write myfile   // write current first line to myfile
+Write : ~> :.write >>myfile // append second line to myfile
+
+(Format Text)
+Command: ~> :set textwidth=72 // Have the length of each line automatically trimmed to fit in window
+
