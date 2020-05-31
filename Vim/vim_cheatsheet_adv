@@ -25,17 +25,47 @@ Motion: ~> G       // Go to End of file
 Motion: ~> 33G     // moves to line 33, [number]G
 
 Motion: ~> 50%     // moves to halfway through file, ie : ~> 90% goes near the end
-Motion: ~> H       // Moves to Home 'top visible part of displayed normal/edit window'
-Motion: ~> M       // Moves to Middle ""
-Motion: ~> L       // Moves to Last ""
+Motion: ~> H       // Moves cursor to Home 'top visible part of displayed normal/edit window'
+Motion: ~> M       // Moves cursor to Middle ""
+Motion: ~> L       // Moves cursor to Last ""
 
 Motion: ~> CTRL-G         // Displays location in file and file status
 More  : ~> :set number    // Display line number in every line, switch off with :set nonumber
 More  : ~> :set ruler     // Display cursor position in lower right corner of Vim window
 
-Scroll: ~> CTRL-U     // Scrolls down half a screen of text
-Scroll: ~> CTRL-D     // Scrolls up half a screen of text
+Scroll: ~> CTRL-U     // Scrolls down half a screen of text (go up)
+Scroll: ~> CTRL-D     // Scrolls up half a screen of text (go down)
 Scroll: ~> CTRL-E     // Scroll up one line at a time
 Scroll: ~> CTRL-Y     // Scroll down one line at a time
-Scroll: ~> CTRL-F     // Scroll whole screen forward (except for two lines)
-Scroll: ~> CTRL-B     // Scroll whole screen backward (excpet for two lines)
+Scroll: ~> CTRL-F     // Scroll whole screen forward (except for two lines) (go down)
+Scroll: ~> CTRL-B     // Scroll whole screen backward (excpet for two lines) (go up)
+
+Motion_and_Scroll: ~> zt  // Scrolls and puts cursor line at the top
+Motion_and_Scroll: ~> zz  // Scrolls and puts cursor line in the middle
+Motion_and_Scroll: ~> zb  // Scrolls adn puts cursor line at the bottom
+
+Search: ~> /include       // searches for 'include', Note .*[]^%/\?~$ have special meaning
+*                         // to search for them, you must add a \ in front of them
+Search: ~> /the\>         // searches for word that end in 'the'
+Search: ~> /\<the         // searches for word that start in 'the'
+Search: ~> /\<the\>       // searches for exact match for 'the'
+More:  // Put your cursor on a word and use the '*' command. Vim will grab word under the cursor
+*      // and use it as search string, note '#' searchs in the opposite direction
+More:   // the '*' and '#' commands use start and end of word markers for exact matches
+*       // for partial matches, use 'g*' and 'g#'
+More:   // Vim uses Regex to match what to search for.
+
+Regex: ^  // matches start of line
+Regex: $  // matches end of line
+Regex: .  // Matches any character, to match a dot enter \.
+
+Marking: ~> ``       // Go back where you came from, after a motion command (jump)
+Marking: ~> ms       // mark start
+Marking: ~> 's       // Go to start mark
+Marking: ~> me       // mark end
+Marking: ~> 'e       // Go to end mark
+More   : ~> :marks   // Get a list of marks, PS. now below are some special marks
+More   : ~> ''       // Cursor position before doing a jump
+More   : ~> "        // Cursor position when last editing the file
+More   : ~> [        // Start of last change
+More   : ~> ]        // End of last change
