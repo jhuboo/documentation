@@ -1,6 +1,26 @@
 Quit: ~> esc + :q
 Save & Quit: ~> esch + :wq
 
+help: ~> vimtutor  // (All the fundamentals)
+help: ~> :help
+help: ~> Ctrl-w Ctrl-w // to move from one window to another
+help: ~> :q // close help window
+more: ~> help user-manual // Open user-manual
+more: ~> help w // help on command w
+
+Configure: ~> ~/.vimrc    // Configure your own vim settings and preferences, keymaps
+
+Terminal: ~> :![something]  // executes external command, ie :!rm FILENAME, removes file FILENAME
+Terminal: ~> :w FILENAME    // writes current Vim file to disk with name FILENAME
+Terminal: ~> v motion :w FILENAME // saves visually selected lines in file FILENAME
+Terminal: ~> :r FILENAME    // retrieves disk file FILENAME and puts it below cursor position
+Terminal: ~> :r !dir        // reads output of dir command and puts it below cursor position
+
+Terminal: ~> :!ls        // list files in current directory, also :!dir
+More: Type start of command :e  // Press Ctrl-D, and Vim will show list of commands that start with 'e'
+    : // Press d<TAB> and will will complete to :edit
+    : // Add a space and start editing and exisitng file name :edit FILENAME
+
 Directions:
 left ~> h
 right ~> l
@@ -9,20 +29,35 @@ down ~> j
 
 Motion: ~> 0 // Move to start of line
 Motion: ~> $ // Move to end of line
+Motion: ~> w // Move to start of next word
+Motion: ~> e // Move to end of current word
+Motion: ~> b // Move to start of previous word
 Motion: ~> Ctrl-O // Move to last postion(s)
 Motion: ~> Ctrl-I // Move to newer position(s)
 Motion: ~> operator [number] motion // ie d2$ will delete till the end of 2 lines
+
 Location: ~> Ctrl-G // Displays your location in file and file status
 Location: ~> G      // Moves to the end of the file
 Location: ~> gg     // Moves to the first line
-Search: /word       // searches for word forward
-Search: ?word       // searches for word backward
-Search: %           // while cursor is on () [] {} goes to its match, useful for debugging
+
+Search: ~> /word     // searches for word forward
+Search: ~> ?word     // searches for word backward
+Search: ~> %         // while cursor is on () [] {} goes to its match, useful for debugging
+Search: ~> :set ic   // ignore upper/lower case when searching, ic = ignorecase
+Search: ~> :set is   // show partial matches for a search phrase, is=insearch
+Search: ~> :set hls  // highlight all matching phrases, hls = highlightsearch
+Search: ~> :set noic // remove the direction for upper/lower case 
+
 Sub: ~> :/s/old/new     // substitue new for first old in a line type
 Sub: ~> :/s/old/new/g   // substitute new for all 'old's on a line type
 Sub: ~> :#,#s/old/new/g // substitute phrases two line #'s type
 Sub: ~> :%s/old/new/g   // substitute all occurences in a file type
 Sub: ~> :%s/old/new/gc  // substitute with confirmation each time
+
+Copy : ~> y // yank, Start Visual Mode with 'v' and move cursor, press y to copy highlighted text
+Paste: ~> p // put, type p to paste the text
+More : ~> yy // yank a whole line without going into visual mode
+More : ~> yw // yank a whole word, remembe motion operator!
 
 Undo: ~> u // undo previous actions
 Undo: ~> U // Undo all changes on a line
@@ -35,6 +70,8 @@ Delete: ~> d$ // delete till end of line
 Delete: ~> dd // delete whole line
 
 Insert : ~> p  // to put back text that has just been deleted
+Insert : ~> o  // puts a line below cursor and starts Insert mode
+Insert : ~> O  // puts a line above cursor and starts Insert mode
 Replace: ~> r  // replace only one character under the cursor
 Replace: ~> R  // replace all character under the cursor until Esc is pressed
 Change : ~> ce // change till end of word
@@ -43,3 +80,4 @@ Change : ~> c$ // change till end of line, remeber motion operator!
 Insert: ~> i
 Append: ~> a // append after cursor
 Append: ~> A // Append after line
+
