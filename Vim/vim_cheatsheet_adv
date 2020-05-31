@@ -10,7 +10,32 @@ Exit: ~> ZZ     // Writes the file and exits
 Exit: ~> :q!    // Discards the changes made to the file amd quits (! is for override)
 More: ~> :e!    // Reloads original version of the file
 
-Motion: ~> w    // moves to start of next word
-Motion: ~> b    // moves to start of prev word
-Motion: ~> e    // moves to end of current word
-Motion: ~> ge   // moves to end of prev word
+Motion: ~> w    // moves to start of next word   : ~> W    // Ignores non-word char
+Motion: ~> b    // moves to start of prev word   : ~> B    // ""
+Motion: ~> e    // moves to end of current word  : ~> E    // ""
+Motion: ~> ge   // moves to end of prev word     : ~> gE   // ""
+
+Motion: ~> [count]$  // moves to the end of [count] lines
+Motion: ~> f[letter]  // find first occurence of letter after cursor : ~> F[letter] // finds backwards
+Motion: ~> t[letter]  // like find, but stops one char short, useful for edit!  : ~> T[letter] // ""
+More  : Repeat motion with ';' for forwards ',' for backwards
+
+Motion: ~> gg      // Go to Start of file
+Motion: ~> G       // Go to End of file
+Motion: ~> 33G     // moves to line 33, [number]G
+
+Motion: ~> 50%     // moves to halfway through file, ie : ~> 90% goes near the end
+Motion: ~> H       // Moves to Home 'top visible part of displayed normal/edit window'
+Motion: ~> M       // Moves to Middle ""
+Motion: ~> L       // Moves to Last ""
+
+Motion: ~> CTRL-G         // Displays location in file and file status
+More  : ~> :set number    // Display line number in every line, switch off with :set nonumber
+More  : ~> :set ruler     // Display cursor position in lower right corner of Vim window
+
+Scroll: ~> CTRL-U     // Scrolls down half a screen of text
+Scroll: ~> CTRL-D     // Scrolls up half a screen of text
+Scroll: ~> CTRL-E     // Scroll up one line at a time
+Scroll: ~> CTRL-Y     // Scroll down one line at a time
+Scroll: ~> CTRL-F     // Scroll whole screen forward (except for two lines)
+Scroll: ~> CTRL-B     // Scroll whole screen backward (excpet for two lines)
