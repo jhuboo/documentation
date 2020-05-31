@@ -293,4 +293,19 @@ Write : ~> :.write >>myfile // append second line to myfile
 
 (Format Text)
 Command: ~> :set textwidth=72 // Have the length of each line automatically trimmed to fit in window
+Format : ~> gpap              // Reformat 'a paragraph' (ap)
+Format : ~> gpG               // Refomrat till the end of the file
 
+Case   : ~> gUw               // Make word section all uppercase     : ~> gUU for whole sentence
+Case   : ~> guw               // Make word section all lowercase     : ~> guu ""
+Case   : ~> g~w               // Swap case for all chars in the word : ~> g~~ ""
+
+(External)
+Command: ~> !{motion}{program} // run the system command represented by program, with motion as input
+*                              // ie. ~> 5G!sort<Enter> , fitler from 1 to 5, and sort
+*                              // ie. ~> !!date<Enter>  , enters timestamp
+
+Command: ~> :0read !date -u   // insert date at top of the file
+Command: ~> :write !wc        // counts the number of words in the current file, (not same as write! wc)
+
+Redraw : ~> Ctrl-L            // redraw screen where error message appears
