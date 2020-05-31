@@ -217,3 +217,26 @@ Adv     : ~> :stag             // Splits window and jumps to a tag
 TabPages: ~> :tabedit thatfile // create a new tab page to edit "thatfile"
 TabPages: ~> :tab split        // creates another copy of "thatfile" editing the same buffer
 TabHelp : ~> :tab help gt      // This will show help text for "gt" in a new tab page
+
+----
+----
+Here we deal with making big changes to files
+----
+----
+
+Record & Playback: ~> q[register]  // start recording a macro in a register, say a as such :~> qa
+Record & Playback: ~>              // type your commands
+Record & Playback: ~> q            // Stop recording the macro
+
+Exceute: ~> @[register]            // Execute @a command to cause macro to be executed
+Execute: ~> 3@[register]           // Execute @a command, repeated 3 times
+
+Register: ~> "np                   // Put the text from the n register
+Register: ~> {edits}               // Change commands that are wrong. Normal edit
+Register: ~> "nyy                  // Yank the corrected commands into the n register
+
+Append_to_register: qC {append} q  // Append to the lowercase c register, to append use uppercase C otherwise overwrite
+More              : "aY            // yank current line to 'a' register
+More              : "AY            // yank second line and append it to the 'a' register, no overwrite
+
+Subs: ~> :[range]su
