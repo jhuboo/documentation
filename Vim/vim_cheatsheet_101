@@ -1,5 +1,5 @@
 Quit: ~> esc + :q
-Save & Quit: ~> esch + :wq
+Save & Quit: ~> esc + :wq
 
 help: ~> vimtutor  // (All the fundamentals)
 help: ~> :help
