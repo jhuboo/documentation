@@ -1,0 +1,16 @@
+Find vim user-manual at http://vimdoc.sourceforge.net/htmldoc/usr_toc.html
+(Thanks Vim and all its contributors!!)
+
+Mode: ~> Esc  // Normal Mode
+Mode: ~> i    // Insert Mode
+Mode:
+More: ~> :set showmode
+
+Exit: ~> ZZ     // Writes the file and exits
+Exit: ~> :q!    // Discards the changes made to the file amd quits (! is for override)
+More: ~> :e!    // Reloads original version of the file
+
+Motion: ~> w    // moves to start of next word
+Motion: ~> b    // moves to start of prev word
+Motion: ~> e    // moves to end of current word
+Motion: ~> ge   // moves to end of prev word
