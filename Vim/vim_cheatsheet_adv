@@ -58,9 +58,9 @@ Regex: .  // Matches any character, to match a dot enter \.
 
 Marking: ~> ``       // Go back where you came from, after a motion command (jump)
 Marking: ~> ms       // mark start
-Marking: ~> 's       // Go to start mark
+Marking: ~> 's       // Go to start mark, same as `s
 Marking: ~> me       // mark end
-Marking: ~> 'e       // Go to end mark
+Marking: ~> 'e       // Go to end mark, same as `e
 More   : ~> :marks   // Get a list of marks, PS. now below are some special marks
 
 ----
@@ -97,3 +97,61 @@ Miscellaneous: ~> A  // Start Insert mode after moving cursor to the end of the 
 ----
 ----
 
+Edit : ~> :edit foo.txt      // start editing another file, (current file is closed)
+Edit : ~> :hide edit foo.txt // edit another file, but not write changes in current file yet, make it hidden
+Write: ~> :write             // write the file
+
+Open : ~> vim one.py two.rb three.rs // open and edit a sequence of files
+Next : ~> :next                      // go to next file (need to save changes first) use ! to override
+Next : ~> :wnext                     // same as write + next
+Where: ~> :args                      // shows one.py [two.rb] three.rs  -- at location 2/3
+Back : ~> :previous                  // go back one file
+Back : ~> :wprevious                 // same as write + previous
+More : ~> :last                      // move to very last file in the list
+More : ~> :first                     // move to very first file in the list
+
+Auto : ~> :set autowrite             // always write modified files, do that we don't have to :write each time
+Auto : ~> :set noautowrite           // disable autowrite
+
+Edit : ~> :args five.c six.x seven.c // redefine list of files with need to exit vim and start again
+Edit : ~> :args *.txt                // used wildcard operator to open all txt or other files
+
+Jump : ~> CTRL-^  // Quickly jump between two files back and forth after pressing :next, only works after moving to another file
+
+Adv
+Mark : ~> `"       // After jumping to another file, this takes you to the position where the cursor was when you left thefile
+Mark : ~> `.       // Takes you to the position where you made the last change
+*                  // As discussed previously, local (lowercase) marks can be made to a file with ms, and 's | `s (saved locally)
+Mark : ~> mF       // Uppercase marks are global, here F = foo
+Mark : ~> 'F       // If you are edit another file, you can do back to the original file with 'F | `F
+*                  // connect mark letter with where it's placed; H for header file, M for Makefile, and C for in a C code file
+Mark : ~> :marks F // see where the specific mark F is found, also with multiple arguments, ~> :marks FCP
+
+Backup : ~> :set backup  // Vim does not by default produce a backup file, execute command to have backup
+*                        // if file is data.txt, then vim will add ~ at end and name backup as data.txt~
+*                        // to change ~ at end, use : ~> :setbackupext=.bak   to save as data.txt.bak
+*                        // :set patchmode=.orig   to keep original file, as backup will be overwritten with each write to file
+*                        // Vim will keep a copy of unchanged file under the name "data.txt.orig"
+
+Adv, with Registers
+Copy : ~> "fyas          // copy a sentence to the f register
+Copy : ~> "l3Y           // copy 3 whole lines to the l register
+Copy : ~> Ctrl-Vjjww"by  // yank a block of text to the b (for block) register
+*                        // Now we have three pieces of text in the f, l and b registers
+*                        // Edit another file, and move around and place the text with : ~> "fp
+*                        // Registers can be put in any order, and as many times as we want
+Cut : ~> "wdaw           // delete a word, and put in the w register
+
+Append: ~> :write >> logfile  // when collecting lines of text in one file, 
+*                             // this command write the text of the current file to the end of the "logfile"
+*                             // this avoids copy the lines, edit the log file, and put them there
+*                             // but we can only append to the end of the file
+
+Read : ~> vim -R file         // starts vim in readonly mode, to avoid edit files, : ~> view file
+Read : ~> vim -M file         // "" but override is not permitted unlike above, no modifiable
+More : ~> :set modifiable     // remove the modifiable protection
+More : ~> :set write          // remove the write protection
+
+Filename : ~> :edit copy.c    // open an existing file containing most of what you need
+Filename : ~> :saveas move.c  // save file under a new name
+Filename : ~> :file move.c    // change the name of the file you are editing, but don't write the file
