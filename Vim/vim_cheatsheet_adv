@@ -239,4 +239,23 @@ Append_to_register: qC {append} q  // Append to the lowercase c register, to app
 More              : "aY            // yank current line to 'a' register
 More              : "AY            // yank second line and append it to the 'a' register, no overwrite
 
-Subs: ~> :[range]su
+Subs: ~> :1,5s/old/new/g           // use %s for all lines, #,#s for range,  g flag is for global, p flag is for print, c flag is for confirm
+Subs: ~> :s/^the/these/            // only substitute 'the' at the beginning of a line, like regex
+
+Write: ~> :.w otherfile            // write only current line into a file, use '.' address
+
+Subs_adv: ~> :?^Chapter?,/^Chapter/s=grey=gray=g  // First ?^Chapter? searches backwards for Chapter
+*                                                 // ,Second ^Chapter searches forwards for Chapter
+*                                                 // last is s/grey/gray/g , = is used instead of / for easier readability
+
+Offset: ~> :.+3,$-5                // start 3 lines below cursor, ends 5 lines before last line
+
+Marks : ~> :'t,'b   // use mt to mark top, mb to mark bottom and use :'t,'b to operate within that range (Easier than remembering line numbers)
+
+Visual: ~> Ctrl-V : // start colon command, and apply changes, with :, note :'<,'> will appear like range of lines
+
+
+Global: ~> :[range]global/{pattern}/{command} // allows you to find a match for a pattern and execute a command there.
+*     : ~> :g=//=s/foobar/barfoo/g            // global g
+*                                             // pattern is //, enclosed by =//=
+*                                             // command is s/foobar/barfoo/g
