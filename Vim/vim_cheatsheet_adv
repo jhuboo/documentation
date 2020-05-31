@@ -69,6 +69,16 @@ More   : ~> :marks   // Get a list of marks, PS. now below are some special mark
 Change: ~> cc   // changes a whole line, : ~> c$  // change till end of line  // :~> S
 Delete: ~> dd   // deletes a whole line, : ~> d$  // delete till end of line  
 
+Delete: ~> dw   // delete a word, must be at the start
+Delete: ~> daw  // delete a word, whereever your cursor is in it
+Delete: ~> das  // deletes a sentence, removes trailing whitespace
+Delete: ~> dis  // deletes inner sentence, keeps trailing whitespace
+
+Change: ~> cw   // change a word
+Chagne: ~> caw  // change a word
+Change: ~> cas  // change a sentece, removes whitespace after sentence
+Change: ~> cis  // change inner sentence, keeps whitespace after sentence
+
 Shortcut: ~> x  // stands for dl ;delete char left under cursor)
 Shortcut: ~> X  // stands for dh ;delete char right ""
 Shortcut: ~> D  // stands for d$ ;delete till end of line
@@ -79,3 +89,7 @@ Replace: ~> r   // waits for you to type a character and replace the character u
 More   : ~> [count]r  // repeats [count] times, motion operator
 
 Repeat: ~> .  // Repeats the last change (One of the most POWERFUL commands in Vim)
+
+Miscellaneous: ~> ~  // Change case of character under cursor, and move cursor to next character
+Miscellaneous: ~> I  // Start insert mode after moving cursor to the first non-blank in line
+Miscellaneous: ~> A  // Start Insert mode after moving cursor to the end of the line
