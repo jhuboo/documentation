@@ -93,3 +93,7 @@ Repeat: ~> .  // Repeats the last change (One of the most POWERFUL commands in V
 Miscellaneous: ~> ~  // Change case of character under cursor, and move cursor to next character
 Miscellaneous: ~> I  // Start insert mode after moving cursor to the first non-blank in line
 Miscellaneous: ~> A  // Start Insert mode after moving cursor to the end of the line
+
+----
+----
+
