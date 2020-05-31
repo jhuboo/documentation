@@ -1,0 +1,45 @@
+Quit: ~> esc + :q
+Save & Quit: ~> esch + :wq
+
+Directions:
+left ~> h
+right ~> l
+up ~> k
+down ~> j
+
+Motion: ~> 0 // Move to start of line
+Motion: ~> $ // Move to end of line
+Motion: ~> Ctrl-O // Move to last postion(s)
+Motion: ~> Ctrl-I // Move to newer position(s)
+Motion: ~> operator [number] motion // ie d2$ will delete till the end of 2 lines
+Location: ~> Ctrl-G // Displays your location in file and file status
+Location: ~> G      // Moves to the end of the file
+Location: ~> gg     // Moves to the first line
+Search: /word       // searches for word forward
+Search: ?word       // searches for word backward
+Search: %           // while cursor is on () [] {} goes to its match, useful for debugging
+Sub: ~> :/s/old/new     // substitue new for first old in a line type
+Sub: ~> :/s/old/new/g   // substitute new for all 'old's on a line type
+Sub: ~> :#,#s/old/new/g // substitute phrases two line #'s type
+Sub: ~> :%s/old/new/g   // substitute all occurences in a file type
+Sub: ~> :%s/old/new/gc  // substitute with confirmation each time
+
+Undo: ~> u // undo previous actions
+Undo: ~> U // Undo all changes on a line
+Undo: ~> Ctrl-R // Undo the undo's
+
+Delete: ~> x // delete one char in normal mode
+Delete: ~> dw // delete one word in normal mode, till start of new word
+Delete: ~> de // delete one word in normal mode, to the end of current word
+Delete: ~> d$ // delete till end of line
+Delete: ~> dd // delete whole line
+
+Insert : ~> p  // to put back text that has just been deleted
+Replace: ~> r  // replace only one character under the cursor
+Replace: ~> R  // replace all character under the cursor until Esc is pressed
+Change : ~> ce // change till end of word
+Change : ~> c$ // change till end of line, remeber motion operator!
+
+Insert: ~> i
+Append: ~> a // append after cursor
+Append: ~> A // Append after line
