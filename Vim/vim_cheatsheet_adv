@@ -3,12 +3,9 @@ Find vim user-manual at http://vimdoc.sourceforge.net/htmldoc/usr_toc.html
 
 Mode: ~> Esc  // Normal Mode
 Mode: ~> i    // Insert Mode
-Mode:
-More: ~> :set showmode
-
-Exit: ~> ZZ     // Writes the file and exits
-Exit: ~> :q!    // Discards the changes made to the file amd quits (! is for override)
-More: ~> :e!    // Reloads original version of the file
+Mode: ~> v    // visual Mode
+Mode: ~> V    // Visual-line Mode
+Mode: ~> CTRL-v // Visual-block Mode, press 'o' to switch to other corner, and 'O' to switch horizontally
 
 Motion: ~> w    // moves to start of next word   : ~> W    // Ignores non-word char
 Motion: ~> b    // moves to start of prev word   : ~> B    // ""
@@ -65,7 +62,20 @@ Marking: ~> 's       // Go to start mark
 Marking: ~> me       // mark end
 Marking: ~> 'e       // Go to end mark
 More   : ~> :marks   // Get a list of marks, PS. now below are some special marks
-More   : ~> ''       // Cursor position before doing a jump
-More   : ~> "        // Cursor position when last editing the file
-More   : ~> [        // Start of last change
-More   : ~> ]        // End of last change
+
+----
+----
+
+Change: ~> cc   // changes a whole line, : ~> c$  // change till end of line  // :~> S
+Delete: ~> dd   // deletes a whole line, : ~> d$  // delete till end of line  
+
+Shortcut: ~> x  // stands for dl ;delete char left under cursor)
+Shortcut: ~> X  // stands for dh ;delete char right ""
+Shortcut: ~> D  // stands for d$ ;delete till end of line
+Shortcut: ~> C  // stands for c$ ;change till end of line
+Shortcut: ~> s  // stands for cl ;change one character
+
+Replace: ~> r   // waits for you to type a character and replace the character under the cursor with it
+More   : ~> [count]r  // repeats [count] times, motion operator
+
+Repeat: ~> .  // Repeats the last change (One of the most POWERFUL commands in Vim)
