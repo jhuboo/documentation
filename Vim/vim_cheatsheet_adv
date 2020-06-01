@@ -309,3 +309,68 @@ Command: ~> :0read !date -u   // insert date at top of the file
 Command: ~> :write !wc        // counts the number of words in the current file, (not same as write! wc)
 
 Redraw : ~> Ctrl-L            // redraw screen where error message appears
+
+----
+----
+Recovery
+----
+----
+
+Recover: ~> vim -r help.txt   // opens swap file (help.txt.swp) used to store text you were editing
+Recover: ~> :write help.txt.recovered // write this file under another name
+
+(Using Vimdiff!)
+Recover: ~> edit #
+Recover: ~> diffsp help.txt
+
+Recover: ~> vim -r ""        // if you were editing without a file name (must be in the right directory, otherwise cannot swap)
+Recover: ~> vim -r           // lists all swap files that can be found
+
+
+----
+----
+Clever Tricks
+----
+----
+
+Replace: ~> :%s/four/4/g      // Replace all "four" with 4, but also replaces thirtyfour
+Replace: ~> :%s/\<four/4/g    // Replace all words beginning with "four" with 4, but also fourteen
+Replace: ~> :%s/\<four\>/4/g  // Replace only "four" with 4
+Replace: ~> :%s/\<four\>/4/gc // Replace with confirmation, say we want to replace only in comments
+
+On all files?
+// Say we want to replace "GetHello" with "GetCiaoWorld" on all *.cpp files
+Open    : ~> vim *.cpp                        // Open all cpp files
+Register: ~> qq                               // Start recording in the q register
+Replace : ~> :%s/\<GetHello\>/GetCiaoWorld/ge // Do replacement in first file, flag 'e' tells that not finding a match is not an eror
+Wnext   : ~> :wnext                           // Write this file and move to the next one
+Register: ~> q                                // Stop recording
+Execute : ~> @q                               // Exectute q register. : ~> 999@q for all remaining files
+
+Change "Last, First" to "First, Last"
+Regex   : ~> :s/\(^,)*\), \(.*\)/\2 \1/       // Leo, Jack   -> Jack Leo
+*                                             // Sonny, Pete -> Pete Sonny
+
+Reverse line order
+Command: ~> :global/^/m 0                     // Operates line-wise, moving current line just below mythical zeroth line, hence reversing the file
+Command: ~> :'s+1,.g/^/m 's                   // Also operates with mark s
+
+Count words
+Command: ~> g Ctrl-G                          // Counts the words in Normal Mode, use also in Visual Mode for selected lines or block of text
+
+Man Page
+Command: ~> K (on the word)                   // Vim runs external "man" program on the word
+Command: ~> :Man [program]                    // opens man page for program
+Links  : ~> Ctrl-J                            // Jump forwards to another linked page
+Links  : ~> Ctrl-O                            // Jump backwards ""
+
+Trim blanks
+Command: ~> :%s/\s\+$//                       // Finds space chars (\s) one or more times till the end of the file ($) and replace them with nothing
+
+Grep (Where a word is used)
+Command: ~> vim `grep -l frame_counter *.c`   // Searches through all *.c files for list of files containing word 'frame_counter' and list thems
+*                                             // Enclosed between (` `) because this tells shells to pretend that command was executed on command line
+
+Finding each file
+Command: ~> :grep error_string *.c            // Finds strign "error_string" in all specified files (*.c)
+*                                             // use :cnext, :cprev, :clist as supplements
