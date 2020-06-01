@@ -144,6 +144,7 @@ Copy : ~> Ctrl-Vjjww"by  // yank a block of text to the b (for block) register
 *                        // Edit another file, and move around and place the text with : ~> "fp
 *                        // Registers can be put in any order, and as many times as we want
 Cut : ~> "wdaw           // delete a word, and put in the w register
+Paste: ~> "[register]p   // paste from register, ie "bp 
 
 Append: ~> :write >> logfile  // when collecting lines of text in one file, 
 *                             // this command write the text of the current file to the end of the "logfile"
