@@ -324,5 +324,9 @@ Chapter 10 Summary
 - /var may be put in its own filesystem so that growth can be contained and not fatally affect the system
 - /boot contains the basic files needed to boot the system
 - "patch" is a very useful tool in Linux. Many modifications to source code, and config files are distributed with patch files,  contain the deltas or changes from old to new file vesions.
-    
+- File extensions in Linux do not necessariy mean that a file is of a certain type
+- "cp" is used to copy files on a local machine, while "rsync" is used to copy files from one machine to another, as well as synchronize contents
+- "gzip", "bzip2", "xz", and "zip" are used to compress files
+- "tar" allows you to create or extract files from an archive file, often called a tarball. There's the additional option - compress or decompress 
+- "dd" is used to make large exact copies, even of entire disk partitions, efficiently
     
