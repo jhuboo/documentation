@@ -224,7 +224,22 @@ Chapter 7 Summary
 -----------------
 Chapter 8 Summary
 -----------------
+- The main sources of Linux documentation are the:
+    - man pages
+        - : ~> man -f     : (same as : ~> whatis)
+        - : ~> man -k     : (same as : ~> apropos)
+        - : ~> man -a     : (display all pages in all chapters, one after the other), pipe with head of more succint output
+    - GNU info
+        - : ~> info       : (up arrows, q to quit, h for help, Enter to select menu item, n -> next node, p -> previous node, u -> up node)
+    - help
+        - : ~> man --help : (same as : ~> man -h), short description and quick reference, faster than "man" or "info" 
+        - ~> yelp man:cat : (brings up the Graphical help systems)
+    - online documentation sources (like Gentoo handbook, Ubuntu Documentation, etc)
     
+-----------------
+Chapter 9 Summary
+-----------------
+- 
     
     
     
