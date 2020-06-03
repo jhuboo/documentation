@@ -69,7 +69,7 @@ Chapter 4 Summary
 -----------------
 Chapter 5 Summary
 -----------------
-- Access gnome-tweaks or konsole (!typo) using Alt + F2
+- Access gnome-tweaks using Alt + F2
 - The X server, which provides the GUI, uses : ~> : cd /etc/X11/xorg.conf (if it exists, this is only present in modern Linux distros under unusual circumstances)
 - Linux uses Universal Coordinated Time (UTC) for its own internal time keeping, (Also look for CMOS bios)
 - Network Time Protocal (NTP) is hte most reliable protocol for setting the local time by consulting internet servers. :~> : cd /etc/ntp.conf
@@ -105,6 +105,19 @@ Chapter 6 Summary
 - Other graphical utilities includ eog, Inkscape, convert, Scribus, etc
 
 
+-----------------
+Chapter 7 Summary
+-----------------
+- A terminal emulator program on a graphical desktop works by emulating a terminal within a window on the desktop.
+  Access the gnome-terminal by doing : ~> : Alt-F2 and then type 'gnome-terminal'
+  Other terminal programs include: xterm, rxvt, konsole (default on KDE), terminator
+- Basic Command line utilities:
+    - cat   : (used to type out a file or combine files)
+    - head  : (used to show the first few lines of a file, default 10)
+    - tail  : (used to show the last few lines of a file, default 10)
+    - less  : (same as cat, but with scrolling)
+    - man   : (used to view documentation)
+- 
 
 
 
