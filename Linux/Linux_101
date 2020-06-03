@@ -242,7 +242,18 @@ Chapter 9 Summary
 - Processes are used to perform various task on the system
 - Processes can be single-threaded or multi-threaded
 - Processed can be of different types, such as interative or non-interactive
-- Every process has a unique identifier (PID) to enable the OS to keep track of it
+    - Process type: interactive | batch | daemons | threads | kernel threads
+    - The "scheduler" is a critical kernel function that constantly shifts processes on and off the CPU, sharing time to relative priority
+        - When a process is in a "running" state, it means it is either currently executing instructions on a CPU, or waiting for a time slice for execution
+        - All processes in this state reside on what is called a run queue; on a computer with multiple core, there is a run queue on each
+        - When processes go into a "sleep" state, they are said to be sitting on a wait queue (Can also go into zombie state)
+- Every process has a unique identifier (PID) to enable the OS to keep track of it:
+    - PID    : (Unique Process ID number)
+    - PPID   : (Parent Process ID), Process (Parent) that started this process, if parent dies, the PPID will refer to adoptive parent, which is "kthreadd" with PPID=2
+    - TID    : (Thread ID number), same as PID for single-threaded process; for multi-threaded process, each thread shares the same PID, but has a unique TID
+- Terminating process
+    - : ~> kill -SIGKILL <pid>   : Some -SIGKILL and -9 are the same
+    - : ~> kill -9 <pid>         : You can only kill your own processes, those belonging to another user are off limits, unless root
 - The nice value, or niceness, can be used to set priority (-20 highest priority to +19 lowest priority)
 - "ps" provides information about the current running processes
 - "top" gives constant real-time updates about the overall system performance, as well as info about processes running on the system
