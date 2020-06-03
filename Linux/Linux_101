@@ -2,6 +2,7 @@ Massive thanks to the Linux Foundation for offering: LFS101x (Introduction to Li
 // Date: 02 June 2020
 // LinuxFoundation (All credits to them) in partnership with Edx
 
+
 -----------------
 Chapter 1 Summary
 -----------------
@@ -11,6 +12,7 @@ Chapter 1 Summary
     - Red Hat
     - SUSE
     - Debian
+ 
     
 -----------------
 Chapter 2 Summary
@@ -45,6 +47,7 @@ Chapter 3 Summary
   Which invokes the               : 4) initramfs | initrd  (Contains binary files and programs that perform all actions needed to mount proper root filesystem.)
   Which triggers                  : 5) init program        (Handles mounting and pivoting over the final real root filesystem)
 
+
 -----------------
 Chapter 4 Summary
 -----------------
@@ -61,12 +64,47 @@ Chapter 4 Summary
 - Deleting a file in Nautilus will automatically move the deleted files to the : ~> : cd '.local/share/Trash/files/'
 - Latest modified file can be viewed under : ~> : var/log
 - gedit is the default GNOME editor
-- Access gnome-tweaks or konsole (!typo) using Alt + F2
 
 
 -----------------
 Chapter 5 Summary
 -----------------
+- Access gnome-tweaks or konsole (!typo) using Alt + F2
+- The X server, which provides the GUI, uses : ~> : cd /etc/X11/xorg.conf (if it exists, this is only present in modern Linux distros under unusual circumstances)
+- Linux uses Universal Coordinated Time (UTC) for its own internal time keeping, (Also look for CMOS bios)
+- Network Time Protocal (NTP) is hte most reliable protocol for setting the local time by consulting internet servers. :~> : cd /etc/ntp.conf
+- Network Manager handles network configuration files, and makes it easier and more uniform across distros.
+- For Wired connections, the hardware interface and signal are automatically detected and the Network Manager sets the network settings using DHCP
+  For static configurations that do not use DHCP, manual setup can be done easily through Network Manager. 
+  The Media Access Control (MAC) is the unique hex number of the network card.
+  For wireless networks, you can view the list of available wireless networks and see which one you are connected to using Network Manager.
+  VPN connections are also supported, including native IPSec, Cisco OpenConnect, Microsoft PPTP, OpenVPN
+- For the Debian family system, the package management system is:
+    - dpkg  : (Debian Package) - low level
+    - apt   : (Advanced Package Tool) - high level
+- For the Red Hat family system, it is:
+    - rpm   : (Red Hat Package Manager) - low level
+    - yum | dnf | zypper | PackageKit - high level
+- For OpenSUSE, it is:
+    - rpm
+    - YaST
+    
+    
+-----------------
+Chapter 6 Summary
+-----------------
+- Linux supports several web browsers including Firefox, Chrome, Epiphany, Brave, w3m, lynx, etc
+- Linux supports graphical email clients like Thunderbird, Evolution, Claws Mail, and text mode email clients like Mutt, and mail.
+- Linux systems also support Filezilla, XChat, Pidgin, etc
+- Linux offers LibreOffice
+- Linux offers GNU Image Manipulation Program (GIMP) which is like Photoshop
+- Linux offers suits of development applications and tools, like compilers and debuggers
+- Linux offers sound players like Amarok, Audacity, Rhythmbos, and Spotify among others
+- Linux offers movie players including VLC, Plex, MPlayer, Xine, Totem, etc
+- Linux offers movie editors including Kino, Cinepaint, Blender, etc
+- Other graphical utilities includ eog, Inkscape, convert, Scribus, etc
+
+
 
 
 
