@@ -255,12 +255,47 @@ Chapter 9 Summary
     - : ~> kill -SIGKILL <pid>   : Some -SIGKILL and -9 are the same
     - : ~> kill -9 <pid>         : You can only kill your own processes, those belonging to another user are off limits, unless root
 - The nice value, or niceness, can be used to set priority (-20 highest priority to +19 lowest priority)
+    - : ~> ps lf                 : (display process with priority)
+    - : ~> renice +5 <pid>       : (increase the niceness lowers the priority)
+    - : ~> sudo renice -5 <pid>  : (only root can increase the priority by decreasing niceness)
 - "ps" provides information about the current running processes
+    - : ~> ps -ef                : (Displays all the processes in the system in full detail)
+    - : ~> ps -eLf               : ("" with one line information of every thread - one process can contain multiple threads)
+    - : ~> ps aux                : (Display all process for all users), consider piping or grep for more succint outputs
+    - : ~> ps axo stat,pid,pcpu  : ("axo" allows you to specify which attributes you want to view)
+    - : ~> pstree                : (Displays the processes running in the form of a tree)
 - "top" gives constant real-time updates about the overall system performance, as well as info about processes running on the system
-- Load average indicates teh amount of utilization the system is under at particular times
+- Load average indicates the amount of utilization the system is under at particular times
+    - : ~> w                     : 0.45 0.17 0.12    : last-minute-utilization 5-min-utilization 15-min-utilization
+    - : ~> top                   : (Real time utilization)
+        - top 1st line: how long system has been up, how man user logged on, load average
+        - top 2nd line: total number of processes, number of running, sleeping, stopped, and zombie processes
+        - top 3rd line: cpu time divided between users (us) and kernel (sy).
+        *               Also %user-jobs niceness (ni), idle mode(id), jobs waiting(wa), hardware & software interrupts (hi, si). Steal time for VMs (st)
+        - top 4th line: Physical Memory (RAM)
+        - top 5th line: Swap Space
+        - top Output  : PID, USER, PR, NI, VIRT, RES, SHR, S, %CPU, %MEM, TIME+, COMMAND
+        Commands within top:
+            - : ~> t   : (Toggle summary info rows 2 & 3)
+            - : ~> m   : (Toggle memory info rows 4 & 5)
+            - : ~> A   : (Sort process list by top resource consumers)
+            - : ~> r   : (Renice (change priority) of process(es))
+            - : ~> k   : (Kill a specific process)
+            - : ~> f   : (Enter top config screen)
+            - : ~> o   : (Interactively select new sort order in process list)
+    - : ~> uptime
 - Linux supports backgrounds and foreground processing for a job
+    - : ~> sleep 100 &           : (Append '&' to another command to make it run in the background)
+    - : ~> fg                    : (Bring job to foreground)
+    - : ~> bg                    : (Push job to background) Use Ctrl-Z to suspend, and Ctrl-C to terminate foregrond jobs
+    - : ~> jobs -l               : (Displays all jobs running in the background, -l flag adds PID)
 - "at" executes any non-interactive command at a specified time
+    - : ~> at now + 2 days       : (Specifies that the task needs to be completed 2 days from now)
+    - :at> cat file.txt          : (Specifies task to be performed, note that PS1 changed)
+    - :at> <EOT>                 : (Ctrl-D to end task)
+    - : ~>                       : (Back to normal terminal)
 - "cron" is used to schedule tasks that need to be performed at regualar intervals
+    -
     
     
     
