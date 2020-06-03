@@ -391,6 +391,21 @@ Chapter 10 Summary
         *   ~> rsync sourcefile destinationfile
         *   ~> rsync --progress -arvxH --delete sourcedir destdir
 - "gzip", "bzip2", "xz", and "zip" are used to compress files
-- "tar" allows you to create or extract files from an archive file, often called a tarball. There's the additional option - compress or decompress 
+    - : ~> gzip             : Most frequently used Linux compression utility
+        : ~> gzip *         : Compresseses all files in the pwd, each file is compressed and renamed a .gz extension
+        : ~> zgzip -r testX : Compresses all files in the "testX" dir, along recursively with all files in all dirs under "testX"
+        : ~> gunzip foo     : De-compresses foo found in the file foo.gz, same as : ~> gzip -d foo
+    - : ~> bzip2            : Produces files significantly smaller than those produced by gzip
+        : ~> bzip2 *        : Compresses all files in pwd, and replaces each one with a .bz2 extension
+        : ~> bunzip2 *.bz2  : Decompress all files with an extension .bz2 in pwd, same as : ~> bzip2 -d
+    - : ~> xz               : The most space-efficient compression utility used in Linux
+        : ~> xz *           : Compresses all files in pwd, and replaces each one with a .xz extension
+        : ~> xz foo         : Compresses "foo" into "foo.xz" with default compression level (-6) and remoes foo if compression succeeds
+        : ~> xz -dk bar.xz  : Decompresses "bar.xz" into "bar" and does not remove "bar.xz" even if decompression is successful
+        : ~> xz -d *.xz     : Decompresses the files compressed using "xz"
+    - : ~> zip              : Is often used to examine and decompress archives from other OS
+        : ~> zip bkup *     : Compress all the files in pwd, and places them under "backup.zip"
+        : ~> unzip bkup.zip : Extracts all files in "backup.zip" and places them in the current directory
+- "tar" allows you to create or extract files from an archive file, often called a tarball. 
 - "dd" is used to make large exact copies, even of entire disk partitions, efficiently
     
