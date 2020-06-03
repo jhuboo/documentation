@@ -293,10 +293,22 @@ Chapter 9 Summary
     - : ~> at now + 2 days       : (Specifies that the task needs to be completed 2 days from now)
     - :at> cat file.txt          : (Specifies task to be performed, note that PS1 changed)
     - :at> <EOT>                 : (Ctrl-D to end task)
-    - : ~>                       : (Back to normal terminal)
+    - : ~> atq                   : (Back to normal terminal, and use atq to view queued jobs)
 - "cron" is used to schedule tasks that need to be performed at regualar intervals
-    -
-    
+    - Each line of a crontab file contain 5 + 1{command} fields
+    - * * * * * {command}
+    - Min Hr Day Mth WeekDay {Command}     : [0-59]Min [0-23]Hr [1-31]Day [1-12]Mth [0-6]WeekDay,(0=Sunday)
+    Example:
+        - create a simple task every day at 11 AM.
+        - : ~> echo "0 11 * * * /tmp/myjob.sh"  > mycrontab                 : (Create a file "mycrontab" with the fields)
+        - : ~> echo "#!/bin/bash" > /tmp/myjob.sh                           : (Put shebang into /tmp/myjob.sh)
+        *   ~> echo "echo Hello I am running $0 at $(date) >> /tmp/myjob.sh : (Append to /tmp/myjob.sh)
+        - : ~> chmod +x /tmp/myjob.sh                                       : (Make it executable)
+        - : ~> crontab mycrontab                                            : (Put it into crontab)
+        - : ~> crontab -l                                                   : (verify it was loaded), or : ~> cat /var/spool/cron/myusername
+        - : ~> crontab -r                                                   : (Remove cronjob), if machine is NOT up at 11 AM, "anacron" will run the job another time.
+- sleep
+    - sleep NUMBER[suffix]       : (s for seconds, m for minutes, h for hours, d for days)
     
     
     
