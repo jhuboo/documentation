@@ -315,11 +315,35 @@ Chapter 9 Summary
 Chapter 10 Summary
 ------------------
 - The filesystem starts at the root directory (/)
+    - Linux supports several native filesystem types like:
+        - ext3, ext4, squashfs, btrfs
+    - There are also implementations of filesystems used on other os, such as:
+        - Windows (ntfs, vfat)
+        - SGI (xfs)
+        - IBM (jfs)
+        - MacOS (hfs, hfs+)
 - The fileystem hierarchy standard (FHS) provides Linux developers and system admins a standard directory structure for the filesystem
+    - In Linux (and Unix-like OS), "everything is a file" or treated as such
+    - This means whether we are dealing with data files, docs or devices, we can interact with them throught the same kind of I/O operations
 - Partitions help to segregate files according to usage, ownership, and type
 - Filesystems can be mounted anywhere on the main filesystem tree at a mount point. Automatic filesystem mounting can be set up by editing /etc/fstab
+    - : ~> sudo mount /dev/sda5 /home  : (mount a filesystem somewhere within the filesystem tree), basic arguments are "device node" and "mount point"
+    - : ~> sudo umount /home           : (unmount the partition - command is umount, not unmount!)
+    - : ~> df -Th                      : (diplays information about mounted filesystems, including filesystem type, and usage statistics)
 - NFS (Network File System) is useful for sharing files and data through the network systems
+    - Many system admins mount remote users' home directories on a server in order to give them access to the same files and config files across multiple client systems.
+    - On the server machine, NFS uses "daemons" (built-in networking and service processes in Linux) and other system servers are started by typing:
+        - : ~> sudo systemctl start nfs    : (The file : ~> cd /etc/exports  contains dirs and permission that a host is willing to share with other systems over NFS.)
+        * : ~> /projects *.example.com(rw) : (This allows the dir /projects to be mounted using NFS with read & write (rw) permissions and shared with other hosts in the example.com domain)
+        * : ~> exportfs -av                : (Notify Linux abt the directories that you are allowing to be remotely mounted using NFS) can also do : ~> sudo systemctrl restart nfs
+        * : ~> sudo systemctl enable nfs   : (Ensure that the NFS service starts whenever the system is booted)
+    - On the client machine, it is desired to have the remote filesystem automatically mounted upon system boot
+        - : ~> servername:/projects /mnt/nfs/projects nfs defaults 0 0  : (an entry in the client's : ~> cd /etc/fstab  needs to be modified for this default behaviour)
+        * : ~> sudo mount servername:/projects /mnt/nfs/projects        : (you can also mount the remote filesystem without a reboot or as a one-time mount directly by using "mount")
 - Filesystem like /proc are called pseudo filesystems because they exist only in memory
+    - : ~> mount            : (show all mounted filesystems)
+    - : ~> cat /etc/fstab   : (show filesystems, excluding special filesystems required for normal operation, subset of "mount")
+    - : ~> cat /proc/mounts : (This is how the utility gets its information, same as "mount" more or less)
 - /root is the home directory of the root user
 - /var may be put in its own filesystem so that growth can be contained and not fatally affect the system
 - /boot contains the basic files needed to boot the system
