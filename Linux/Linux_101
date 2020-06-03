@@ -162,3 +162,6 @@ Chapter 7 Summary
     - : ~> ls    : (list contents of pwd)
     - : ~> ls -a : (list all files, including hidden files and directories)
     - : ~> tree  : Displays a tree view of the filesystem
+- Symbolic Links
+    - Symbols links (hard and soft links) are extremely useful in Linux
+    
