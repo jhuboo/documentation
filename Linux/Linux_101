@@ -184,15 +184,46 @@ Chapter 7 Summary
     - : ~> echo $PS1         : \$ (Consider customzing PS1 prompt for adding functionality)
     - : ~> PS1 = "%n $(shrink_path -f)"
 - Standard File Streams
-    - : 
+    - When commands are executed, there are 3 standard file streams always open for use:
+        - stdin   0    keyboard
+        - stdout  1    terminal
+        - stderr  2    log file
+- IO Redirection
+    - Through the shell command, we can redirect the three standard file streams:
+        - : ~> do_something < input-file            : (Send (output of) the input file to (the input of) do_something)
+        - : ~> do_something > output-file           : (Send (output of) do_something to (the input of) output-file)
+        - : ~> do_something 2> error-file           : (Send (stderr of) do_something to (the input of) error-file
+        - : ~> do_something > all-output-files 2>&1 : (Send anything written to a file descriptor 2(stderr) to the same place as file descriptor 1
+        - : ~> do_something >& all-outpout-file     : (Easier syntax of above)
+- Pipes
+    - The Linux philosophy is to have many simple and short commands cooperate togethe to produce quite complex results.
+    - To do so, we use pipes. You can pipe the output of one command or program into another as its input.
+    - : ~> command1 | command2 | command3
+- Searching for files
+    - Efficiently searching for files in Linux greatly enhaces productivity:
+        - : ~> locate ... 
+        - : ~> find ...
+    - The "locate" utility program takes advantage of "updatedb" which is a previously constructed database of files and directories.
+        - : ~> locate zip | grep bin    : (grep is used to print only the lines with the specified strings, otherwise we would get a long list)
+        - : ~> updatedb                 : (The database can be updated at any time fro the command line as root user)
+    - Wildcard and Matching File names
+        - : Simple answer: use regex
+    - The "find" is an extremy useful utility program for a Linux sys admin. It recurses down the filesystem tree for dir(s) and locates files with matched conditions.
+        - : ~> find /usr =name gcc            : (searching for files and directories named gcc)
+        - : ~> find /usr -type d -name gcc    : (searching only for directories named gcc)
+        - : ~> find /usr -type f -name gcc    : (searching only for files named gcc)
+        Adv "find" options
+        - : ~> find -name "*.swp" -exec rm {} ';'  : (find and removes all files that end in ".swp"). Use -ok instead of -exec for interactive removal.
+        - : ~> find / -ctime 3                     : (find files changed in the last 3 days)    , options include -atime, -mtime , number (n) exact | -n | +n
+        - : ~> find / -cmin -120                   : (find files changed in the last <120 mins) , options include -amin, -mmin   , number (n) exact | -n | +n
+        - : ~> find / -size 0                      : (find files of size 0 bytes), can specify bytes(c), kilobytes(k), megabytes(M), gigabytes(G)
+        - : ~> find / -size +10M -exec cmd {} ';'  : (find files greater than 10 MB in size, and run a command on those files) 
     
     
-    
-    
-    
-    
-    
-    
+
+-----------------
+Chapter 8 Summary
+-----------------
     
     
     
