@@ -376,8 +376,14 @@ Chapter 10 Summary
     - : ~> /usr/src         : (source code, usually for linux kernel)
     - : ~> /usr/local       : (data and program specific to the local machine, sub-dir include /bin /sbin /lib /share /include, etc)
     - : ~> /usr/bin         : (primary directory of executable commands on the system)
-- "patch" is a very useful tool in Linux. Many modifications to source code, and config files are distributed with patch files,  contain the deltas or changes from old to new file vesions.
-- File extensions in Linux do not necessariy mean that a file is of a certain type
+- "diff" is used to compare files and directories
+    - : ~> diff file1 file2 : (flags include -c, -r (recursive for dirs), -i (ignorecase), -w(ignore tab/spces), -q (quiet, only report differences), use "diff3" to compared 3 files
+    - : ~> cmp file1 file2  : (use "cmp" to compare binary files, not "diff")
+- "patch" is very useful in Linux. Modifications to source code, and config files are distributed with patch files,  contain the deltas or changes from old to new file vesions.
+    - : ~> patch -p1 < patchfile
+    - : ~> patch originalfile patchfile
+- File extensions in Linux do not necessariy mean that a file is of a certain type (This is very different from Windows!)
+    - : ~> file <filename>  : (use the "file" utility to find information and the real nature of the files)
 - "cp" is used to copy files on a local machine, while "rsync" is used to copy files from one machine to another, as well as synchronize contents
 - "gzip", "bzip2", "xz", and "zip" are used to compress files
 - "tar" allows you to create or extract files from an archive file, often called a tarball. There's the additional option - compress or decompress 
