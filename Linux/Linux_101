@@ -239,8 +239,17 @@ Chapter 8 Summary
 -----------------
 Chapter 9 Summary
 -----------------
-- 
-    
+- Processes are used to perform various task on the system
+- Processes can be single-threaded or multi-threaded
+- Processed can be of different types, such as interative or non-interactive
+- Every process has a unique identifier (PID) to enable the OS to keep track of it
+- The nice value, or niceness, can be used to set priority (-20 highest priority to +19 lowest priority)
+- "ps" provides information about the current running processes
+- "top" gives constant real-time updates about the overall system performance, as well as info about processes running on the system
+- Load average indicates teh amount of utilization the system is under at particular times
+- Linux supports backgrounds and foreground processing for a job
+- "at" executes any non-interactive command at a specified time
+- "cron" is used to schedule tasks that need to be performed at regualar intervals
     
     
     
