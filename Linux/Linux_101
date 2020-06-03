@@ -108,23 +108,57 @@ Chapter 6 Summary
 -----------------
 Chapter 7 Summary
 -----------------
+- Virtual Terminals (VT) are console sessions that use the entire display and keyboard outside of a graphical environment.
+  They are considered "virtual" because, although there can be multiple active terminals, only one terminal remains visible at a time.
+  One VT is reserved for the graphical enviroment. (Ubuntu uses VT 7)
+  The VTs can be accessed using : ~> : Ctrl-Alt-F[2-7]
+  To go back to your home VT: ~> : Ctrl-Alt-F2
 - A terminal emulator program on a graphical desktop works by emulating a terminal within a window on the desktop.
   Access the gnome-terminal by doing : ~> : Alt-F2 and then type 'gnome-terminal'
   Other terminal programs include: xterm, rxvt, konsole (default on KDE), terminator
+- The Graphical desktop can be switched on and off with systemctl utility or telinit:
+    - : ~> : sudo systemctl stop gdm          : (or sudo telinit 3)
+    - : ~> : sudo systemctl start|restart gdm : (or sudo telinit 5)
 - Basic Command line utilities:
     - cat   : (used to type out a file or combine files)
     - head  : (used to show the first few lines of a file, default 10)
     - tail  : (used to show the last few lines of a file, default 10)
     - less  : (same as cat, but with scrolling)
     - man   : (used to view documentation)
-- 
-
-
-
-
-
-
-
-
-
-
+- Most input lines entered at the shell prompt has 3 basic elements:
+    - Command
+    - Options
+    - Arguments
+- Sudo (stands for Superuser do) allows users to run programs using the security priviledges of root, or another user
+- Setting up and running sudo:
+    - : ~> : su (Enter)
+    - : ~> : su Password: #
+    - : ~> : echo "myusername ALL=(ALL) ALL" > /etc/sudoers.d/myusername  : (Create config file in /etc/sudoers.d)
+    - : ~> : chmod 440 /etc/sudoers.d/myusername : (Change permissions for smooth operations)
+- Loggin In and Out
+    - An available text terminal will prompt for a username (with string login:) and password
+    - Nothing is displayed on the terminal when typing in the password to prevent others from seeing it
+    - You can also connect and log into remote systems by using SSH (Secure Shell)
+    - To do so, type ~> ssh example@remote-server.com
+    - SSH connects to the remote machine, giving a command line terminal window, verifying identity using either password or crytographic key
+- Shutdown
+    - : ~> sudo shutdown -h 10:00 "Shutting down for scheduled maintance"
+    - : ~> tldr shutdown : (for more commands)
+- Locating Applications
+    - which diff     ~> /usr/bin/diff  : ('which' locates exact source, 'whereis' locates source and man files, broader range of sys dir)
+    - whereis diff   ~> diff: /usr/bin/diff  /usr/share/man/man1/diff.1.gz  /usr/share/man/man1p/diff.1p.gz
+- Accessing directories
+    - : ~> pwd   : (Displays present working directory)
+    - : ~> cd ~  : (Changes to home directory, same as only : ~> cd)
+    - : ~> cd .. : (Change to parent directory ..)
+    - : ~> cd -  : (Change to previous directory (- (minus))
+- Paths
+    - Absolute pathname : (begin with root dir and follows the tree, branch by branch until it reaches desired dir or file) Always start with: /
+    - Relative pathname : (starts from present working directory) Never starts with: /
+        - ie : ~> cd /usr/bin      : (Absolute path)
+        - ie : ~> cd ../../usr/bin : (Relative path)
+- Exploring Filesytem
+    - : ~> cd /  : (Changes your current dir to the root (/) dir)
+    - : ~> ls    : (list contents of pwd)
+    - : ~> ls -a : (list all files, including hidden files and directories)
+    - : ~> tree  : Displays a tree view of the filesystem
