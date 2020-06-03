@@ -1,0 +1,79 @@
+Massive thanks to the Linux Foundation for offering: LFS101x (Introduction to Linux)
+// Date: 02 June 2020
+// LinuxFoundation (All credits to them) in partnership with Edx
+
+-----------------
+Chapter 1 Summary
+-----------------
+- The Linux Foudation is the umbrella organization for several open-source projects
+  Like Linux, and its work today extends far beyond that to every layer of the software stack
+- The 3 major distribution families within Linux are:
+    - Red Hat
+    - SUSE
+    - Debian
+    
+-----------------
+Chapter 2 Summary
+-----------------
+- Linux is heavily influenced by UNIX
+- Linux accesses many features and services through files, and file-like objects
+- Linux is fully multi-tasking, multi-user OS, with built-in networking and service processes known as daemons
+- Linux is developed by collaboration of developers around the world, with Linus Torvalds at the head.
+  Technical Skill and a desire to contribute are the only qualification for participating.
+- Common terms used in Linux are:
+    - Kernel
+    - Distribution
+    - Boot loader
+    - Service
+    - Filesystem
+    - X Window system
+    - desktop
+    - environment
+    - command line
+- A full Linux distro consists of a kernel and several other packages for file-related operations, user management, and software package management.
+
+-----------------
+Chapter 3 Summary
+-----------------
+- A partition is a logical volume of the disk.
+- A filesystem is a method of storing/finding files on a hard disk.
+- Dividing the hard disk into partitions enables data to be grouped and separated as needed.
+  When a failure or mistake occurs, only the data in the affected partition will be damaged while data elsewhere will likely survive.
+- The boot process starts with the: 1) BIOS                (initialization of hardware - also called POST)
+  which triggers the              : 2) Boot loader         (Master Boot Record (MBR) searches for partition table then boot loader, like GRUB, for booting OS)
+  to startup the                  : 3) Linux Kernel        (Kernel is loaded, and takes control in RAM. It is uncompressed, then initializes any built-in device drivers)
+  Which invokes the               : 4) initramfs | initrd  (Contains binary files and programs that perform all actions needed to mount proper root filesystem.)
+  Which triggers                  : 5) init program        (Handles mounting and pivoting over the final real root filesystem)
+
+-----------------
+Chapter 4 Summary
+-----------------
+- GNOME is a popular desktop environment and GUI that runs on top the Linux OS
+- The default display manager is 'gdm': ~> : sudo systemctrl start|restart|stop gdm
+- The Display manger handles:
+    - Display management : (Keeps track of the displays)
+    - X server           : (Provides graphical services to applications, called X Clients) | being replaced by Wayland | use :~> : startx
+    - Graphical logins   : (Handles graphical logins, and appropriate desktop environments after login)
+- Nautilus gives three format to view files:
+    - Ctrl-F   : (search box)
+    - Ctrl-L   : (specific directory)
+    - Combine
+- Deleting a file in Nautilus will automatically move the deleted files to the : ~> : cd '.local/share/Trash/files/'
+- Latest modified file can be viewed under : ~> : var/log
+- gedit is the default GNOME editor
+- Access gnome-tweaks or konsole (!typo) using Alt + F2
+
+
+-----------------
+Chapter 5 Summary
+-----------------
+
+
+
+
+
+
+
+
+
+
