@@ -350,6 +350,13 @@ Chapter 10 Summary
     - : ~> /proc            : (contains virtual files, that exist in memory, that permit viewing constantly changing kernel data) (Has runtime info like cpuinfo, interrupts, partitions, sys dir...)
     - : ~> /dev             : (contains device nodes, used by most hardware and software devices, except for network devices) (contains /sda1(first partition), /lp1(second printer) /random(rand nums))
     - : ~> /etc             : (home for system config files) (ie, /passwd /shadow /group for managing user account are all found there)
+    - : ~> /lib /lib64      : (contain libraries for essential programs in /bin && /sbin) (Also are symbolically linked to /usr/lib) (Kernel modules are located in: ~> /lib/modules/<kernel-version-no>) 
+    - : ~> /run /media /mnt : (used to temporarily mount filesystems, so called "loopback" filesystem which are files that pretend to be partitions)
+    - : ~> /opt             : (optinal application software packages)
+    - : ~> /sys             : (virtual pseudo-filesystem giving information about the system and the hardware, can be used to alter sys parameters and for debugging)
+    - : ~> /srv             : (site-specifc data served up by the system, seldom used)
+    - : ~> /tmp             : (temporary files, on some distros erased across a reboot, or may actually be ramdisk in memory)
+    - : ~> /usr             : (multi-usr applications, utilities and data)
 - /var may be put in its own filesystem so that growth can be contained and not fatally affect the system
     - : ~> /var/log         : (system log files)
     - : ~> /var/lib         : (packages and database files)
@@ -360,6 +367,15 @@ Chapter 10 Summary
     - : ~> /initrd          : (initial ram filesystem, required for booting) - sometimes called ~> initramfs
     - : ~> /config          : (kernel configuration file, used for debugging and bookkeeping)
     - : ~> /System.map      : (Kernel symbol table, only used for debugging) [/grub is also found under /boot]
+- /usr theoritically contains non-essential programs (not needed to initially boot system) and scripts and has some of these:
+    - : ~> /usr/include     : (header file used to compile applications)
+    - : ~> /usr/lib         : (libraries for programs in /usr/bin and /usr/sbin)
+    - : ~> /usr/lib64       : (64-bit libraries "")
+    - : ~> /usr/sbin        : (non-essential system binaries, such as system daemons)
+    - : ~> /usr/share       : (shared data used by applications, generally architecture-independent)
+    - : ~> /usr/src         : (source code, usually for linux kernel)
+    - : ~> /usr/local       : (data and program specific to the local machine, sub-dir include /bin /sbin /lib /share /include, etc)
+    - : ~> /usr/bin         : (primary directory of executable commands on the system)
 - "patch" is a very useful tool in Linux. Many modifications to source code, and config files are distributed with patch files,  contain the deltas or changes from old to new file vesions.
 - File extensions in Linux do not necessariy mean that a file is of a certain type
 - "cp" is used to copy files on a local machine, while "rsync" is used to copy files from one machine to another, as well as synchronize contents
