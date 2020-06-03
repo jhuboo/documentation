@@ -310,6 +310,19 @@ Chapter 9 Summary
 - sleep
     - sleep NUMBER[suffix]       : (s for seconds, m for minutes, h for hours, d for days)
     
-    
+
+------------------
+Chapter 10 Summary
+------------------
+- The filesystem starts at the root directory (/)
+- The fileystem hierarchy standard (FHS) provides Linux developers and system admins a standard directory structure for the filesystem
+- Partitions help to segregate files according to usage, ownership, and type
+- Filesystems can be mounted anywhere on the main filesystem tree at a mount point. Automatic filesystem mounting can be set up by editing /etc/fstab
+- NFS (Network File System) is useful for sharing files and data through the network systems
+- Filesystem like /proc are called pseudo filesystems because they exist only in memory
+- /root is the home directory of the root user
+- /var may be put in its own filesystem so that growth can be contained and not fatally affect the system
+- /boot contains the basic files needed to boot the system
+- "patch" is a very useful tool in Linux. Many modifications to source code, and config files are distributed with patch files,  contain the deltas or changes from old to new file vesions.
     
     
