@@ -709,9 +709,16 @@ Chapter 14 Summary
 - Use graphical and non-graphical browsers, such as Lynx, w3m, Firefox, Chrome and Epiphany
     - Firefox, Chrome, Chromium, Brave, and Epiphay are the main graphical browsers used in Linux
     - Lynx, Links, w3m are non-graphical / text-browsers used in Linux
+        - : ~> w3m <url>
+        - : ~> tldr w3m
 - Transfer files to and from clients and servers using both graphical and text mode applications such as Filezilla, ftp, sftp, curl, and wget
-    - use : ~> wget           : (to download webpages)
-    - use : ~> curl           : (to obtain information about URLs)
+    - "wget" is used to download webpages
+        - it can handle large file downloads, passwd-required downloads, multiple-file and recursive downloads
+            - : ~> wget <url>
+    - "curl" is used to obtain information about URLs
+        - "curl" allows you to save the contents of a web page to a file, as does "wget"
+            - : ~> curl <url>
+            - : ~> curl -o saved.html http://www.mysite.com  : (Contents of main index file at the website will be saved in saved.html)
     - FTP (File Transfer Protocol) is used to transfer files over a network
         - ftp, sftp, ncftp, and yafc are command line FTP clients used in Linux
     - use : ~> ssh            : (to run commands on remote systems)
