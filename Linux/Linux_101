@@ -415,3 +415,11 @@ Chapter 10 Summary
 - "dd" is used to make large exact copies, even of entire disk partitions, efficiently
     : ~> tldr dd
     
+    
+------------------
+Chapter 11 Summary
+------------------
+- The holy war of test editors
+- Use Vim, period.
+
+
