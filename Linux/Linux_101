@@ -426,9 +426,19 @@ Chapter 11 Summary
 ------------------
 Chapter 12 Summary
 ------------------
-- Linux is a multi-uer system
+- Linux is a multi-user system
+    - All Linux users are assigned a unique user id (uid), which is just an integer. Normal users start at uid of 1000 or greater.
+    - Linux uses groups for organizing users. Control of groups is administered through: ~> /etc/group
+    - Users also have one or moer group IDS (gid), including a default one which is the same as the uid
+    - The numbers are associated with names throught the files:
+        - : ~> /etc/passwd     : ( ie, george:x:1002:1002:George Smith:/home/george:/bin/zsh )
+        - : ~> /etc/group      : ( ie, george:x:1002 )
+    - Adding and Removing Users
+        - : ~> sudo useradd username1
+        - : ~> sudo userdel username1
 - Use the "who" command to find the currently logged-in users, use -a flag for all info
 - To find current user ID, use the "whoami" command
+    - : ~> id   : (gives information about the current user)
 - The "root" account has full access to the system, it is never sensible to grant full root access to a user
 - "sudo" is used to assign root priviledges to a regular user on a temporary basis
 - The shell program (bash) uses multiple starup files to create the user environment. Global settings are found at : ~> cd /etc/profile
