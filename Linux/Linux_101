@@ -573,6 +573,10 @@ Chapter 13 Summary
 - "cut" extracts columns from a file
 - "less" views files a page at a time and allows for scrolling
 - "head" displays the first few lines of a file or data stream
-- "tail" displays the last  few lines of a file or data stream
+- "tail" displ: ~> ays the last  few lines of a file or data stream
 - "strings" extract printable character strings from binary files
 - "z" command family is used to read and work with compressed files
+    - : ~> zcat compressed-file.txt.gz     : (To view compressed gzip file) (use : ~> bzcat (for bzip2) : ~> xzcat (for xz))
+    - : ~> zless somefile.gz               : (To page through compressed gzip file) (:~> bzless (for bzip2) :~> xzless (for xz))
+    - : ~> zgrep -i less somefile.gz       : (To search into gzip compressed file)
+    - : ~> zdiff file1.txt.gz file2.txt.gz : (To compare two compressed files)
