@@ -558,7 +558,14 @@ Chapter 13 Summary
 - The command line usually allows users to complete tasks more efficiently than the GUI
 - "cat", short for concatenante is used to read, print, and combine files
 - "echo" dislays a line of text either on the stdout or to place in a file
-- "sed" is a stream editor used to filter and perform substitions on files and text data streams
+- "sed" stands for & is a stream editor used to filter and perform substitions on files and text data streams
+    - : ~> sed -e command <file>      : (Specify editing commands at the terminal, operates on file, and outputs on stdout)
+    - : ~> sed -f scriptfile <file>   : (Specify scriptfile containing "sed" commands, "")
+    Adv
+    - : ~> sed    s/old/new   file    : (Substitute the fist string occurence in every line)
+    - : ~> sed    s/old/new/g file    : (Substitute all string occurences in every line)
+    - : ~> sed 1,3s/old/new/g file    : (Substitute all string occurences in range of lines)
+    - : ~> sed -i s/old/new/g file    : (Save changes for string substitution in same file) (NOT reversiblebetter: ~> !! > file2)
 - "awk" is an interpreted programming language, used as a data extraction and reporting tool
 - "sort" is used to sort text files, and output streams in either ascending or descending order
 = "uniq" eliminates duplicate entries in a text file
@@ -580,3 +587,10 @@ Chapter 13 Summary
     - : ~> zless somefile.gz               : (To page through compressed gzip file) (:~> bzless (for bzip2) :~> xzless (for xz))
     - : ~> zgrep -i less somefile.gz       : (To search into gzip compressed file)
     - : ~> zdiff file1.txt.gz file2.txt.gz : (To compare two compressed files)
+    
+    
+    
+    
+    
+    
+    
