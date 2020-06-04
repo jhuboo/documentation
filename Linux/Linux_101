@@ -439,11 +439,21 @@ Chapter 12 Summary
         *                              : (: ~> grep ejio /etc/passwd /etc/group )
         *                              : The home directory for newuser "ejio' inherits from : ~>ls -la /etc/skel )
         - : ~> sudo userdel username1  : (: ~> sudo userdel -r ejio )
+    - Adding and Removing Groups
+        - : ~> sudo /usr/sbin/groupadd anewgroup
+        - : ~> sudo /usr/sbin/groupdel anewgroup
+        Adding a user to an already existing group is done with "usermod"
+            - : ~> groups user1   
+            - : ~> sudo /usr/sbin/usermod -a -G anewgroup user1
+            - : ~> groups user1
 - Use the "who" command to find the currently logged-in users, use -a flag for all info
 - To find current user ID, use the "whoami" command
     - : ~> id   : (gives information about the current user)
 - The "root" account has full access to the system, it is never sensible to grant full root access to a user
+    - External attacks often contain tricks to elevate to the root account
 - "sudo" is used to assign root priviledges to a regular user on a temporary basis
+    - : ~> sudo <command>
+    - : ~> /etc/sudoers  &&  etc/sudoers.d   : (contains "sudo" config files) (
 - The shell program (bash) uses multiple starup files to create the user environment. Global settings are found at : ~> cd /etc/profile
     - : ~> ~/.bash_profile || ~/.bashrc  : ("~/.bashrc" is triggered and if not then the others are triggerd in order, stopped when first is found)
     - : ~> ~/.bash_login
@@ -467,7 +477,13 @@ Chapter 12 Summary
         - : ~> alias fgrep='fgrep --color=auto'
         - : ~> alias you='if test "$EUID" = 0 ; then /sbin/yast2 online_update ; else su ~ -c "/sbin/yast2 online_update" ; fi'
     - set the default text editor, etc
-- An environment variable is a character string that contains data used by one or more applications. The built-in shell variables can be customized to suit your requirements.
+- An environment variable is a character string that contains data used by one or more applications.
+    - The built-in shell variables can be customized to suit your requirements.
+    - : ~> echo $SHELL
+    - : ~> export VARIABLE=value     : ( same as: ~> VARIABLE=value; export VARIABLE )
+    *                                : (Edit ~/.bashrc or ~/.zshrc and add export VARIABLE=value, then source ~/.bashrc)
+    * : ~> SDIRS=s_0* KROOT=/lib/modules/$(uname -r)/build make modules_install
+    *      : ( This feeds the values of "SDIRS" and "KROOT" environment variables to the command "make modules_install" )
 - "history" recalls a list of previous commands, which can be edited and recycled
 - In Linux, various keyboard shortcuts are used at the terminal instead of long actual commands
 - Customize ~/.bashrc or ~/.zshrc and especially ~/.vimrc
