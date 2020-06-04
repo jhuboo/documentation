@@ -434,8 +434,11 @@ Chapter 12 Summary
         - : ~> /etc/passwd     : ( ie, george:x:1002:1002:George Smith:/home/george:/bin/zsh )
         - : ~> /etc/group      : ( ie, george:x:1002 )
     - Adding and Removing Users
-        - : ~> sudo useradd username1
-        - : ~> sudo userdel username1
+        - : ~> sudo useradd username1  : (: ~> sudo useradd -m -c "Elizer Jio" -s /bin/bash ejio )
+        *                              : (: ~> sudo passd ejio )
+        *                              : (: ~> grep ejio /etc/passwd /etc/group )
+        *                              : The home directory for newuser "ejio' inherits from : ~>ls -la /etc/skel )
+        - : ~> sudo userdel username1  : (: ~> sudo userdel -r ejio )
 - Use the "who" command to find the currently logged-in users, use -a flag for all info
 - To find current user ID, use the "whoami" command
     - : ~> id   : (gives information about the current user)
