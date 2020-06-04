@@ -721,7 +721,14 @@ Chapter 14 Summary
             - : ~> curl -o saved.html http://www.mysite.com  : (Contents of main index file at the website will be saved in saved.html)
     - FTP (File Transfer Protocol) is used to transfer files over a network
         - ftp, sftp, ncftp, and yafc are command line FTP clients used in Linux
-    - use : ~> ssh            : (to run commands on remote systems)
+        - FTP clients enable you to transfer files with remote computer using the FTP protocol
+        - All web browsers support FTP, all you have to do is to give a URL like
+            - : ~> ftp://ftp.example.com   : (the usual http:// becomes ftp://)
+        - FTP has fallen into disfavor on modern systems, as it is insecure
+            - It was removed in favor of "rsync" and web browser "https" access
+            - sftp is very secure, it uses the ssh protocol (It encrypts its data. However it does not work with "anonymous FTP")
+    - SSH is used to run commands on remote systems
+        - SSH is a cryptographic network protocol used for secure data communication
 
     
     
