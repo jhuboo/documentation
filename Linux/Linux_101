@@ -407,5 +407,11 @@ Chapter 10 Summary
         : ~> zip bkup *     : Compress all the files in pwd, and places them under "backup.zip"
         : ~> unzip bkup.zip : Extracts all files in "backup.zip" and places them in the current directory
 - "tar" allows you to create or extract files from an archive file, often called a tarball. 
+    : ~> tar xvf mydir.tar            : Extract all the files in "mydir.tar" into "mydir" directory
+    : ~> tar zcvf mydir.tar.gz mydir  : Create the archive and compress with gzip
+    : ~> tar jcvf mydir.tar.bz2 mydir : create the archive and compress with bz2
+    : ~> tar Jcvf mydir.tar.xz mydir  : create the archive and comprss with xz
+    : ~> tar xvf mydir.tar.gz         : extract all the files in "mydir.tar.gz" into the "mydir" directory. Note you should NOT tell tar it is in gzip format!
 - "dd" is used to make large exact copies, even of entire disk partitions, efficiently
+    : ~> tldr dd
     
