@@ -576,9 +576,9 @@ Chapter 13 Summary
     - : ~> awk 'command' file         : (specify a command directly at the command line)
     - : ~> awk -f scriptfile file     : (specify a file that contains the script to be executed)
     Basics
-    - : ~> awk '{ print $0 }' /etc/passwd        : (Print entire file)
-    - : ~> awk -F: '{ print $1 }' /etc/passwd    : (Print first field/col of every line, separated by a space)
-    - : ~> awk -F: '{ print $1 $7 }' /etc/passwd : (Print first and seventh field of every line)
+        - : ~> awk '{ print $0 }' /etc/passwd        : (Print entire file)
+        - : ~> awk -F: '{ print $1 }' /etc/passwd    : (Print first field/col of every line, separated by a space)
+        - : ~> awk -F: '{ print $1 $7 }' /etc/passwd : (Print first and seventh field of every line)
 - "sort" is used to sort text files, and output streams in either ascending or descending order
     - : ~> sort <filename>                       : (Sort the lines in the file, according to the chars at the beginning of the line)
     - : ~> cat file1 file2 | sort                : (Combine the two files, the sort the lines and then display output to terminal)
@@ -600,7 +600,22 @@ Chapter 13 Summary
         - : ~> split infile <prefix>             : (split a file into segments using a different prefix) 
 - REGEX are text strings used for pattern matching
 - "grep" searches for text files and data streams for patterns can be used with Regex
+    - : ~> grep [pattern] <filename>             : (Search for a pattern in a file, and print all matching lines)
+    - : ~> grep -v [pattern] <filename>          : (Print all lines that do NOT match the pattern)
+    - : ~> grep [0-9] <filename>                 : (Print the lines that contain the num 0 through 9)
+    - : ~> grep -C 3 [pattern] <filename>        : (Print context files (specified num of lines above or below the pattern, here it is 3) for matching the pattern.
 - "tr" translates characters, copies stdin to stdout, and handles special characters
+    - : ~> tr [options] set1 [set2]              : (The items in the square brackets are optional)
+    - : ~> cat filename | tr a-z A-Z             : (In filename, tr Translates all lower case characters to upper case)
+    Basics
+        - : ~> tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ : (Convert lower case to upper case)                                          : (Convert lower case to upper case)
+        - : ~> tr '{}' '()' < inputfile > outputfile                    : (Translates braces into parenthesis)
+        - : ~> echo "This is for testing" | tr [:space] '\t'            : (Translate white-space into tabs)
+        - : ~> echo "This   is    for    testing" | tr -s [:space:]     : (Squeeze repetition of charactes using -s)
+        - : ~> echo "the geek stuff" | tr -d 't'                        : (Delete specified characters using the -d option)
+        - : ~> echo "my username is 432234" | tr -cd [:digit:]          : (Complement the sets using -c option)
+        - : ~> tr -c [:print:] < file.txt                               : (Remove all non-printable character from a file)
+        - : ~> tr -s '\n' ' ' < file.txt                                : (Join all the lines in a file into a single line)
 - "tee" saves a copy of stdout to a file while still displaying at the terminal
 - "wc", short for word count, displays the number of lines, words and characters in a file or group of files
 - "cut" extracts columns from a file
@@ -614,6 +629,8 @@ Chapter 13 Summary
     - : ~> tail -15 somefile      : (show the last 15 lines)
     - : ~> tail -f  somefile.log  : (monitor new output in a growing log file)
 - "strings" extract printable character strings from binary files
+    - It is useful in locating human-readable content embedded in binary files; for text files, one can just use "grep".
+        - : ~> strings book1.xls | grep my_string
 - "z" command family is used to read and work with compressed files
     - : ~> zcat compressed-file.txt.gz     : (To view compressed gzip file) (use : ~> bzcat (for bzip2) : ~> xzcat (for xz))
     - : ~> zless somefile.gz               : (To page through compressed gzip file) (:~> bzless (for bzip2) :~> xzless (for xz))
