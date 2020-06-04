@@ -729,6 +729,15 @@ Chapter 14 Summary
             - sftp is very secure, it uses the ssh protocol (It encrypts its data. However it does not work with "anonymous FTP")
     - SSH is used to run commands on remote systems
         - SSH is a cryptographic network protocol used for secure data communication
+            : ~> ssh some_system            : (login to a remote system)
+            : ~> ssh someone@some_system    : (run as another user) same as: ~> ssh -l someone some_system 
+            : ~> ssh some_system my_command : (run a command on a remote system via SSH)
+        - SCP (Secure Copy) can be used to move files securely between two networked hosts using SSH protocol
+            : ~> scp <localfile> <usr@remotesystem>:/home/user
+    
 
-    
-    
+------------------
+Chapter 14 Summary
+------------------
+
+
