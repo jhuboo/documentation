@@ -569,12 +569,25 @@ Chapter 13 Summary
     - : ~> sed -f scriptfile <file>   : (Specify scriptfile containing "sed" commands, "")
     Adv
     - : ~> sed    s/old/new   file    : (Substitute the fist string occurence in every line)
-    - : ~> sed    s/old/new/g file    : (Substitute all string occurences in every line)
+    - : ~> sed    s:old:new:g file    : (Substitute all string occurences in every line) (You can choose your delimiter, ie ':', '/', etc)
     - : ~> sed 1,3s/old/new/g file    : (Substitute all string occurences in range of lines)
     - : ~> sed -i s/old/new/g file    : (Save changes for string substitution in same file) (NOT reversiblebetter: ~> !! > file2)
 - "awk" is an interpreted programming language, used as a data extraction and reporting tool
+    - : ~> awk 'command' file         : (specify a command directly at the command line)
+    - : ~> awk -f scriptfile file     : (specify a file that contains the script to be executed)
+    Basics
+    - : ~> awk '{ print $0 }' /etc/passwd        : (Print entire file)
+    - : ~> awk -F: '{ print $1 }' /etc/passwd    : (Print first field/col of every line, separated by a space)
+    - : ~> awk -F: '{ print $1 $7 }' /etc/passwd : (Print first and seventh field of every line)
 - "sort" is used to sort text files, and output streams in either ascending or descending order
-= "uniq" eliminates duplicate entries in a text file
+    - : ~> sort <filename>                       : (Sort the lines in the file, according to the chars at the beginning of the line)
+    - : ~> cat file1 file2 | sort                : (Combine the two files, the sort the lines and then display output to terminal)
+    - : ~> sort -r <filename>                    : (sort the file in reverse order)
+    - : ~> sort -k 3 <filename>                  : (sort the file by the 3rd field on each line instead of the beginning)
+- "uniq" eliminates duplicate entries in a text file
+    - : ~> sort file1 file2 | uniq > file3       : ("uniq" requires duplicate entries to be consecutive, so we need to "sort" first and then pipe output into "uniq")
+    - : ~> sort -u file1 file2 > file3           : (If "sort" is used with the -u flag (stands for uniq), then we can do the above in one step)
+    - : ~> uniq -c filename                      : (Count the number of duplicate entries)
 - "paste" combines fields from different files, it can also be used to extract and combine lines from multiple sources
 - "join" combines lines from two files based on a common filed; it only works if the files share a common field
 - "split" breaks up a large file into equal-sized segments
