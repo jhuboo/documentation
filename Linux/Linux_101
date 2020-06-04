@@ -679,12 +679,33 @@ Chapter 14 Summary
         - : ~> nslookup example.com : (lookup nameservers interactively)
         - : ~> dig example.com      : (lookup domain name info from nameserver)
 - Configure network interfaces and use basic networking utilites, such as "ifconfig", "ip", "ping", "route", and "traceroute"
-    - The "ifconfig" program is used to display current active network interfaces
-    - use : ~> ip addr show   : to view IP address
-    *     : ~> ip route show  : to view routing information
-    - use : ~> ping           : to check if the remote host is alive and responding
-    - use : ~> route          : to manage IP routing
+    - : ~> nmtui   : (graphical version of Network Manager)
+    - : ~> nmcli   : (command line interface for Network Manager)
+    - "ip" utility is used to do several network tasks (it replaced "ifconfig" and "route")
+        - : ~> ip addr show   : (to view IP address)
+        * : ~> ip route show  : (to view routing information)
+    - "ping" is used to check if the remote host is alive and responding)
+        - "ping" is used to check whether or not a machine attached to the network can receive and send data
+        - "ping" is frequently used for network testing and management, however its usage can increase network load unacceptably
+        - : ~> ping -c 10 linuxfoundation.org  : (Use -c flag to limit number of packets ping sends before it quits, or use Ctrl-C)
+    - "route" is used to manage IP routing
+        - A network is a collection of nodes
+        - Data moves from source to destination by passing through a series of routers and potentially multiple networks
+        - Servers maintain routing tables containing the addresses of each node in the network
+        - The IP routing protocols enables routers to build up a forwarding table that correlates final destination tables with next hop addresses.
+            - : ~> route -n                |or|: ~> ip route      : (show current routing table)
+            - : ~> route add -net address  |or|: ~> ip route add  : (add a static route)
+            - : ~> route del -net address  |or|: ~> ip route del  : (delete a static route)
+        - "traceroute" is used to inspect the route the data packet takdes to reach the destination host
+            - : ~> traceroute <address>
     - You can monitor and debug network problems using networking tools
+        - "ethtool" queries network interfaces and can also set various parameters such as the speed
+        - "netstat" displays all active connections and routing tables. Useful for monitoring performance and troubleshooting
+        - "nmap" scans open ports on a network. Important for security analysis
+        - "tcpdump" dumps network traffic for analysis
+        - "iptraf" monitors network traffic in text mode
+        - "mtr" combines functionality of ping and traceroute and gives a continuously updated display
+        - "dig" test DNS workings. A good replacement for host and nslookup
 - Use graphical and non-graphical browsers, such as Lynx, w3m, Firefox, Chrome and Epiphany
     - Firefox, Chrome, Chromium, Brave, and Epiphay are the main graphical browsers used in Linux
     - Lynx, Links, w3m are non-graphical / text-browsers used in Linux
