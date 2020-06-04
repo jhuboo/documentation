@@ -649,8 +649,16 @@ Chapter 14 Summary
 ------------------
 - Explain basic networking concepts, including types of networks and addressing issues
     - The IP (Internet Protocol) address is a unique logical network address that is assigned to a device on a network.
+        - The "internet" is the largest network in the world, and can be called "the network of networks"
     - IPv4 uses 32-bits for addresses and IPv6 uses 128-bits for addresses
+        - One reason IPv4 has not disappeared completely is that it uses NAT (Network Address Translation)
+        - NAT enables sharing one IP address among many locally connected computers, each of which has a unique address only seen on the local network.
+            - A 32-bit IPv4 address is divided into four 8-bit sections called octets(another word for "byte").
+                -ie, IPv4 address      172.      16.      31.      46
+                -ie, Bit format   10101100.00010000.00011111.00101110
     - Every IP address contains both a network and a host address field
+        - The Net  ID is used to identify the network
+        - The Host ID is used to identify a host in the network
     - There are 5 classes of networks addresses available: A, B, C, D & E
     - DNS (Domain Name System) is used for converting Internet domain and host names to IP addresses
 - Configure network interfaces and use basic networking utilites, such as "ifconfig", "ip", "ping", "route", and "traceroute"
