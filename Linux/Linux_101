@@ -423,3 +423,27 @@ Chapter 11 Summary
 - Use Vim, period.
 
 
+------------------
+Chapter 12 Summary
+------------------
+- Linux is a multi-uer system
+- Use the "who" command to find the currently logged-in users
+- To find current user ID, use the "whoami" command
+- The "root" account has full access to the system, it is never sensible to grant full root access to a user
+- "sudo" is used to assign root priviledges to a regular user on a temporary basis
+- The shell program (bash) uses multiple starup files to create the user environment. Global settings are found at : ~> cd /etc/profile
+- Advantages of startup files are:
+    - Customizing user prompt (PS1)
+    - set user's terminal type (bash or zsh)
+    - set command-line shortcuts and aliases
+    - set the default text editor, etc
+- An environment variable is a character string that contains data used by one or more applications. The built-in shell variables can be customized to suit your requirements.
+- "history" recalls a list of previous commands, which can be edited and recycled
+- In Linux, various keyboard shortcuts are used at the terminal instead of long actual commands
+- Customize ~/.bashrc or ~/.zshrc and especially ~/.vimrc
+- File Permissions
+    - : ~> chmod permission filename
+- File Ownership
+    - : ~> chown owner filename
+- File Group Ownership
+    - : ~> chgrp group filename
