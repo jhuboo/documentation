@@ -737,7 +737,15 @@ Chapter 14 Summary
     
 
 ------------------
-Chapter 14 Summary
+Chapter 15 Summary
 ------------------
-
-
+- Scripts are a sequence of statements and commands stored in a file that can be executed by a shell. (most common is "bash")
+- Command substitution allows you to substitute the result of a command as a portion of another command
+- Functions or routines are groups of commands that are used for execution
+- Environment variables are quantities either preassigned by the shell or defined and modified by the user
+- To make environment variables visible to child processes, they need to be exported
+- Scripts behave differently based on the parameters (values) passed to them
+- Output redirection is the process of writing the output to a file
+- Input  redirection is the process of reading the input from a file
+- "if" statement is used to select an action based on a condition
+- Arithmetic expressions consists of numbers and arithmetic operators, such as +,-,*,/
