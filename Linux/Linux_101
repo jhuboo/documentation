@@ -432,13 +432,13 @@ Chapter 12 Summary
 - Linux is a multi-user system
     - All Linux users are assigned a unique user id (uid), which is just an integer. Normal users start at uid of 1000 or greater.
     - Linux uses groups for organizing users. Control of groups is administered through: ~> /etc/group
-    - Users also have one or moer group IDS (gid), including a default one which is the same as the uid
+    - Users also have one or more group IDS (gid), including a default one which is the same as the uid
     - The numbers are associated with names throught the files:
         - : ~> /etc/passwd     : ( ie, george:x:1002:1002:George Smith:/home/george:/bin/zsh )
         - : ~> /etc/group      : ( ie, george:x:1002 )
     - Adding and Removing Users
         - : ~> sudo useradd username1  : (: ~> sudo useradd -m -c "Elizer Jio" -s /bin/bash ejio )
-        *                              : (: ~> sudo passd ejio )
+        *                              : (: ~> sudo passwd ejio )
         *                              : (: ~> grep ejio /etc/passwd /etc/group )
         *                              : The home directory for newuser "ejio' inherits from : ~>ls -la /etc/skel )
         - : ~> sudo userdel username1  : (: ~> sudo userdel -r ejio )
@@ -557,6 +557,12 @@ Chapter 13 Summary
 ------------------
 - The command line usually allows users to complete tasks more efficiently than the GUI
 - "cat", short for concatenante is used to read, print, and combine files
+    - : ~> cat file1 file2            : (Concatenate multiple files and display the output)
+    - : ~> cat file1 file2 > newfile  : (Concatenate multiple files and save output in a new file)
+    - : ~> cat file >> existingfile   : (Append a file to the end of an existing file)
+    - : ~> cat > file                 : (Any subsequent lines typed will go into the file, until Ctrl-D is typed)
+    - : ~> cat >> file                : (Any subsequent lines are appended to the file, "")
+    - : ~> cat > filename << EOF      : (Read from stdout, send to file, when 'EOF' is typed, quit) (same as: ~> cat << EOF > filename)
 - "echo" dislays a line of text either on the stdout or to place in a file
 - "sed" stands for & is a stream editor used to filter and perform substitions on files and text data streams
     - : ~> sed -e command <file>      : (Specify editing commands at the terminal, operates on file, and outputs on stdout)
@@ -579,8 +585,14 @@ Chapter 13 Summary
 - "wc", short for word count, displays the number of lines, words and characters in a file or group of files
 - "cut" extracts columns from a file
 - "less" views files a page at a time and allows for scrolling
+    - less does not have to load the whole page in memory first before displaying it, so it's way quicker
+    - : ~> less somefile
+    - : ~> cat somefile | less
 - "head" displays the first few lines of a file or data stream
-- "tail" displ: ~> ays the last  few lines of a file or data stream
+    - : ~> head -5 somefile       
+- "tail" displays the last  few lines of a file or data stream
+    - : ~> tail -15 somefile      : (show the last 15 lines)
+    - : ~> tail -f  somefile.log  : (monitor new output in a growing log file)
 - "strings" extract printable character strings from binary files
 - "z" command family is used to read and work with compressed files
     - : ~> zcat compressed-file.txt.gz     : (To view compressed gzip file) (use : ~> bzcat (for bzip2) : ~> xzcat (for xz))
