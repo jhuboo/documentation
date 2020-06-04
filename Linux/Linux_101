@@ -617,8 +617,14 @@ Chapter 13 Summary
         - : ~> tr -c [:print:] < file.txt                               : (Remove all non-printable character from a file)
         - : ~> tr -s '\n' ' ' < file.txt                                : (Join all the lines in a file into a single line)
 - "tee" saves a copy of stdout to a file while still displaying at the terminal
+    - : ~> ls -l | tee newfile          : (Tees the 'ls -l' to out put stream and save 'ls -l' to newfile)
+    - : ~> cat newfile                  : (Will display the outpout of 'ls -l')
+    *                                   : (Tee can be effective to use with sudo and I/O redirection)
 - "wc", short for word count, displays the number of lines, words and characters in a file or group of files
+    - : ~> wc                           : (lines-l words-w bytes-c)
 - "cut" extracts columns from a file
+    - : ~> ls -l | cut -d" " -f3        : (Display the third column delimited by a blank space)
+    - : ~> cut -f2 filename             : (Cut second column of filename)
 - "less" views files a page at a time and allows for scrolling
     - less does not have to load the whole page in memory first before displaying it, so it's way quicker
     - : ~> less somefile
