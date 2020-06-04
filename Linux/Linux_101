@@ -480,13 +480,42 @@ Chapter 12 Summary
 - An environment variable is a character string that contains data used by one or more applications.
     - The built-in shell variables can be customized to suit your requirements.
     - : ~> echo $SHELL
-    - : ~> export VARIABLE=value     : ( same as: ~> VARIABLE=value; export VARIABLE )
+    - : ~> export VARIABLE=value     : (same as: ~> VARIABLE=value; export VARIABLE )
     *                                : (Edit ~/.bashrc or ~/.zshrc and add export VARIABLE=value, then source ~/.bashrc)
     * : ~> SDIRS=s_0* KROOT=/lib/modules/$(uname -r)/build make modules_install
     *      : ( This feeds the values of "SDIRS" and "KROOT" environment variables to the command "make modules_install" )
-- "history" recalls a list of previous commands, which can be edited and recycled
 - In Linux, various keyboard shortcuts are used at the terminal instead of long actual commands
-- Customize ~/.bashrc or ~/.zshrc and especially ~/.vimrc
+- The PATH Variable
+    - PATH is an ordered list of difrectories (the path) which is scanned when a command is given to find the appriopriate program or script to run.
+    - Each directory in the path is separated by colons (:)
+    - A null (empty) directory name (or ./) indicates the current directory at any give time.
+        * :path:path2                    : (there is a null directory before the first colon (:) )
+        * path1::path2                   : (there is a null directory between path1 and path2)
+    - To prefix a private bin to your path:
+        - ~> export PATH=$HOME/bin:$PATH
+        - ~> echo $PATH
+    - Adding /tmp to Your PATH
+        - ~> echo "echo HELLO, a phony ls program." > /tmp/ls
+        - ~> chmod +x /tmp/ls
+        - ~> OLDPATH=$PATH                         
+        - ~> PATH=$PATH:/tmp    : (append to PATH)
+        - ~> ls /usr            : (execute)
+        - ~> PATH=/tmp:$PATH    : (prepend to PATH) (Note: very dangerous, and is a trival way to insert a "Trojan Horse" program.)
+        - ~> ls /usr            : (execute)
+        - ~> PATH=$OLDPATH
+- The PS1 Variable and the Terminal
+    - The PS1 is the primary prompt variable which controls what your command line prompt looks like.
+    - The following characters can be included in PS1:
+        - \u -username
+        - \h -hostname
+        - \w -current working directory
+        - \! -history number of this command
+        - \d -Date
+    - They must be surrounded by single quotes when used:
+        - : ~> echo $PS1          : (mine is customized to be : ~> '%n $(shrink_path -f)>'
+        - : ~> export PS1='\u@\h:\w$ '
+- "history" recalls a list of previous commands, which can be edited and recycled
+    - Stored in : ~> cd ~/.bash_history
 - File Permissions
     - : ~> chmod permission filename
 - File Ownership
