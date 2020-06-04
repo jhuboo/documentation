@@ -1,7 +1,10 @@
 Massive thanks to the Linux Foundation for offering: LFS101x (Introduction to Linux)
 // Date: 02 June 2020
-// LinuxFoundation (All credits to them) in partnership with Edx
-
+// LinuxFoundation (credits to them) in partnership with Edx
+// __author__ = Anvesh G. Jhuboo
+// Twitter: @anveshjhuboo
+// Gitlab : @neuralx
+// Github : @neuralx7
 
 -----------------
 Chapter 1 Summary
@@ -531,12 +534,45 @@ Chapter 12 Summary
     - : ~> Ctrl-H   : (Works same as backspace)
     - : ~> Ctrl-A   : (Go to beginning of a line)
     - : ~> Ctrl-E   : (Go to the end of the line)
-    - : ~> Ctrl-W   : (Deletes the word after the cursor)
-    - : ~> Ctrl-U   : (Deletes from beginning of line to cursor position)
+    - : ~> Ctrl-W   : (Deletes the word before the cursor)
+    - : ~> Ctrl-U   : (Deletes whole line)
     - : ~> Tab      : (Auto-completes files, dirs, binaries)
 - File Permissions
     - : ~> chmod permission filename
+    - : rwx (u - user, g - group, o - other/world)
+    - : 4 - (read permission)
+    - : 2 - (write permission)
+    - : 1 - (execute permission)
+    - ~> Hence 7 - (read/write/execute)
+    *          6 - (read/write)~
+    *          5 - (read/execute)
 - File Ownership
     - : ~> chown owner filename
 - File Group Ownership
     - : ~> chgrp group filename
+    
+
+------------------
+Chapter 13 Summary
+------------------
+- The command line usually allows users to complete tasks more efficiently than the GUI
+- "cat", short for concatenante is used to read, print, and combine files
+- "echo" dislays a line of text either on the stdout or to place in a file
+- "sed" is a stream editor used to filter and perform substitions on files and text data streams
+- "awk" is an interpreted programming language, used as a data extraction and reporting tool
+- "sort" is used to sort text files, and output streams in either ascending or descending order
+= "uniq" eliminates duplicate entries in a text file
+- "paste" combines fields from different files, it can also be used to extract and combine lines from multiple sources
+- "join" combines lines from two files based on a common filed; it only works if the files share a common field
+- "split" breaks up a large file into equal-sized segments
+- REGEX are text strings used for pattern matching
+- "grep" searches for text files and data streams for patterns can be used with Regex
+- "tr" translates characters, copies stdin to stdout, and handles special characters
+- "tee" saves a copy of stdout to a file while still displaying at the terminal
+- "wc", short for word count, displays the number of lines, words and characters in a file or group of files
+- "cut" extracts columns from a file
+- "less" views files a page at a time and allows for scrolling
+- "head" displays the first few lines of a file or data stream
+- "tail" displays the last  few lines of a file or data stream
+- "strings" extract printable character strings from binary files
+- "z" command family is used to read and work with compressed files
