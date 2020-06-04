@@ -660,7 +660,24 @@ Chapter 14 Summary
         - The Net  ID is used to identify the network
         - The Host ID is used to identify a host in the network
     - There are 5 classes of networks addresses available: A, B, C, D & E
+        * Decoding IPv4 addresses *
+        - Octet1  Octet2  Octet3  Octet4  
+        - NetID   HostID  HostID  HostID  : A : 126 Networks |   1.0.0.0 to 127.255.255.255 hosts (16.7 million unique hosts)
+        - NetID   NetID   HostID  HostID  : B : 16,384 N     | 128.0.0.0 to 191.255.255.255 hosts (65,536 unique hosts)
+        - NetID   NetID   NetID   HostID  : C : 2.1 million N| 192.0.0.0 to 223.255.255.255 hosts (256 unique hosts)
+        -       multicast address         : D : 
+        -   reserved for future use       : E : 
+        *
+    - IP Address allocation
+        - Can be allocated manually or dynamically
+        - Manual assignment adds static (never changing) addresses to the network
+        - Dynamically assigned addresses can change every time you reboot or even more often
+        - DHCP (Dynamic Host Config Protocol) is used to assign IP addresses
     - DNS (Domain Name System) is used for converting Internet domain and host names to IP addresses
+        - : ~> hostname             : (view hostname - the special hostname with IP 127.0.0.1 describes the machine you are on)
+        - : ~> host example.com     : (lookup hostname using DNS)
+        - : ~> nslookup example.com : (lookup nameservers interactively)
+        - : ~> dig example.com      : (lookup domain name info from nameserver)
 - Configure network interfaces and use basic networking utilites, such as "ifconfig", "ip", "ping", "route", and "traceroute"
     - The "ifconfig" program is used to display current active network interfaces
     - use : ~> ip addr show   : to view IP address
