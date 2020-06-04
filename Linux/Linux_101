@@ -484,7 +484,6 @@ Chapter 12 Summary
     *                                : (Edit ~/.bashrc or ~/.zshrc and add export VARIABLE=value, then source ~/.bashrc)
     * : ~> SDIRS=s_0* KROOT=/lib/modules/$(uname -r)/build make modules_install
     *      : ( This feeds the values of "SDIRS" and "KROOT" environment variables to the command "make modules_install" )
-- In Linux, various keyboard shortcuts are used at the terminal instead of long actual commands
 - The PATH Variable
     - PATH is an ordered list of difrectories (the path) which is scanned when a command is given to find the appriopriate program or script to run.
     - Each directory in the path is separated by colons (:)
@@ -515,7 +514,26 @@ Chapter 12 Summary
         - : ~> echo $PS1          : (mine is customized to be : ~> '%n $(shrink_path -f)>'
         - : ~> export PS1='\u@\h:\w$ '
 - "history" recalls a list of previous commands, which can be edited and recycled
-    - Stored in : ~> cd ~/.bash_history
+    - : ~> cd ~/.bash_history : (or stored in : ~> ~/.zsh_history )
+    - : ~> set | grep HIST    : (view details)
+    - : ~> !!                 : (execute previous command, pronounced bang-bang)
+    - : ~> CTRL-R             : (Search previously used commands) or use Up/Down arrow keys
+    Adv
+    - : ~> !                  : (Start history substitution)
+    - : ~> !$                 : (Refer to the last argument in a line)
+    - : ~> !n                 : (Refer to the n^th command line)
+    - : ~> !string            : (Refer to the most recent command starting with "string")
+- In Linux, various keyboard shortcuts are used at the terminal instead of long actual commands
+    - : ~> Ctrl-L   : (Clear screen)
+    - : ~> Ctrl-D   : (Exit current shell)
+    - : ~> Ctrl-Z   : (Puts the current process into suspended background)
+    - : ~> Ctrl-C   : (Kills the current process)
+    - : ~> Ctrl-H   : (Works same as backspace)
+    - : ~> Ctrl-A   : (Go to beginning of a line)
+    - : ~> Ctrl-E   : (Go to the end of the line)
+    - : ~> Ctrl-W   : (Deletes the word after the cursor)
+    - : ~> Ctrl-U   : (Deletes from beginning of line to cursor position)
+    - : ~> Tab      : (Auto-completes files, dirs, binaries)
 - File Permissions
     - : ~> chmod permission filename
 - File Ownership
