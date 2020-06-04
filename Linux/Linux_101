@@ -589,8 +589,15 @@ Chapter 13 Summary
     - : ~> sort -u file1 file2 > file3           : (If "sort" is used with the -u flag (stands for uniq), then we can do the above in one step)
     - : ~> uniq -c filename                      : (Count the number of duplicate entries)
 - "paste" combines fields from different files, it can also be used to extract and combine lines from multiple sources
+    - : ~> paste file1 file2                     : (Paste contents from two files)
+    - : ~> paste -d, file1 file2                 : (Common delimiters are 'space', 'tab', '|', 'comma', etc)
 - "join" combines lines from two files based on a common filed; it only works if the files share a common field
+    - : ~> join file1 file2                      : (Combine two files based on a common field)
 - "split" breaks up a large file into equal-sized segments
+    - It is generally used on relatively large files.
+    - By default, "split" breaks up the file into 1000-line segments. The original file remains unchanged, and a set of new files with the name + prefix are created.
+        - : ~> split infile                      : (split a file into segments)
+        - : ~> split infile <prefix>             : (split a file into segments using a different prefix) 
 - REGEX are text strings used for pattern matching
 - "grep" searches for text files and data streams for patterns can be used with Regex
 - "tr" translates characters, copies stdin to stdout, and handles special characters
