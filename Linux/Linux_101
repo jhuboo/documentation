@@ -647,6 +647,28 @@ Chapter 13 Summary
 ------------------
 Chapter 14 Summary
 ------------------
-    
+- Explain basic networking concepts, including types of networks and addressing issues
+    - The IP (Internet Protocol) address is a unique logical network address that is assigned to a device on a network.
+    - IPv4 uses 32-bits for addresses and IPv6 uses 128-bits for addresses
+    - Every IP address contains both a network and a host address field
+    - There are 5 classes of networks addresses available: A, B, C, D & E
+    - DNS (Domain Name System) is used for converting Internet domain and host names to IP addresses
+- Configure network interfaces and use basic networking utilites, such as "ifconfig", "ip", "ping", "route", and "traceroute"
+    - The "ifconfig" program is used to display current active network interfaces
+    - use : ~> ip addr show   : to view IP address
+    *     : ~> ip route show  : to view routing information
+    - use : ~> ping           : to check if the remote host is alive and responding
+    - use : ~> route          : to manage IP routing
+    - You can monitor and debug network problems using networking tools
+- Use graphical and non-graphical browsers, such as Lynx, w3m, Firefox, Chrome and Epiphany
+    - Firefox, Chrome, Chromium, Brave, and Epiphay are the main graphical browsers used in Linux
+    - Lynx, Links, w3m are non-graphical / text-browsers used in Linux
+- Transfer files to and from clients and servers using both graphical and text mode applications such as Filezilla, ftp, sftp, curl, and wget
+    - use : ~> wget           : (to download webpages)
+    - use : ~> curl           : (to obtain information about URLs)
+    - FTP (File Transfer Protocol) is used to transfer files over a network
+        - ftp, sftp, ncftp, and yafc are command line FTP clients used in Linux
+    - use : ~> ssh            : (to run commands on remote systems)
+
     
     
