@@ -882,6 +882,16 @@ Chapter 16 Summary
     - Script Debug Mode
         - : ~> bash -x ./script_file     : (Run a bash script in debug mode) (IMPORTANT)
         - Another way is to bracket parts of the script with "set -x" and "set +x"
-- The standard and error output from a script or shell commands can easily be redirected into the same file or separate files to aid in debuggin, and saving results
-- Linux allows you to create temporary files and directories, which store data for a short duration, both saving space and increasing security
+- The standard and error output from a script or shell commands can easily be redirected into the same file or separate files to aid in debugging, and saving results
+    - : stdin  0
+    - : stdout 1
+    - : stderr 2
+    - Using Redirection, we can redirect the 'error output' to an : ~> error.log    file and then use "cat" to display contents to aid in debugging
+        - : ~> ./some_script 2> error.log
+- Creating Temporary Files and Directories 
+    - Linux allows you to create temporary files and directories, which store data for a short duration, both saving space and increasing security
+    - The best practice is to create random and unpredictable filenames for temporary storage
+    - "mktemp" utility allows us to do the above
+        - : ~> TEMP=$(mktemp /tmp/tempfile.XXXXXXXX)      : (To create a temporary file)
+        - : ~> TEMP=$(mktemp -d /tmp/tempfile.XXXXXXXX)   : (To create a temporary directory)
 - Linus provides several different ways of generating random numbers, which are widely used
