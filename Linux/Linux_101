@@ -1,6 +1,6 @@
 Massive thanks to the Linux Foundation for offering: LFS101x (Introduction to Linux)
 // Date: 02 June 2020
-// LinuxFoundation (credits to them) in partnership with Edx
+// LinuxFoundation (credits to them) in partnership with edX
 // __author__ = Anvesh G. Jhuboo
 // Twitter: @anveshjhuboo
 // Gitlab : @neuralx
@@ -839,6 +839,13 @@ Chapter 16 Summary
 ------------------
 - This is an extension of Chapter 15
 - Strings can be manipulated to perform actions such as comparison, sorting, and finding length
+    - Basic String Operators:
+        - : [[ string1 >  string2 ]]    : (compares the sorting order of string1 and string2)
+        - : [[ string1 == string2 ]]    : (compares the characters of string1 and string2)
+        - : myLen1=${#string1}          : (saves the length of "string1" in the variable "myLen1")
+    - Parts of a String
+        - : ~> $(string:0:n}            : ('0' is the offset of the string (where to begin), 'n' is the num of chars needed)
+        * : ~> $(string#*.}             : (Extract all the characters in the string after a dot '.')
 - Boolean expressions can be used when working with multiple data types, like strings, num or even files
 - Output of a Boolean is either true or false
 - Boolean Opearotors include && (AND), || (OR), and !(NOT) operators
