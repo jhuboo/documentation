@@ -740,11 +740,55 @@ Chapter 14 Summary
 Chapter 15 Summary
 ------------------
 - Scripts are a sequence of statements and commands stored in a file that can be executed by a shell. (most common is "bash")
-- Command substitution allows you to substitute the result of a command as a portion of another command
-- Functions or routines are groups of commands that are used for execution
-- Environment variables are quantities either preassigned by the shell or defined and modified by the user
-- To make environment variables visible to child processes, they need to be exported
+    - As a script executes, one can check for a specific value or conditon or failure as the result
+        - success: 0
+        - failure: non-zero
+    - Basic Syntax and Special Chars
+        - : #    : (used to add comments, except when used as \# or as #! when starting a script)
+        - : \    : (used at the end of a line to indicate continuation on the next line)
+        - : ;    : (used to interpret what follows as a new command to be executed next)
+        - : $    : (indicates what follows is an environment variable)
+        - : >    : (redirect output)
+        - : <    : (redirect input)
+        - : >>   : (Append output)
+        - : |    : (used to pipe the result to the next command)
+    - Multiple Commands on a Single Line
+        - : ~> make ;  make install ;  make clean     : (the three commands will all execute, even if the ones preceding them fail)
+        - : ~> make && make install && make clean     : (subsequent commands are aborted when an earlier one fails - when using && operator)
+        - : ~> make || make install || make clean     : (here, you proceed until something succeeds, and then further steps are aborted)
+    - Chaining commands is not the same as piping them. In chaining, each step exits before the next one starts. In piping, commands can operate simultaneously.
 - Scripts behave differently based on the parameters (values) passed to them
+    - Shell scripts execute sequences of commands and other types of statements. These commands can be:
+        - Complied applications         : (ie, rm, ls, df, vi, gzip, ...  complied from lower level languages such as C)
+        - Built-in "bash" commands      : (ie, cd, pwd, echo, read, logout, printf, let, ulimit, ...) (: ~> help    to get full list)
+        - Other scripts                 : (shell scripts, or scripts from other interpreted languages, such as perl and Python)
+    - Script Parameters
+        - : $0    : (Script name)
+        - : $1    : (First parameter)
+        - : $2, $3, etc  : (Second, third parameter, etc)
+        - : $*    : (All parameters)
+        - : $#    : (Number of arguments)
+- Command substitution allows you to substitute the result of a command as a portion of another command
+    - This can be done in two ways: by enclosing the inner command in: ~> $( )  or  with backticks: ~> (`)
+        - : ~> ls /lib/modules/$(uname -r)/          :the $( ) method allows command nesting, the other one is deprecated
+- Environment variables are quantities either preassigned by the shell or defined and modified by the user
+    - As covered earlier, some standard enviroment variables are HOME, PATH, and HOST. 
+        : ~> echo $PATH 
+    - No prefix is required when setting or modifying the variable value
+        : ~> MYCOLOR=blue
+    - A list of environment variables can be obtained using : ~> env  :: ~> set  :: ~> printenv
+- To make environment variables visible to child processes, they need to be exported
+    - by default, the varialbes created withing a cript are available only to the subsequent steps of that script.
+    - To make them available to child processes (sub-shells), they need to be exported:
+        - : ~> export VAR=value
+        - : ~> VAR=value ; export VAR
+    - While child processes are allowed to modify the value of exported variables, the parent will not see any changes; exported variables are not shared, they are only copied and inherited
+    - Trying to export with no arguments will give a list of all currently exported environemnt varialbes
+- Functions or routines are groups of commands that are used for execution
+    - The proper syntax is:
+        : ~> function_name () {
+        *        command...
+        *   }
 - Output redirection is the process of writing the output to a file
 - Input  redirection is the process of reading the input from a file
 - "if" statement is used to select an action based on a condition
