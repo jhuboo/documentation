@@ -866,9 +866,22 @@ Chapter 16 Summary
             *           execute one iteration for each item in list until end of list
             *       finished
             *       done
-        - while
+        - while loop
+            - Basic Syntax
+            - : ~>  while condition is true
+            *       do
+            *           commands
+            *       done
         - until
+            - Basic Syntax
+            - : ~>  until condition is false
+            *       do
+            *           commands
+            *       done
 - Script debugging methods help troubleshoot and resolve erros
+    - Script Debug Mode
+        - : ~> bash -x ./script_file     : (Run a bash script in debug mode) (IMPORTANT)
+        - Another way is to bracket parts of the script with "set -x" and "set +x"
 - The standard and error output from a script or shell commands can easily be redirected into the same file or separate files to aid in debuggin, and saving results
 - Linux allows you to create temporary files and directories, which store data for a short duration, both saving space and increasing security
 - Linus provides several different ways of generating random numbers, which are widely used
