@@ -894,4 +894,33 @@ Chapter 16 Summary
     - "mktemp" utility allows us to do the above
         - : ~> TEMP=$(mktemp /tmp/tempfile.XXXXXXXX)      : (To create a temporary file)
         - : ~> TEMP=$(mktemp -d /tmp/tempfile.XXXXXXXX)   : (To create a temporary directory)
-- Linus provides several different ways of generating random numbers, which are widely used
+        Important
+        - Sloppiness in creation of temporary files can lead to real damage, either by accident or if there is a malicious actor
+            - For example, if someone were to create a symbolic link from a known tmp file used by root to "/etc/passwd" like this:
+                - : ~> ln -s /etc/passwd /tmp/tempfile
+            - There could be a big problem if the script run by root has a line like this:
+                - : ~> echo $VAR > /tmp/tempfile         : (The passwd file wlll be overwritten by temporary file contents)
+            - To prevent such a situation, make sure you randomize your temporary files by replacing the two above lines with:
+                - : ~> TEMP=$(mktemp /tmp/tempfile.XXXXXXXX)
+                - : ~> echo $VAR > $TEMP
+- /dev/null
+    - Certain commands (like "find") produce large amounts of outpout, which can overwhelm the console
+    - To avoid this, we can redirect the large outpout to a special file (a device node) called "/dev/null"
+    - This pseudofile is also called the bit bucket or black hole
+    - All data written in it is discarded and write operations never return a failure condiiton
+        - : ~> ls -lR /tmp >  /dev/null      : (Ignore entire output stream, errors will stil display)
+        - : ~> ls -lR /tmp >& /dev/null      : (Both "stdout" and "stderr" will be dumpted into the black hole)
+- Random Numbers and Data
+    - Linus provides several different ways of generating random numbers, which are widely used
+        - : ~> $RANDOM            : (Generates a random number between 0 - 99999)
+    - The Kernel generates random numbers by using an entropy pool
+        - Two device nodes namely "/dev/random" && "/dev/urandom" draw on the entropy pool to provide random numbers which are drawn from the estimated bits of noise in the entropy pool
+            - : ~> /dev/random    : (used where very high quality randomness is required, such as one-time pad or key generation, but is relatively slow)
+            - : ~> /dev/urandom   : (faster and good enough for most cryptographic purposes)
+        - When the entropy pool is empty, "/dev/random" is blocked and does not generate any number until additonal env noise is gathered
+        - Whereas "/dev/urandom" reuses the internal pool to produce more pseudo-random bits
+
+
+------------------
+Chapter 17 Summary
+------------------
