@@ -850,6 +850,24 @@ Chapter 16 Summary
 - Output of a Boolean is either true or false
 - Boolean Opearotors include && (AND), || (OR), and !(NOT) operators
 - "case" statements can be used in senarios where the value of a variable can lead to different execution paths
+    - Basic structure of "case":
+        : ~> case expr in
+        *       pattern1) execute commands;;
+        *       pattern2) execute commands;;
+        *       pattern3) execute commands;;
+        *       * )       execute default_command or nothing ;;
+        *    esac
+- Looping Constructs
+    - 3 most often types of loops
+        - for loop
+            - Basic Syntax
+            - : ~>  for var in list
+            *       do
+            *           execute one iteration for each item in list until end of list
+            *       finished
+            *       done
+        - while
+        - until
 - Script debugging methods help troubleshoot and resolve erros
 - The standard and error output from a script or shell commands can easily be redirected into the same file or separate files to aid in debuggin, and saving results
 - Linux allows you to create temporary files and directories, which store data for a short duration, both saving space and increasing security
