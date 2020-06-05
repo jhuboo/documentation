@@ -792,4 +792,58 @@ Chapter 15 Summary
 - Output redirection is the process of writing the output to a file
 - Input  redirection is the process of reading the input from a file
 - "if" statement is used to select an action based on a condition
+    - A general definition is:
+        : ~> if condition ; then
+        *       statements
+        *    elif othercondition ; then
+        *        statements
+        *    else
+        *       statements
+        *    fi
+    - A more compact form of the "if" statement is:
+        : ~> if TEST-COMMANDS; then CONSEQUENT-COMMANDS; fi
+    - Testing for files
+        - Bash provides a set of file conditionals, that can be used with the "if" statement to test
+            - File or directory existence
+            - Read or write permissions
+            - Executable permission
+        - Docs
+            - :~> man 1 test    : (View all of them here) [IMPORTANT for fundamentals of bash scripting!]
+            - Basics
+                - : -e file  : (Checks if file exists)
+                - : -d file  : (checks if file is a directory)
+                - : -f file  : (checks if file is a regular file ; ie, NOT a symbolic link, node, dir, etc)
+                - : -s file  : (checks if file is of non-zero size)
+                - : -g file  : (checks if file has "sgid" set)
+                - : -u file  : (checks if file has "suid" set)
+                - : -r file  : (checks if file is readable)
+                - : -w file  : (checks if file is writable)
+                - : -x file  : (checks if file is executable)
 - Arithmetic expressions consists of numbers and arithmetic operators, such as +,-,*,/
+    - Numerical Test
+        - Basics
+            - : -eq   : (Equal to)
+            - : -ne   : (Not equal to)
+            - : -gt   : (greater than)
+            - : -lt   : (less than)
+            - : -ge   : (greater or equal to)
+            - : -le   : (less or equal to)
+    - "expr" utility
+        - "expr" is a standard but deprecated utility used to evaluate numerical expressions
+        - : ~> expr 8 + 8
+        - : ~> echo $(expr 8+8)
+
+
+------------------
+Chapter 16 Summary
+------------------
+- This is an extension of Chapter 15
+- Strings can be manipulated to perform actions such as comparison, sorting, and finding length
+- Boolean expressions can be used when working with multiple data types, like strings, num or even files
+- Output of a Boolean is either true or false
+- Boolean Opearotors include && (AND), || (OR), and !(NOT) operators
+- "case" statements can be used in senarios where the value of a variable can lead to different execution paths
+- Script debugging methods help troubleshoot and resolve erros
+- The standard and error output from a script or shell commands can easily be redirected into the same file or separate files to aid in debuggin, and saving results
+- Linux allows you to create temporary files and directories, which store data for a short duration, both saving space and increasing security
+- Linus provides several different ways of generating random numbers, which are widely used
