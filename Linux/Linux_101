@@ -924,3 +924,15 @@ Chapter 16 Summary
 ------------------
 Chapter 17 Summary
 ------------------
+- CUPS provides two command-line interfaces: the System V and BSD
+- The CUPS interface is available at http://localhost:631
+- "lp" and "lpr" are used to submit a document to CUPS directly from the command line
+- "lpoptions" can be used to set printer options and defaults
+- PostScript effectively manages scaling of fonts and vector graphics to provide quality prints
+- "enscript" is used to convert a text file to PostScript and other formats
+- Portable Document Viewer (PDF) is the standard format to exchange documents while ensuring a certain level of consistency in the way the documents are viewed
+- "pdftk" joins and splits PDFs; pulls single pages from a file; encrypts and decrypts PDF files;
+    - It also adds, updates, exports a PDF's metadata; exports bookmarks to a text file; adds or remoes attachments to a PDF; fixes a damaged PDF; and fills out PDF forms.
+- "pdfinfo" can extract information about PDF documents
+- "flpsed" can add data to a PostScript document
+- "pdfmod" is a simple application with a Graphical Interface that you can use to modify PDF documents
