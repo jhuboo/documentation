@@ -982,3 +982,82 @@ Chapter 17 Summary
 ------------------
 Chapter 18 Summary
 ------------------
+- The root account has authority over the entire system
+    - By default, Linux distinguishes between several account types in order to isolate processes and workloads
+    - The four types of accounts are:
+        - root (#)
+        - system
+        - normal : (can use SUID -Set User ID upon execution, same as Window's "run as" can grant temporary elevated permissions to the account)
+        - network
+    - "last" utility shows the last time each user logged into the system
+        - : ~> last
+        - : ~> last -F -a
+- "sudo" & "su"
+    - In order to perform any privileged operations such as system-wide changes, you need to use either "su" or "sudo"
+    - "su" requires root passwd whereas "sudo" requires user's passwd(which may or may not also be root passwd in case of single user systems)
+    - "su" does not require to retype the passwd again whereas "sudo" requires the passwd to be retyped (this can be avoided for a configured amount of time)
+    - "su" has limited logging features whereas "sudo" has detailed logging features
+- Calls to "sudo" trigger a lookup in "/etc/sudoers" or "/etc/sudoers.d", which first validates that the calling user is allowed to use sudo and that it is being used within the permitted scope
+    - "sudo" keeps track of unsuccessful attempts at gaining root access
+        - : ~> /etc/sudoers     : (config file) 
+        - : ~> /etc/sudoers.d   : (config file)
+        - The basic structure of entries in these files is:
+            : ~> who where = (as_whom) what
+        - "visudo" is used to safely edit "sudoers" file
+            : ~> visudo /etc/sudoers                : (Edit)
+            : ~> visudo -f /etc/sudoers.d/username  : (Check for errors)
+    - A message such as the following would appear in the system log file (/var/log/secure) when trying to execute "sudo bash" without successful authentication
+        - : ~> authentication failure; logname ...... auth could not identify password for [op]....command=/bin/bash
+- One of the most powerful features of "sudo" is its ability to log unsuccessful attempts at gaining root access. 
+    - By default, "sudo" commands and failures are logged in "/var/log/auth.log" under the Debian family and "/var/log/messages" in other distribution families
+        - : ~> /var/log/auth.log    : (Debian family)
+        - : ~> /var/log/messages    : (Other)
+        - : ~> /var/log/secure      : (Other)
+    - This is an important safeguard to allow for tracking and accountability of "sudo" usage
+        - Using : ~> sudo whoami    would generate in /var/log/auth.log:
+        - : ~> Jun  6 00:54:21 nx-computer0 sudo:  nx : TTY=pts/0 ; PWD=/etc/sudoers.d ; USER=root ; COMMAND=/usr/bin/whoami
+- Process Isolation
+    - Linux is considered more secure than other many other OS because processes are naturally isolated from each other
+    - One process cannot access another person's resources, even when that person is running with the same user priviledges
+    - Recent security mechanisms that limit risks further include:
+        - cgroups       : (control groups - allows system admins to group processes and associate finite resources to each group)
+        - containers    : (makes it possible to run multiple isolated Linux systems (containers) on a single system by relying on cgroups)
+        - virtualization: (hardware is emulated in such a way that not only processes can be isolated, but entire systems can run simultaneously at isolated and insulated guests (VMs) on one physical host
+- Hardware Device Access
+    - Linux limits user access to non-networking hardware devices in a way that is very similar to regular file access
+    - Applications interact with the filesystem layer (which is independent of the actual device or hardware the file resides on)
+    - This layer then opens a device special file (also known as device node) under the "/dev" dir that corresponds to the file being accessed
+    - Each device special file has a standard owner, group and world permission fields - enforcing security naturally
+- Using the user credentials, the system verifies the authenticity and identity
+    - Originally encrypted passwds were stored in : ~> /etc/passwd      which was readable by everyone. This made it rather easy to crack passwds
+    - On modern systems, passwds are stored in an encrypted format under : ~> /etc/shadow       Only those with root access can modify this file
+- The SHA-512 algorithm is typically used to encode passwords. Deterministic one-way hash function.
+    - : ~> sha512sum <filename>
+- Pluggable Authentication Modules (PAM) can be configured to automatically verify that passwords created or modified using "passwd" are strong enough (that notion of strongness is configurable)
+    - "passwd" utility can be combined with PAM to check if a pasword is sufficiently strong
+        - : ~> passwd
+    - "chage" utility can be used to remind users to change or update their passwds after a set period of time
+        - : ~> chage -l <username>          : (list passwd information, not passwd itself, for user)      
+        - : ~> sudo chage -N 10 <username>  : (set passwd to expire in 10 days)
+    - Password cracking programs, such as "John the Ripper" can be used to secure the passwd file and detect weak passwd entries
+        - It is recommended to obtain written authorizations before installing such tools on any system that you do not own
+    - Requiring Boot loader passwords
+        - Securing the boot process with a secure password to prevent someone from bypassing the user authentication step
+            - Note: while using a bootloader passwd alone will stop a user from editing the bootloader config file, it will NOT prevent a user from booting from an altenative boot media
+            - Thus, using a bootloader passwd together with a BIOS password should be used for "full" protection.
+                - : ~> grub.cfg         : (can never be edited directly)
+                - : ~> /etc/grub.d      : (have to modify this config file)     then run : ~> update-grub   or: ~> grub2-mkconfig   to save new config file
+- Basic IT security policy should start with requirements on how to properly secure physical access to servers and workstations
+    - Hardware Vulnerability
+        - When a harware is physically acessible, security can be compromised by :
+            - key logging       : (record real time activity of a computer, including keys they press - recorded data is then transmitted to remote machines)
+            - network sniffing  : (cpaturing and viewing the network packet level data on your network)
+            - booting with a live or rescue disk
+            - remounting and modifying disk content
+    - Security Guidelines
+        - Phystical access to a system makes it possible for attackers to easily leverage several attack vectors, in a way that makes all OS level recommendations irrelevant
+            - Lock down workstations and servers
+            - Protect your network links such that it cannot be accessed by people you do not trust
+            - Protect your keyboard where passwords are entered to ensure the keyboards cannot be tampered with
+            - Ensure a passowrd protects the BIOS in such a way that the system cannot be booted with a live or rescue DVD or USB key
+- Keeping systems updated is an important step in avoiding security attacks
