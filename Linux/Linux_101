@@ -608,7 +608,7 @@ Chapter 13 Summary
     - : ~> tr [options] set1 [set2]              : (The items in the square brackets are optional)
     - : ~> cat filename | tr a-z A-Z             : (In filename, tr Translates all lower case characters to upper case)
     Basics
-        - : ~> tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ : (Convert lower case to upper case)                                          : (Convert lower case to upper case)
+        - : ~> tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ : (Convert lower case to upper case) : reverse to (Convert lower case to upper case)
         - : ~> tr '{}' '()' < inputfile > outputfile                    : (Translates braces into parenthesis)
         - : ~> echo "This is for testing" | tr [:space] '\t'            : (Translate white-space into tabs)
         - : ~> echo "This   is    for    testing" | tr -s [:space:]     : (Squeeze repetition of charactes using -s)
@@ -947,10 +947,35 @@ Chapter 17 Summary
         - : ~> lprm job-id             : (Cancel a print job, same as: ~> cancel job-id)
         - : ~> lpmove job-id newprinter: (Move a print job to a new printer)
 - PostScript effectively manages scaling of fonts and vector graphics to provide quality prints
-- "enscript" is used to convert a text file to PostScript and other formats
+- "enscript" is used to convert a text file to PostScript and other formats, like rich Text Format (RTF), and HTML
+    - : ~> enscript -p psfile.ps textfile.txt       : (Convert a text file to PostScript, saved to psfile.ps)
+    - : ~> enscript -n -p psfile.ps textfile.txt    : (Convert a text file to n columns where n = 1-9, saved in psfile.ps)
+    - : ~> enscript textfile.txt                    : (print a text file directly to a default printer)
+    - Converting between PDF and PostScript
+        : ~> pdf2ps file.pdf                : (convert file.pdf to file.ps, can also use: ~> pdftops file.pdf)
+        : ~> ps2pdf file.ps                 : (convert file.ps to file.pdf, can also use: ~> pstopdf file.ps)
+        : ~> convert input.ps output.pdf
+        : ~> convert input.pdf output.ps
 - Portable Document Viewer (PDF) is the standard format to exchange documents while ensuring a certain level of consistency in the way the documents are viewed
-- "pdftk" joins and splits PDFs; pulls single pages from a file; encrypts and decrypts PDF files;
-    - It also adds, updates, exports a PDF's metadata; exports bookmarks to a text file; adds or remoes attachments to a PDF; fixes a damaged PDF; and fills out PDF forms.
+    - Viewing PDF content can be done with "evince", "okular", "ghostView", and "xpdf"
+    - Manipulating PDF
+        - At times, you may want to merge, split or rotate PDF files.
+        - Programs that enables these tasks are:
+            - "qpdf" is widely avaialble on Linux distros and very full-featured
+                - : ~> qpdf --empty --pages 1.pdf 2.pdf -- 12.pd                : (Merge 1.pdf and 2.pdf, save output in 12.pdf)
+                - : ~> qpdf --empty --pages 1.pdf 1-2 -- new.pdf                : (Write only pages 1, and 2 of "1.pdf", save output to new.pdf)
+                - : ~> qpdf --rotate=+90:1   1.pdf 1r.pdf                       : (Rotate 1 of "1.pdf" 90 degress clockwise and save to "1r.pdf")
+                - : ~> qpdf --rotate=+90:1-z 1.pdf 1r-all.pdf                   : (Rotate all pages of "1.pdf" 90 degrees clockwise and save it "1r-all.pdf")
+                - : ~> qpdf --encrypt mypw mypw 128 -- public.pdf private.pdf   : (Encrypt with 128 bits "public.pdf" using the passwd "mypw" with output as "private.pdf")
+                - : ~> qpdf --decrypt --password=mypw private.pdf decrypted.pdf : (Decrypt "private.pdf" as "decrypted.pdf". You will be prompted for password)
+            - "pdftk" was once very popular, but is now starting to be obsolete as it depends on unmaintained package (libgcj)
+                - : ~> pdftk public.pdf output private.pdf user_pw PROMPT       : (Apply a paswd PROMPT to the PDF file)
+            - "Ghostscript", invoked with "gs" is widely available and well maintained but can be a little complex
+                - : ~> gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=all.pdf file1.pdf file2.pdf file3.pdf   : (combine 3 pdfs into one)
+                - : ~> gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dDOPDFMARKS=false -dFirstPage=10 -dLastPage=20 -sOutputFile=split.pdf file.pdf : (split pg 10-20 out of pdf)
 - "pdfinfo" can extract information about PDF documents
+    - : ~> pdfinfo /usr/share/doc/readme.pdf     : (collect the details of a document)
 - "flpsed" can add data to a PostScript document
 - "pdfmod" is a simple application with a Graphical Interface that you can use to modify PDF documents
+
+
