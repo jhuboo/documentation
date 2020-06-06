@@ -925,9 +925,27 @@ Chapter 16 Summary
 Chapter 17 Summary
 ------------------
 - CUPS provides two command-line interfaces: the System V and BSD
+    - : ~> Ctrl-P    : (Access printer options)
 - The CUPS interface is available at http://localhost:631
-- "lp" and "lpr" are used to submit a document to CUPS directly from the command line
-- "lpoptions" can be used to set printer options and defaults
+    - Managing the CUPS daemon:
+        - : ~> systemctl status cups
+        - : ~> systemctl [enable|disable|start|stop|restart] cups
+- "lp" (System V) and "lpr" (BSD) are used to submit a document to CUPS directly from the command line
+    - : ~> lp <filename>               : (print to default printer)
+    - : ~> lp -d printer <filename>    : (print to specific printer)
+    - : ~> program | lp                : (pipe output of program to lp)
+    - : ~> lp -n number <filename>     : (print multiple copies)
+    - "lpoptions" can be used to set printer options and defaults
+        - : ~> lpoptions -d printer    : (set the default printer) (use : ~> lpoptions help)
+    - : ~> lpq -a                      : (show the queue status)
+    - : ~> lpadmin                     : (configure printer queues)
+- Managing Print Jobs
+    - Command line print job management commands allow you to monitor the job state as well as managing the listing of all printers
+    * and checking their status, and canceling or moving print jobs to another printer
+        - : ~> lpstat -p -d            : (Get a list of available printers, along with their status)
+        - : ~> lpstat -a               : (check the status of all connected printers, including job numbers)
+        - : ~> lprm job-id             : (Cancel a print job, same as: ~> cancel job-id)
+        - : ~> lpmove job-id newprinter: (Move a print job to a new printer)
 - PostScript effectively manages scaling of fonts and vector graphics to provide quality prints
 - "enscript" is used to convert a text file to PostScript and other formats
 - Portable Document Viewer (PDF) is the standard format to exchange documents while ensuring a certain level of consistency in the way the documents are viewed
