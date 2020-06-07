@@ -1,0 +1,3243 @@
+<p>Massive thanks to the Linux Foundation for offering: LFS101x (Introduction to Linux) // Date: 02 June 2020 // LinuxFoundation (credits to them) in partnership with edX // __author__ = Anvesh G. Jhuboo // Twitter: @anveshjhuboo // Gitlab : @neuralx // Github : @neuralx7</p>
+<h1 id="chapter-1-summary">Chapter 1 Summary</h1>
+<ul>
+<li>The Linux Foudation is the umbrella organization for several open-source projects Like Linux, and its work today extends far beyond that to every layer of the software stack</li>
+<li><dl>
+<dt>The 3 major distribution families within Linux are:</dt>
+<dd><ul>
+<li>Red Hat</li>
+<li>SUSE</li>
+<li>Debian</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+<h1 id="chapter-2-summary">Chapter 2 Summary</h1>
+<ul>
+<li>Linux is heavily influenced by UNIX</li>
+<li>Linux accesses many features and services through files, and file-like objects</li>
+<li>Linux is fully multi-tasking, multi-user OS, with built-in networking and service processes known as daemons</li>
+<li>Linux is developed by collaboration of developers around the world, with Linus Torvalds at the head. Technical Skill and a desire to contribute are the only qualification for participating.</li>
+<li><dl>
+<dt>Common terms used in Linux are:</dt>
+<dd><ul>
+<li>Kernel</li>
+<li>Distribution</li>
+<li>Boot loader</li>
+<li>Service</li>
+<li>Filesystem</li>
+<li>X Window system</li>
+<li>desktop</li>
+<li>environment</li>
+<li>command line</li>
+</ul>
+</dd>
+</dl></li>
+<li>A full Linux distro consists of a kernel and several other packages for file-related operations, user management, and software package management.</li>
+</ul>
+<h1 id="chapter-3-summary">Chapter 3 Summary</h1>
+<ul>
+<li>A partition is a logical volume of the disk.</li>
+<li>A filesystem is a method of storing/finding files on a hard disk.</li>
+<li>Dividing the hard disk into partitions enables data to be grouped and separated as needed. When a failure or mistake occurs, only the data in the affected partition will be damaged while data elsewhere will likely survive.</li>
+<li>The boot process starts with the: 1) BIOS (initialization of hardware - also called POST) which triggers the : 2) Boot loader (Master Boot Record (MBR) searches for partition table then boot loader, like GRUB, for booting OS) to startup the : 3) Linux Kernel (Kernel is loaded, and takes control in RAM. It is uncompressed, then initializes any built-in device drivers) Which invokes the : 4) initramfs | initrd (Contains binary files and programs that perform all actions needed to mount proper root filesystem.) Which triggers : 5) init program (Handles mounting and pivoting over the final real root filesystem)</li>
+</ul>
+<h1 id="chapter-4-summary">Chapter 4 Summary</h1>
+<ul>
+<li>GNOME is a popular desktop environment and GUI that runs on top the Linux OS</li>
+<li>The default display manager is 'gdm': ~&gt; sudo systemctrl startstop gdm</li>
+<li><dl>
+<dt>The Display manger handles:</dt>
+<dd><ul>
+<li>Display management : (Keeps track of the displays)</li>
+<li>X server : (Provides graphical services to applications, called X Clients) | being replaced by Wayland | use :~&gt; : startx</li>
+<li>Graphical logins : (Handles graphical logins, and appropriate desktop environments after login)</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Nautilus gives three format to view files:</dt>
+<dd><ul>
+<li>Ctrl-F : (search box)</li>
+<li>Ctrl-L : (specific directory)</li>
+<li>Combine</li>
+</ul>
+</dd>
+</dl></li>
+<li>Deleting a file in Nautilus will automatically move the deleted files to the : ~&gt; : cd '.local/share/Trash/files/'</li>
+<li>Latest modified file can be viewed under : ~&gt; : var/log</li>
+<li>gedit is the default GNOME editor</li>
+</ul>
+<h1 id="chapter-5-summary">Chapter 5 Summary</h1>
+<ul>
+<li>Access gnome-tweaks using Alt + F2</li>
+<li>The X server, which provides the GUI, uses : ~&gt; : cd /etc/X11/xorg.conf (if it exists, this is only present in modern Linux distros under unusual circumstances)</li>
+<li>Linux uses Universal Coordinated Time (UTC) for its own internal time keeping, (Also look for CMOS bios)</li>
+<li>Network Time Protocal (NTP) is hte most reliable protocol for setting the local time by consulting internet servers. :~&gt; : cd /etc/ntp.conf</li>
+<li>Network Manager handles network configuration files, and makes it easier and more uniform across distros.</li>
+<li>For Wired connections, the hardware interface and signal are automatically detected and the Network Manager sets the network settings using DHCP For static configurations that do not use DHCP, manual setup can be done easily through Network Manager. The Media Access Control (MAC) is the unique hex number of the network card. For wireless networks, you can view the list of available wireless networks and see which one you are connected to using Network Manager. VPN connections are also supported, including native IPSec, Cisco OpenConnect, Microsoft PPTP, OpenVPN</li>
+<li><dl>
+<dt>For the Debian family system, the package management system is:</dt>
+<dd><ul>
+<li>dpkg : (Debian Package) - low level</li>
+<li>apt : (Advanced Package Tool) - high level</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>For the Red Hat family system, it is:</dt>
+<dd><ul>
+<li>rpm : (Red Hat Package Manager) - low level</li>
+<li>yum | dnf | zypper | PackageKit - high level</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>For OpenSUSE, it is:</dt>
+<dd><ul>
+<li>rpm</li>
+<li>YaST</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+<h1 id="chapter-6-summary">Chapter 6 Summary</h1>
+<ul>
+<li>Linux supports several web browsers including Firefox, Chrome, Epiphany, Brave, w3m, lynx, etc</li>
+<li>Linux supports graphical email clients like Thunderbird, Evolution, Claws Mail, and text mode email clients like Mutt, and mail.</li>
+<li>Linux systems also support Filezilla, XChat, Pidgin, etc</li>
+<li>Linux offers LibreOffice</li>
+<li>Linux offers GNU Image Manipulation Program (GIMP) which is like Photoshop</li>
+<li>Linux offers suits of development applications and tools, like compilers and debuggers</li>
+<li>Linux offers sound players like Amarok, Audacity, Rhythmbos, and Spotify among others</li>
+<li>Linux offers movie players including VLC, Plex, MPlayer, Xine, Totem, etc</li>
+<li>Linux offers movie editors including Kino, Cinepaint, Blender, etc</li>
+<li>Other graphical utilities includ eog, Inkscape, convert, Scribus, etc</li>
+</ul>
+<h1 id="chapter-7-summary">Chapter 7 Summary</h1>
+<ul>
+<li>Virtual Terminals (VT) are console sessions that use the entire display and keyboard outside of a graphical environment. They are considered "virtual" because, although there can be multiple active terminals, only one terminal remains visible at a time. One VT is reserved for the graphical enviroment. (Ubuntu uses VT 7) The VTs can be accessed using : ~&gt; : Ctrl-Alt-F[2-7] To go back to your home VT: ~&gt; : Ctrl-Alt-F2</li>
+<li>A terminal emulator program on a graphical desktop works by emulating a terminal within a window on the desktop. Access the gnome-terminal by doing : ~&gt; : Alt-F2 and then type 'gnome-terminal' Other terminal programs include: xterm, rxvt, konsole (default on KDE), terminator</li>
+<li><dl>
+<dt>The Graphical desktop can be switched on and off with systemctl utility or telinit:</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; sudo systemctl stop gdm</dt>
+<dd><p>(or sudo telinit 3)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; sudo systemctl start|restart gdm</dt>
+<dd><p>(or sudo telinit 5)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Basic Command line utilities:</dt>
+<dd><ul>
+<li>cat : (used to type out a file or combine files)</li>
+<li>tac : (used to lokk at a file backwards, starting with last line)</li>
+<li>head : (used to show the first few lines of a file, default -n 10)</li>
+<li>tail : (used to show the last few lines of a file, changed be flagged with -n 15)</li>
+<li>less : (same as cat, but with scrolling, and search options with / or ?)</li>
+<li>man : (used to view documentation)</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Most input lines entered at the shell prompt has 3 basic elements:</dt>
+<dd><ul>
+<li>Command</li>
+<li>Options</li>
+<li>Arguments</li>
+</ul>
+</dd>
+</dl></li>
+<li>Sudo (stands for Superuser do) allows users to run programs using the security priviledges of root, or another user</li>
+<li><dl>
+<dt>Setting up and running sudo:</dt>
+<dd><ul>
+<li>: ~&gt; su (Enter)</li>
+<li><dl>
+<dt>~&gt; su Password</dt>
+<dd><p>#</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; echo "myusername ALL=(ALL) ALL" &gt; /etc/sudoers.d/myusername</dt>
+<dd><p>(Create config file in /etc/sudoers.d)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; chmod 440 /etc/sudoers.d/myusername</dt>
+<dd><p>(Change permissions for smooth operations)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Loggin In and Out</dt>
+<dd><ul>
+<li>An available text terminal will prompt for a username (with string login:) and password</li>
+<li>Nothing is displayed on the terminal when typing in the password to prevent others from seeing it</li>
+<li>You can also connect and log into remote systems by using SSH (Secure Shell)</li>
+<li>To do so, type ~&gt; ssh <a href="mailto:example@remote-server.com">example@remote-server.com</a></li>
+<li>SSH connects to the remote machine, giving a command line terminal window, verifying identity using either password or crytographic key</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Shutdown</dt>
+<dd><ul>
+<li>: ~&gt; sudo shutdown -h 10:00 "Shutting down for scheduled maintance"</li>
+<li><dl>
+<dt>~&gt; tldr shutdown</dt>
+<dd><p>(for more commands)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Locating Applications</dt>
+<dd><ul>
+<li>which diff ~&gt; /usr/bin/diff : ('which' locates exact source, 'whereis' locates source and man files, broader range of sys dir)</li>
+<li>whereis diff ~&gt; diff: /usr/bin/diff /usr/share/man/man1/diff.1.gz /usr/share/man/man1p/diff.1p.gz</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Accessing directories</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; pwd</dt>
+<dd><p>(Displays present working directory)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cd ~</dt>
+<dd><p>(Changes to home directory, same as only : ~&gt; cd)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cd ..</dt>
+<dd><p>(Change to parent directory ..)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cd -</dt>
+<dd><p>(Change to previous directory (- (minus))</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; pushd dir1</dt>
+<dd><p>(For remembering more than one directory, pushd pushes the pwd onto a stack)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; popd dir1</dt>
+<dd><p>("popd" can then used to retrieve the directory pushd on the stack) The list of dirs : ~&gt; dirs</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Paths</dt>
+<dd><ul>
+<li>Absolute pathname : (begin with root dir and follows the tree, branch by branch until it reaches desired dir or file) Always start with: /</li>
+<li><dl>
+<dt>Relative pathname : (starts from present working directory) Never starts with: /</dt>
+<dd><ul>
+<li>ie : ~&gt; cd /usr/bin : (Absolute path)</li>
+<li>ie : ~&gt; cd ../../usr/bin : (Relative path)</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Exploring Filesytem</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; cd /</dt>
+<dd><p>(Changes your current dir to the root (/) dir)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; ls</dt>
+<dd><p>(list contents of pwd)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; ls -a</dt>
+<dd><p>(list all files, including hidden files and directories)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; tree</dt>
+<dd><p>Displays a tree view of the filesystem</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Symbolic Links</dt>
+<dd><ul>
+<li><dl>
+<dt>Symbols links (hard and soft links) are extremely useful in Linux, for creating shortcuts and saving diskspace</dt>
+<dd><ul>
+<li>ln file1 file2 : (Creates a hard link)</li>
+<li>ln -s file1 file3 : (Creates a soft link)</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Touch</dt>
+<dd><ul>
+<li>Touch is often used to access, change and "modify times" of files. By default, it creates a file's timestamp to match current time.</li>
+<li>: ~&gt; touch &lt;filename&gt;</li>
+<li>: ~&gt; touch -t 202012312242 myfile (sets my file datestamp to 12/31/2020, 22:42</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Make and remove directory</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; mkdir exampledir</dt>
+<dd><p>(Creates exampledir with pwd as parent dir) Use -p flag to create recursively</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; rmdir exampledir</dt>
+<dd><p>(Will only work if "exampledir" is empty)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; rm -rf exampledir</dt>
+<dd><p>(Remove recursively)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Moving, renaming, removing file</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; mv</dt>
+<dd><p>(rename or move a file to another location, while possible changing its name at the same time)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; rm</dt>
+<dd><p>(remove a file) -f flag for forcefully removing it, -i flag for interatively removing it</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Command Line Prompt</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; echo $PS1</dt>
+<dd><p>$ (Consider customzing PS1 prompt for adding functionality)</p>
+</dd>
+</dl></li>
+<li>: ~&gt; PS1 = "%n $(shrink_path -f)"</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Standard File Streams</dt>
+<dd><ul>
+<li><dl>
+<dt>When commands are executed, there are 3 standard file streams always open for use:</dt>
+<dd><ul>
+<li>stdin 0 keyboard</li>
+<li>stdout 1 terminal</li>
+<li>stderr 2 log file</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>IO Redirection</dt>
+<dd><ul>
+<li><dl>
+<dt>Through the shell command, we can redirect the three standard file streams:</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; do_something &lt; input-file</dt>
+<dd><p>(Send (output of) the input file to (the input of) do_something)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; do_something &gt; output-file</dt>
+<dd><p>(Send (output of) do_something to (the input of) output-file)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; do_something 2&gt; error-file</dt>
+<dd><p>(Send (stderr of) do_something to (the input of) error-file</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; do_something &gt; all-output-files 2&gt;&amp;1</dt>
+<dd><p>(Send anything written to a file descriptor 2(stderr) to the same place as file descriptor 1</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; do_something &gt;&amp; all-outpout-file</dt>
+<dd><p>(Easier syntax of above)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Pipes</dt>
+<dd><ul>
+<li>The Linux philosophy is to have many simple and short commands cooperate togethe to produce quite complex results.</li>
+<li>To do so, we use pipes. You can pipe the output of one command or program into another as its input.</li>
+<li>: ~&gt; command1 | command2 | command3</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Searching for files</dt>
+<dd><ul>
+<li><dl>
+<dt>Efficiently searching for files in Linux greatly enhaces productivity:</dt>
+<dd><ul>
+<li>: ~&gt; locate ...</li>
+<li>: ~&gt; find ...</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The "locate" utility program takes advantage of "updatedb" which is a previously constructed database of files and directories.</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; locate zip | grep bin</dt>
+<dd><p>(grep is used to print only the lines with the specified strings, otherwise we would get a long list)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; updatedb</dt>
+<dd><p>(The database can be updated at any time fro the command line as root user)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Wildcard and Matching File names</dt>
+<dd><ul>
+<li><dl>
+<dt>Simple answer</dt>
+<dd><p>use regex</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The "find" is an extremy useful utility program for a Linux sys admin. It recurses down the filesystem tree for dir(s) and locates files with matched conditions.</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; find /usr -name gcc</dt>
+<dd><p>(searching for files and directories named gcc)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; find /usr -type d -name gcc</dt>
+<dd><p>(searching only for directories named gcc)</p>
+</dd>
+</dl></li>
+</ul>
+- : ~&gt; find /usr -type f -name gcc : (searching only for files named gcc) Adv "find" options
+<ul>
+<li><dl>
+<dt>~&gt; find -name "*.swp" -exec rm {} ';'</dt>
+<dd><p>(find and removes all files that end in ".swp"). Use -ok instead of -exec for interactive removal.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; find / -ctime 3</dt>
+<dd><p>(find files changed in the last 3 days) , options include -atime, -mtime , number (n) exact | -n | +n</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; find / -cmin -120</dt>
+<dd><p>(find files changed in the last &lt;120 mins) , options include -amin, -mmin , number (n) exact | -n | +n</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; find / -size 0</dt>
+<dd><p>(find files of size 0 bytes), can specify bytes(c), kilobytes(k), megabytes(M), gigabytes(G)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; find / -size +10M -exec cmd {} ';'</dt>
+<dd><p>(find files greater than 10 MB in size, and run a command on those files)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+<h1 id="chapter-8-summary">Chapter 8 Summary</h1>
+<ul>
+<li><dl>
+<dt>The main sources of Linux documentation are the:</dt>
+<dd><ul>
+<li><dl>
+<dt>man pages</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; man -f</dt>
+<dd><p>(same as : ~&gt; whatis)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; man -k</dt>
+<dd><p>(same as : ~&gt; apropos)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; man -a</dt>
+<dd><p>(display all pages in all chapters, one after the other), pipe with head of more succint output</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>GNU info</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; info</dt>
+<dd><p>(up arrows, q to quit, h for help, Enter to select menu item, n -&gt; next node, p -&gt; previous node, u -&gt; up node)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>help</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; man --help</dt>
+<dd><p>(same as : ~&gt; man -h), short description and quick reference, faster than "man" or "info"</p>
+</dd>
+</dl></li>
+<li>~&gt; yelp man:cat : (brings up the Graphical help systems)</li>
+</ul>
+</dd>
+</dl></li>
+<li>online documentation sources (like Gentoo handbook, Ubuntu Documentation, etc)</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+<h1 id="chapter-9-summary">Chapter 9 Summary</h1>
+<ul>
+<li>Processes are used to perform various task on the system</li>
+<li>Processes can be single-threaded or multi-threaded</li>
+<li><dl>
+<dt>Processed can be of different types, such as interative or non-interactive</dt>
+<dd><ul>
+<li>Process type: interactive | batch | daemons | threads | kernel threads</li>
+<li><dl>
+<dt>The "scheduler" is a critical kernel function that constantly shifts processes on and off the CPU, sharing time to relative priority</dt>
+<dd><ul>
+<li>When a process is in a "running" state, it means it is either currently executing instructions on a CPU, or waiting for a time slice for execution</li>
+<li>All processes in this state reside on what is called a run queue; on a computer with multiple core, there is a run queue on each</li>
+<li>When processes go into a "sleep" state, they are said to be sitting on a wait queue (Can also go into zombie state)</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Every process has a unique identifier (PID) to enable the OS to keep track of it:</dt>
+<dd><ul>
+<li>PID : (Unique Process ID number)</li>
+<li>PPID : (Parent Process ID), Process (Parent) that started this process, if parent dies, the PPID will refer to adoptive parent, which is "kthreadd" with PPID=2</li>
+<li>TID : (Thread ID number), same as PID for single-threaded process; for multi-threaded process, each thread shares the same PID, but has a unique TID</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Terminating process</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; kill -SIGKILL &lt;pid&gt;</dt>
+<dd><p>Some -SIGKILL and -9 are the same</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; kill -9 &lt;pid&gt;</dt>
+<dd><p>You can only kill your own processes, those belonging to another user are off limits, unless root</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The nice value, or niceness, can be used to set priority (-20 highest priority to +19 lowest priority)</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; ps lf</dt>
+<dd><p>(display process with priority)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; renice +5 &lt;pid&gt;</dt>
+<dd><p>(increase the niceness lowers the priority)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; sudo renice -5 &lt;pid&gt;</dt>
+<dd><p>(only root can increase the priority by decreasing niceness)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"ps" provides information about the current running processes</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; ps -ef</dt>
+<dd><p>(Displays all the processes in the system in full detail)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; ps -eLf</dt>
+<dd><p>("" with one line information of every thread - one process can contain multiple threads)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; ps aux</dt>
+<dd><p>(Display all process for all users), consider piping or grep for more succint outputs</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; ps axo stat,pid,pcpu</dt>
+<dd><p>("axo" allows you to specify which attributes you want to view)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; pstree</dt>
+<dd><p>(Displays the processes running in the form of a tree)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li>"top" gives constant real-time updates about the overall system performance, as well as info about processes running on the system</li>
+<li><dl>
+<dt>Load average indicates the amount of utilization the system is under at particular times</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; w</dt>
+<dd><p>0.45 0.17 0.12 : last-minute-utilization 5-min-utilization 15-min-utilization</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; top</dt>
+<dd>(Real time utilization)
+<ul>
+<li>top 1st line: how long system has been up, how man user logged on, load average</li>
+<li>top 2nd line: total number of processes, number of running, sleeping, stopped, and zombie processes</li>
+<li>top 3rd line: cpu time divided between users (us) and kernel (sy).</li>
+<li>Also %user-jobs niceness (ni), idle mode(id), jobs waiting(wa), hardware &amp; software interrupts (hi, si). Steal time for VMs (st)</li>
+<li>top 4th line: Physical Memory (RAM)</li>
+<li>top 5th line: Swap Space</li>
+</ul>
+<p>- top Output : PID, USER, PR, NI, VIRT, RES, SHR, S, %CPU, %MEM, TIME+, COMMAND Commands within top: - : ~&gt; t : (Toggle summary info rows 2 &amp; 3) - : ~&gt; m : (Toggle memory info rows 4 &amp; 5) - : ~&gt; A : (Sort process list by top resource consumers) - : ~&gt; r : (Renice (change priority) of process(es)) - : ~&gt; k : (Kill a specific process) - : ~&gt; f : (Enter top config screen) - : ~&gt; o : (Interactively select new sort order in process list)</p>
+</dd>
+</dl></li>
+<li>: ~&gt; uptime</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Linux supports backgrounds and foreground processing for a job</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; sleep 100 &amp;</dt>
+<dd><p>(Append '&amp;' to another command to make it run in the background)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; fg</dt>
+<dd><p>(Bring job to foreground)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; bg</dt>
+<dd><p>(Push job to background) Use Ctrl-Z to suspend, and Ctrl-C to terminate foregrond jobs</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; jobs -l</dt>
+<dd><p>(Displays all jobs running in the background, -l flag adds PID)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"at" executes any non-interactive command at a specified time</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; at now + 2 days</dt>
+<dd><p>(Specifies that the task needs to be completed 2 days from now)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>at&gt; cat file.txt</dt>
+<dd><p>(Specifies task to be performed, note that PS1 changed)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>at&gt; &lt;EOT&gt;</dt>
+<dd><p>(Ctrl-D to end task)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; atq</dt>
+<dd><p>(Back to normal terminal, and use atq to view queued jobs)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"cron" is used to schedule tasks that need to be performed at regualar intervals</dt>
+<dd><ul>
+<li>Each line of a crontab file contain 5 + 1{command} fields</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>{command}</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>- Min Hr Day Mth WeekDay {Command} : [0-59]Min [0-23]Hr [1-31]Day [1-12]Mth [0-6]WeekDay,(0=Sunday) Example: - create a simple task every day at 11 AM. - : ~&gt; echo "0 11 * * * /tmp/myjob.sh" &gt; mycrontab : (Create a file "mycrontab" with the fields) - : ~&gt; echo "#!/bin/bash" &gt; /tmp/myjob.sh : (Put shebang into /tmp/myjob.sh) * ~&gt; echo "echo Hello I am running $0 at $(date) &gt;&gt; /tmp/myjob.sh : (Append to /tmp/myjob.sh) - : ~&gt; chmod +x /tmp/myjob.sh : (Make it executable) - : ~&gt; crontab mycrontab : (Put it into crontab) - : ~&gt; crontab -l : (verify it was loaded), or : ~&gt; cat /var/spool/cron/myusername - : ~&gt; crontab -r : (Remove cronjob), if machine is NOT up at 11 AM, "anacron" will run the job another time.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>sleep</dt>
+<dd><ul>
+<li>sleep NUMBER[suffix] : (s for seconds, m for minutes, h for hours, d for days)</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+<h1 id="chapter-10-summary">Chapter 10 Summary</h1>
+<ul>
+<li><dl>
+<dt>The filesystem starts at the root directory (/)</dt>
+<dd><ul>
+<li><dl>
+<dt>Linux supports several native filesystem types like:</dt>
+<dd><ul>
+<li>ext3, ext4, squashfs, btrfs</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>There are also implementations of filesystems used on other os, such as:</dt>
+<dd><ul>
+<li>Windows (ntfs, vfat)</li>
+<li>SGI (xfs)</li>
+<li>IBM (jfs)</li>
+<li>MacOS (hfs, hfs+)</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The fileystem hierarchy standard (FHS) provides Linux developers and system admins a standard directory structure for the filesystem</dt>
+<dd><ul>
+<li>In Linux (and Unix-like OS), "everything is a file" or treated as such</li>
+<li>This means whether we are dealing with data files, docs or devices, we can interact with them throught the same kind of I/O operations</li>
+</ul>
+</dd>
+</dl></li>
+<li>Partitions help to segregate files according to usage, ownership, and type</li>
+<li><dl>
+<dt>Filesystems can be mounted anywhere on the main filesystem tree at a mount point. Automatic filesystem mounting can be set up by editing /etc/fstab</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; sudo mount /dev/sda5 /home</dt>
+<dd><p>(mount a filesystem somewhere within the filesystem tree), basic arguments are "device node" and "mount point"</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; sudo umount /home</dt>
+<dd><p>(unmount the partition - command is umount, not unmount!)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; df -Th</dt>
+<dd><p>(diplays information about mounted filesystems, including filesystem type, and usage statistics)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>NFS (Network File System) is useful for sharing files and data through the network systems</dt>
+<dd><ul>
+<li>Many system admins mount remote users' home directories on a server in order to give them access to the same files and config files across multiple client systems.</li>
+<li><dl>
+<dt>On the server machine, NFS uses "daemons" (built-in networking and service processes in Linux) and other system servers are started by typing:</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; sudo systemctl start nfs</dt>
+<dd><p>(The file : ~&gt; cd /etc/exports contains dirs and permission that a host is willing to share with other systems over NFS.)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /projects *.example.com(rw)</dt>
+<dd><p>(This allows the dir /projects to be mounted using NFS with read &amp; write (rw) permissions and shared with other hosts in the example.com domain)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; exportfs -av</dt>
+<dd><p>(Notify Linux abt the directories that you are allowing to be remotely mounted using NFS) can also do : ~&gt; sudo systemctrl restart nfs</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; sudo systemctl enable nfs</dt>
+<dd><p>(Ensure that the NFS service starts whenever the system is booted)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>On the client machine, it is desired to have the remote filesystem automatically mounted upon system boot</dt>
+<dd><ul>
+<li>: ~&gt; servername:/projects /mnt/nfs/projects nfs defaults 0 0 : (an entry in the client's : ~&gt; cd /etc/fstab needs to be modified for this default behaviour)</li>
+<li>: ~&gt; sudo mount servername:/projects /mnt/nfs/projects : (you can also mount the remote filesystem without a reboot or as a one-time mount directly by using "mount")</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Filesystem like /proc are called pseudo filesystems because they exist only in memory</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; mount</dt>
+<dd><p>(show all mounted filesystems)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cat /etc/fstab</dt>
+<dd><p>(show filesystems, excluding special filesystems required for normal operation, subset of "mount")</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cat /proc/mounts</dt>
+<dd><p>(This is how the utility gets its information, same as "mount" more or less)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>/root is the home directory of the root user</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; /bin</dt>
+<dd><p>(contains executable binaries, essentail commands used to boot the system or in single user mode, and essential commands like "cat", "cp", "ls", "mv", "ps", "rm")</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /sbin</dt>
+<dd><p>(essential binaries related to system admin, such as "fsck" and "ip") (Symbolically linked together:: /sbin -&gt; /usr/sbin and:: /bin -&gt; /usr/bin)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /proc</dt>
+<dd><p>(contains virtual files, that exist in memory, that permit viewing constantly changing kernel data) (Has runtime info like cpuinfo, interrupts, partitions, sys dir...)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /dev</dt>
+<dd><p>(contains device nodes, used by most hardware and software devices, except for network devices) (contains /sda1(first partition), /lp1(second printer) /random(rand nums))</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /etc</dt>
+<dd><p>(home for system config files) (ie, /passwd /shadow /group for managing user account are all found there)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /lib /lib64</dt>
+<dd><p>(contain libraries for essential programs in /bin &amp;&amp; /sbin) (Also are symbolically linked to /usr/lib) (Kernel modules are located in: ~&gt; /lib/modules/&lt;kernel-version-no&gt;)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /run /media /mnt</dt>
+<dd><p>(used to temporarily mount filesystems, so called "loopback" filesystem which are files that pretend to be partitions)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /opt</dt>
+<dd><p>(optinal application software packages)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /sys</dt>
+<dd><p>(virtual pseudo-filesystem giving information about the system and the hardware, can be used to alter sys parameters and for debugging)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /srv</dt>
+<dd><p>(site-specifc data served up by the system, seldom used)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /tmp</dt>
+<dd><p>(temporary files, on some distros erased across a reboot, or may actually be ramdisk in memory)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /usr</dt>
+<dd><p>(multi-usr applications, utilities and data)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>/var may be put in its own filesystem so that growth can be contained and not fatally affect the system</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; /var/log</dt>
+<dd><p>(system log files)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /var/lib</dt>
+<dd><p>(packages and database files)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /var/spool</dt>
+<dd><p>(print queues)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /var/temp</dt>
+<dd><p>(temporary files)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>/boot contains the basic files needed to boot the system</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; /vimlinuz</dt>
+<dd><p>(Compressed linux kernel required for booting)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /initrd</dt>
+<dd><p>(initial ram filesystem, required for booting) - sometimes called ~&gt; initramfs</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /config</dt>
+<dd><p>(kernel configuration file, used for debugging and bookkeeping)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /System.map</dt>
+<dd><p>(Kernel symbol table, only used for debugging) [/grub is also found under /boot]</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>/usr theoritically contains non-essential programs (not needed to initially boot system) and scripts and has some of these:</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; /usr/include</dt>
+<dd><p>(header file used to compile applications)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /usr/lib</dt>
+<dd><p>(libraries for programs in /usr/bin and /usr/sbin)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /usr/lib64</dt>
+<dd><p>(64-bit libraries "")</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /usr/sbin</dt>
+<dd><p>(non-essential system binaries, such as system daemons)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /usr/share</dt>
+<dd><p>(shared data used by applications, generally architecture-independent)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /usr/src</dt>
+<dd><p>(source code, usually for linux kernel)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /usr/local</dt>
+<dd><p>(data and program specific to the local machine, sub-dir include /bin /sbin /lib /share /include, etc)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /usr/bin</dt>
+<dd><p>(primary directory of executable commands on the system)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"diff" is used to compare files and directories</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; diff file1 file2</dt>
+<dd><p>(flags include -c, -r (recursive for dirs), -i (ignorecase), -w(ignore tab/spces), -q (quiet, only report differences), use "diff3" to compared 3 files</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cmp file1 file2</dt>
+<dd><p>(use "cmp" to compare binary files, not "diff")</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"patch" is very useful in Linux. Modifications to source code, and config files are distributed with patch files, contain the deltas or changes from old to new file vesions.</dt>
+<dd><ul>
+<li>: ~&gt; patch -p1 &lt; patchfile</li>
+<li><dl>
+<dt>~&gt; patch originalfile patchfile</dt>
+<dd><p>(make a patchfile using : ~&gt; diff -Nur file1 file2 &gt; patchfile) Then you can apply it</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>File extensions in Linux do not necessariy mean that a file is of a certain type (This is very different from Windows!)</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; file &lt;filename&gt;</dt>
+<dd><p>(use the "file" utility to find information and the real nature of the files)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"cp" is used to copy files on a local machine, while "rsync" is used to copy files from one machine to another, as well as synchronize contents</dt>
+<dd><ul>
+<li>Rsync is much faster than "cp" because it checks if the file being copied already exists, and avoid unnecessary modifiations, and only copies part of the files that are changed.</li>
+<li><dl>
+<dt>Rsync is very efficient because only differences are transmitted over the network, one can sync the destination tree with the origin using -r</dt>
+<dd><ul>
+<li>: ~&gt; rsync -r project-X archive-machine:archives/project-X : (Always test with --dry-run option first to ensure you get the results you want)</li>
+<li>~&gt; rsync sourcefile destinationfile</li>
+<li>~&gt; rsync --progress -arvxH --delete sourcedir destdir</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"gzip", "bzip2", "xz", and "zip" are used to compress files</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; gzip</dt>
+<dd><p>Most frequently used Linux compression utility : ~&gt; gzip * : Compresseses all files in the pwd, each file is compressed and renamed a .gz extension : ~&gt; gzip -r testX : Compresses all files in the "testX" dir, along recursively with all files in all dirs under "testX" : ~&gt; gunzip foo : De-compresses foo found in the file foo.gz, same as : ~&gt; gzip -d foo</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; bzip2</dt>
+<dd><p>Produces files significantly smaller than those produced by gzip : ~&gt; bzip2 * : Compresses all files in pwd, and replaces each one with a .bz2 extension : ~&gt; bunzip2 *.bz2 : Decompress all files with an extension .bz2 in pwd, same as : ~&gt; bzip2 -d</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; xz</dt>
+<dd><p>The most space-efficient compression utility used in Linux : ~&gt; xz * : Compresses all files in pwd, and replaces each one with a .xz extension : ~&gt; xz foo : Compresses "foo" into "foo.xz" with default compression level (-6) and remoes foo if compression succeeds : ~&gt; xz -dk bar.xz : Decompresses "bar.xz" into "bar" and does not remove "bar.xz" even if decompression is successful : ~&gt; xz -d *.xz : Decompresses the files compressed using "xz"</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; zip</dt>
+<dd><p>Is often used to examine and decompress archives from other OS : ~&gt; zip bkup * : Compress all the files in pwd, and places them under "backup.zip" : ~&gt; unzip bkup.zip : Extracts all files in "backup.zip" and places them in the current directory</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"tar" allows you to create or extract files from an archive file, often called a tarball.</dt>
+<dd><dl>
+<dt>~&gt; tar xvf mydir.tar</dt>
+<dd><p>Extract all the files in "mydir.tar" into "mydir" directory</p>
+</dd>
+<dt>~&gt; tar zcvf mydir.tar.gz mydir</dt>
+<dd><p>Create the archive and compress with gzip</p>
+</dd>
+<dt>~&gt; tar jcvf mydir.tar.bz2 mydir</dt>
+<dd><p>create the archive and compress with bz2</p>
+</dd>
+<dt>~&gt; tar Jcvf mydir.tar.xz mydir</dt>
+<dd><p>create the archive and comprss with xz</p>
+</dd>
+<dt>~&gt; tar xvf mydir.tar.gz</dt>
+<dd><p>extract all the files in "mydir.tar.gz" into the "mydir" directory. Note you should NOT tell tar it is in gzip format!</p>
+</dd>
+</dl>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"dd" is used to make large exact copies, even of entire disk partitions, efficiently</dt>
+<dd><p>: ~&gt; tldr dd</p>
+</dd>
+</dl></li>
+</ul>
+<h1 id="chapter-11-summary">Chapter 11 Summary</h1>
+<ul>
+<li>The holy war of test editors</li>
+<li>Use Vim, period.</li>
+</ul>
+<h1 id="chapter-12-summary">Chapter 12 Summary</h1>
+<ul>
+<li><dl>
+<dt>Linux is a multi-user system</dt>
+<dd><ul>
+<li>All Linux users are assigned a unique user id (uid), which is just an integer. Normal users start at uid of 1000 or greater.</li>
+<li>Linux uses groups for organizing users. Control of groups is administered through: ~&gt; /etc/group</li>
+<li>Users also have one or more group IDS (gid), including a default one which is the same as the uid</li>
+<li><dl>
+<dt>The numbers are associated with names throught the files:</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; /etc/passwd</dt>
+<dd><p>( ie, george:x:1002:1002:George Smith:/home/george:/bin/zsh )</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /etc/group</dt>
+<dd><p>( ie, george:x:1002 )</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Adding and Removing Users</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; sudo useradd username1</dt>
+<dd><p>(: ~&gt; sudo useradd -m -c "Elizer Jio" -s /bin/bash ejio ) : (We can now use: ~&gt; adduser , more modern)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>(</dt>
+<dd><p>~&gt; sudo passwd ejio )</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>(</dt>
+<dd><p>~&gt; grep ejio /etc/passwd /etc/group )</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The home directory for newuser "ejio' inherits from</dt>
+<dd><p>~&gt;ls -la /etc/skel )</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; sudo userdel username1</dt>
+<dd><p>(: ~&gt; sudo userdel -r ejio )</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Adding and Removing Groups</dt>
+<dd><ul>
+<li>: ~&gt; sudo /usr/sbin/groupadd anewgroup</li>
+</ul>
+<p>- : ~&gt; sudo /usr/sbin/groupdel anewgroup Adding a user to an already existing group is done with "usermod" - : ~&gt; groups user1 - : ~&gt; sudo /usr/sbin/usermod -a -G anewgroup user1 - : ~&gt; groups user1</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li>Use the "who" command to find the currently logged-in users, use -a flag for all info</li>
+<li><dl>
+<dt>To find current user ID, use the "whoami" command</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; id</dt>
+<dd><p>(gives information about the current user)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The "root" account has full access to the system, it is never sensible to grant full root access to a user</dt>
+<dd><ul>
+<li>External attacks often contain tricks to elevate to the root account</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"sudo" is used to assign root priviledges to a regular user on a temporary basis</dt>
+<dd><ul>
+<li>: ~&gt; sudo &lt;command&gt;</li>
+<li><dl>
+<dt>~&gt; /etc/sudoers &amp;&amp; etc/sudoers.d</dt>
+<dd><p>(contains "sudo" config files)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The shell program (bash) uses multiple starup files to create the user environment. Global settings are found at : ~&gt; cd /etc/profile</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; ~/.bash_profile || ~/.bashrc</dt>
+<dd><p>("~/.bashrc" is triggered and if not then the others are triggerd in order, stopped when first is found)</p>
+</dd>
+</dl></li>
+<li>: ~&gt; ~/.bash_login</li>
+<li>: ~&gt; ~/.profile</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Advantages of startup files are:</dt>
+<dd><ul>
+<li>Customizing user prompt (PS1)</li>
+<li>set user's terminal type (bash or zsh)</li>
+<li><dl>
+<dt>set command-line shortcuts and aliases</dt>
+<dd><ul>
+<li>: ~&gt; alias +='pushd .'</li>
+<li>: ~&gt; alias -='popd'</li>
+<li>: ~&gt; alias ..='cd ..'</li>
+<li>: ~&gt; alias ...='cd ../..'</li>
+<li>: ~&gt; alias beep='echo -en "00?"'</li>
+<li>: ~&gt; alias md='mkdir -p'</li>
+<li>: ~&gt; alias o='less'</li>
+<li>: ~&gt; alias rd='rmdir'</li>
+<li>: ~&gt; alias python='python3'</li>
+<li>: ~&gt; alias git='git --no-pager'</li>
+<li>: ~&gt; alias grep='grep --color=auto'</li>
+<li>: ~&gt; alias egrep='egrep --color=auto'</li>
+<li>: ~&gt; alias fgrep='fgrep --color=auto'</li>
+<li>: ~&gt; alias you='if test "$EUID" = 0 ; then /sbin/yast2 online_update ; else su ~ -c "/sbin/yast2 online_update" ; fi'</li>
+</ul>
+</dd>
+</dl></li>
+<li>set the default text editor, etc</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>An environment variable is a character string that contains data used by one or more applications.</dt>
+<dd><ul>
+<li>The built-in shell variables can be customized to suit your requirements.</li>
+<li>: ~&gt; echo $SHELL</li>
+<li><dl>
+<dt>~&gt; export VARIABLE=value</dt>
+<dd><p>(same as: ~&gt; VARIABLE=value; export VARIABLE )</p>
+</dd>
+</dl></li>
+<li>: (Edit ~/.bashrc or ~/.zshrc and add export VARIABLE=value, then source ~/.bashrc)</li>
+<li>: ~&gt; SDIRS=s_0* KROOT=/lib/modules/$(uname -r)/build make modules_install</li>
+<li>: ( This feeds the values of "SDIRS" and "KROOT" environment variables to the command "make modules_install" )</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The PATH Variable</dt>
+<dd><ul>
+<li>PATH is an ordered list of difrectories (the path) which is scanned when a command is given to find the appriopriate program or script to run.</li>
+<li>Each directory in the path is separated by colons (:)</li>
+<li><dl>
+<dt>A null (empty) directory name (or ./) indicates the current directory at any give time.</dt>
+<dd><ul>
+<li>:path:path2 : (there is a null directory before the first colon (:) )</li>
+<li>path1::path2 : (there is a null directory between path1 and path2)</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>To prefix a private bin to your path:</dt>
+<dd><ul>
+<li>~&gt; export PATH=$HOME/bin:$PATH</li>
+<li>~&gt; echo $PATH</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Adding /tmp to Your PATH</dt>
+<dd><ul>
+<li>~&gt; echo "echo HELLO, a phony ls program." &gt; /tmp/ls</li>
+<li>~&gt; chmod +x /tmp/ls</li>
+<li>~&gt; OLDPATH=$PATH</li>
+<li>~&gt; PATH=$PATH:/tmp : (append to PATH)</li>
+<li>~&gt; ls /usr : (execute)</li>
+<li>~&gt; PATH=/tmp:$PATH : (prepend to PATH) (Note: very dangerous, and is a trival way to insert a "Trojan Horse" program.)</li>
+<li>~&gt; ls /usr : (execute)</li>
+<li>~&gt; PATH=$OLDPATH</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The PS1 Variable and the Terminal</dt>
+<dd><ul>
+<li>The PS1 is the primary prompt variable which controls what your command line prompt looks like.</li>
+<li><dl>
+<dt>The following characters can be included in PS1:</dt>
+<dd><ul>
+<li>u -username</li>
+<li>h -hostname</li>
+<li>w -current working directory</li>
+<li>! -history number of this command</li>
+<li>d -Date</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>They must be surrounded by single quotes when used:</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; echo $PS1</dt>
+<dd><p>(mine is customized to be : ~&gt; '%n $(shrink_path -f)&gt;'</p>
+</dd>
+</dl></li>
+<li>: ~&gt; export PS1='u@h:w$ '</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"history" recalls a list of previous commands, which can be edited and recycled</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; cd ~/.bash_history</dt>
+<dd><p>(or stored in : ~&gt; ~/.zsh_history )</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; set | grep HIST</dt>
+<dd><p>(view details)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; !!</dt>
+<dd><p>(execute previous command, pronounced bang-bang)</p>
+</dd>
+</dl></li>
+</ul>
+- : ~&gt; CTRL-R : (Search previously used commands) or use Up/Down arrow keys Adv
+<ul>
+<li><dl>
+<dt>~&gt; !</dt>
+<dd><p>(Start history substitution)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; !$</dt>
+<dd><p>(Refer to the last argument in a line)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; !n</dt>
+<dd><p>(Refer to the n^th command line)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; !string</dt>
+<dd><p>(Refer to the most recent command starting with "string")</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>In Linux, various keyboard shortcuts are used at the terminal instead of long actual commands</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; Ctrl-L</dt>
+<dd><p>(Clear screen)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; Ctrl-D</dt>
+<dd><p>(Exit current shell)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; Ctrl-Z</dt>
+<dd><p>(Puts the current process into suspended background)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; Ctrl-C</dt>
+<dd><p>(Kills the current process)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; Ctrl-H</dt>
+<dd><p>(Works same as backspace)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; Ctrl-A</dt>
+<dd><p>(Go to beginning of a line)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; Ctrl-E</dt>
+<dd><p>(Go to the end of the line)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; Ctrl-W</dt>
+<dd><p>(Deletes the word before the cursor)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; Ctrl-U</dt>
+<dd><p>(Deletes whole line)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; Tab</dt>
+<dd><p>(Auto-completes files, dirs, binaries)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>File Permissions</dt>
+<dd><ul>
+<li>: ~&gt; chmod permission filename</li>
+<li>: rwx (u - user, g - group, o - other/world)</li>
+<li>: 4 - (read permission)</li>
+<li>: 2 - (write permission)</li>
+<li>: 1 - (execute permission)</li>
+<li>~&gt; Hence 7 - (read/write/execute)</li>
+<li>6 - (read/write)~</li>
+<li>5 - (read/execute)</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>File Ownership</dt>
+<dd><ul>
+<li>: ~&gt; chown owner filename</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>File Group Ownership</dt>
+<dd><ul>
+<li>: ~&gt; chgrp group filename</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+<h1 id="chapter-13-summary">Chapter 13 Summary</h1>
+<ul>
+<li>The command line usually allows users to complete tasks more efficiently than the GUI</li>
+<li><dl>
+<dt>"cat", short for concatenante is used to read, print, and combine files</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; cat file1 file2</dt>
+<dd><p>(Concatenate multiple files and display the output)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cat file1 file2 &gt; newfile</dt>
+<dd><p>(Concatenate multiple files and save output in a new file)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cat file &gt;&gt; existingfile</dt>
+<dd><p>(Append a file to the end of an existing file)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cat &gt; file</dt>
+<dd><p>(Any subsequent lines typed will go into the file, until Ctrl-D is typed)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cat &gt;&gt; file</dt>
+<dd><p>(Any subsequent lines are appended to the file, "")</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cat &gt; filename &lt;&lt; EOF</dt>
+<dd><p>(Read from stdout, send to file, when 'EOF' is typed, quit) (same as: ~&gt; cat &lt;&lt; EOF &gt; filename)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li>"echo" dislays a line of text either on the stdout or to place in a file</li>
+<li><dl>
+<dt>"sed" stands for &amp; is a stream editor used to filter and perform substitions on files and text data streams</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; sed -e command &lt;file&gt;</dt>
+<dd><p>(Specify editing commands at the terminal, operates on file, and outputs on stdout)</p>
+</dd>
+</dl></li>
+</ul>
+- : ~&gt; sed -f scriptfile &lt;file&gt; : (Specify scriptfile containing "sed" commands, "") Adv
+<ul>
+<li><dl>
+<dt>~&gt; sed s/old/new file</dt>
+<dd><p>(Substitute the fist string occurence in every line)</p>
+</dd>
+</dl></li>
+<li>: ~&gt; sed s:old:new:g file : (Substitute all string occurences in every line) (You can choose your delimiter, ie ':', '/', etc)</li>
+<li><dl>
+<dt>~&gt; sed 1,3s/old/new/g file</dt>
+<dd><p>(Substitute all string occurences in range of lines)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; sed -i s/old/new/g file</dt>
+<dd><p>(Save changes for string substitution in same file) (NOT reversiblebetter: ~&gt; !! &gt; file2)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"awk" is an interpreted programming language, used as a data extraction and reporting tool</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; awk 'command' file</dt>
+<dd><p>(specify a command directly at the command line)</p>
+</dd>
+</dl></li>
+</ul>
+<p>- : ~&gt; awk -f scriptfile file : (specify a file that contains the script to be executed) Basics - : ~&gt; awk '{ print $0 }' /etc/passwd : (Print entire file) - : ~&gt; awk -F: '{ print $1 }' /etc/passwd : (Print first field/col of every line, separated by a space) - : ~&gt; awk -F: '{ print $1 $7 }' /etc/passwd : (Print first and seventh field of every line)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"sort" is used to sort text files, and output streams in either ascending or descending order</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; sort &lt;filename&gt;</dt>
+<dd><p>(Sort the lines in the file, according to the chars at the beginning of the line)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cat file1 file2 | sort</dt>
+<dd><p>(Combine the two files, the sort the lines and then display output to terminal)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; sort -r &lt;filename&gt;</dt>
+<dd><p>(sort the file in reverse order)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; sort -k 3 &lt;filename&gt;</dt>
+<dd><p>(sort the file by the 3rd field on each line instead of the beginning)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"uniq" eliminates duplicate entries in a text file</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; sort file1 file2 | uniq &gt; file3</dt>
+<dd><p>("uniq" requires duplicate entries to be consecutive, so we need to "sort" first and then pipe output into "uniq")</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; sort -u file1 file2 &gt; file3</dt>
+<dd><p>(If "sort" is used with the -u flag (stands for uniq), then we can do the above in one step)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; uniq -c filename</dt>
+<dd><p>(Count the number of duplicate entries)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"paste" combines fields from different files, it can also be used to extract and combine lines from multiple sources</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; paste file1 file2</dt>
+<dd><p>(Paste contents from two files)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; paste -d, file1 file2</dt>
+<dd><p>(Common delimiters are 'space', 'tab', '|', 'comma', etc)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"join" combines lines from two files based on a common filed; it only works if the files share a common field</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; join file1 file2</dt>
+<dd><p>(Combine two files based on a common field)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"split" breaks up a large file into equal-sized segments</dt>
+<dd><ul>
+<li>It is generally used on relatively large files.</li>
+<li><dl>
+<dt>By default, "split" breaks up the file into 1000-line segments. The original file remains unchanged, and a set of new files with the name + prefix are created.</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; split infile</dt>
+<dd><p>(split a file into segments)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; split infile &lt;prefix&gt;</dt>
+<dd><p>(split a file into segments using a different prefix)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li>REGEX are text strings used for pattern matching</li>
+<li><dl>
+<dt>"grep" searches for text files and data streams for patterns can be used with Regex</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; grep [pattern] &lt;filename&gt;</dt>
+<dd><p>(Search for a pattern in a file, and print all matching lines)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; grep -v [pattern] &lt;filename&gt;</dt>
+<dd><p>(Print all lines that do NOT match the pattern)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; grep [0-9] &lt;filename&gt;</dt>
+<dd><p>(Print the lines that contain the num 0 through 9)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; grep -C 3 [pattern] &lt;filename&gt;</dt>
+<dd><p>(Print context files (specified num of lines above or below the pattern, here it is 3) for matching the pattern.</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"tr" translates characters, copies stdin to stdout, and handles special characters</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; tr [options] set1 [set2]</dt>
+<dd><p>(The items in the square brackets are optional)</p>
+</dd>
+</dl></li>
+</ul>
+<p>- : ~&gt; cat filename | tr a-z A-Z : (In filename, tr Translates all lower case characters to upper case) Basics - : ~&gt; tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ : (Convert lower case to upper case) : reverse to (Convert lower case to upper case) - : ~&gt; tr '{}' '()' &lt; inputfile &gt; outputfile : (Translates braces into parenthesis) - : ~&gt; echo "This is for testing" | tr '[:space:]' 't' : (Translate white-space into tabs) - : ~&gt; echo "This is for testing" | tr -s '[:space:]' : (Squeeze repetition of charactes using -s) - : ~&gt; echo "the geek stuff" | tr -d 't' : (Delete specified characters using the -d option) - : ~&gt; echo "my username is 432234" | tr -cd '[:digit:]' : (Complement the sets using -c option) - : ~&gt; tr -c [:print:] &lt; file.txt : (Remove all non-printable character from a file) - : ~&gt; tr -s 'n' ' ' &lt; file.txt : (Join all the lines in a file into a single line)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"tee" saves a copy of stdout to a file while still displaying at the terminal</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; ls -l | tee newfile</dt>
+<dd><p>(Tees the 'ls -l' to out put stream and save 'ls -l' to newfile)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cat newfile</dt>
+<dd><p>(Will display the outpout of 'ls -l')</p>
+</dd>
+</dl></li>
+<li>: (Tee can be effective to use with sudo and I/O redirection)</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"wc", short for word count, displays the number of lines, words and characters in a file or group of files</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; wc</dt>
+<dd><p>(lines-l words-w bytes-c)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"cut" extracts columns from a file</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; ls -l | cut -d" " -f3</dt>
+<dd><p>(Display the third column delimited by a blank space)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; cut -f2 filename</dt>
+<dd><p>(Cut second column of filename)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"less" views files a page at a time and allows for scrolling</dt>
+<dd><ul>
+<li>less does not have to load the whole page in memory first before displaying it, so it's way quicker</li>
+<li>: ~&gt; less somefile</li>
+<li>: ~&gt; cat somefile | less</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"head" displays the first few lines of a file or data stream</dt>
+<dd><ul>
+<li>: ~&gt; head -5 somefile</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"tail" displays the last few lines of a file or data stream</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; tail -15 somefile</dt>
+<dd><p>(show the last 15 lines)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; tail -f somefile.log</dt>
+<dd><p>(monitor new output in a growing log file)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"strings" extract printable character strings from binary files</dt>
+<dd><ul>
+<li><dl>
+<dt>It is useful in locating human-readable content embedded in binary files; for text files, one can just use "grep".</dt>
+<dd><ul>
+<li>: ~&gt; strings book1.xls | grep my_string</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"z" command family is used to read and work with compressed files</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; zcat compressed-file.txt.gz</dt>
+<dd><p>(To view compressed gzip file) (use : ~&gt; bzcat (for bzip2) : ~&gt; xzcat (for xz))</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; zless somefile.gz</dt>
+<dd><p>(To page through compressed gzip file) (:~&gt; bzless (for bzip2) :~&gt; xzless (for xz))</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; zgrep -i less somefile.gz</dt>
+<dd><p>(To search into gzip compressed file)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; zdiff file1.txt.gz file2.txt.gz</dt>
+<dd><p>(To compare two compressed files)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+<h1 id="chapter-14-summary">Chapter 14 Summary</h1>
+<ul>
+<li><dl>
+<dt>Explain basic networking concepts, including types of networks and addressing issues</dt>
+<dd><ul>
+<li><dl>
+<dt>The IP (Internet Protocol) address is a unique logical network address that is assigned to a device on a network.</dt>
+<dd><ul>
+<li>The "internet" is the largest network in the world, and can be called "the network of networks"</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>IPv4 uses 32-bits for addresses and IPv6 uses 128-bits for addresses</dt>
+<dd><ul>
+<li>One reason IPv4 has not disappeared completely is that it uses NAT (Network Address Translation)</li>
+<li><dl>
+<dt>NAT enables sharing one IP address among many locally connected computers, each of which has a unique address only seen on the local network.</dt>
+<dd><ul>
+<li><dl>
+<dt>A 32-bit IPv4 address is divided into four 8-bit sections called octets(another word for "byte").</dt>
+<dd><p>-ie, IPv4 address 172. 16. 31. 46 -ie, Bit format 10101100.00010000.00011111.00101110</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Every IP address contains both a network and a host address field</dt>
+<dd><ul>
+<li>The Net ID is used to identify the network</li>
+<li>The Host ID is used to identify a host in the network</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>There are 5 classes of networks addresses available: A, B, C, D &amp; E</dt>
+<dd><ul>
+<li>Decoding IPv4 addresses *</li>
+<li>Octet1 Octet2 Octet3 Octet4</li>
+<li>NetID HostID HostID HostID : A : 126 Networks | 1.0.0.0 to 127.255.255.255 hosts (16.7 million unique hosts)</li>
+<li>NetID NetID HostID HostID : B : 16,384 N | 128.0.0.0 to 191.255.255.255 hosts (65,536 unique hosts)</li>
+<li>NetID NetID NetID HostID : C : 2.1 million N| 192.0.0.0 to 223.255.255.255 hosts (256 unique hosts)</li>
+<li>multicast address : D :</li>
+<li>reserved for future use : E :</li>
+<li></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>IP Address allocation</dt>
+<dd><ul>
+<li>Can be allocated manually or dynamically</li>
+<li>Manual assignment adds static (never changing) addresses to the network</li>
+<li>Dynamically assigned addresses can change every time you reboot or even more often</li>
+<li>DHCP (Dynamic Host Config Protocol) is used to assign IP addresses</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>DNS (Domain Name System) is used for converting Internet domain and host names to IP addresses</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; hostname</dt>
+<dd><p>(view hostname - the special hostname with IP 127.0.0.1 describes the machine you are on)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; host example.com</dt>
+<dd><p>(lookup hostname using DNS)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; nslookup example.com</dt>
+<dd><p>(lookup nameservers interactively)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; dig example.com</dt>
+<dd><p>(lookup domain name info from nameserver)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Configure network interfaces and use basic networking utilites, such as "ifconfig", "ip", "ping", "route", and "traceroute"</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; nmtui</dt>
+<dd><p>(graphical version of Network Manager)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; nmcli</dt>
+<dd><p>(command line interface for Network Manager)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"ip" utility is used to do several network tasks (it replaced "ifconfig" and "route")</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; ip addr show</dt>
+<dd><p>(to view IP address)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; ip route show</dt>
+<dd><p>(to view routing information)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"ping" is used to check if the remote host is alive and responding)</dt>
+<dd><ul>
+<li>"ping" is used to check whether or not a machine attached to the network can receive and send data</li>
+<li>"ping" is frequently used for network testing and management, however its usage can increase network load unacceptably</li>
+<li><dl>
+<dt>~&gt; ping -c 10 linuxfoundation.org</dt>
+<dd><p>(Use -c flag to limit number of packets ping sends before it quits, or use Ctrl-C)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"route" is used to manage IP routing</dt>
+<dd><ul>
+<li>A network is a collection of nodes</li>
+<li>Data moves from source to destination by passing through a series of routers and potentially multiple networks</li>
+<li>Servers maintain routing tables containing the addresses of each node in the network</li>
+<li><dl>
+<dt>The IP routing protocols enables routers to build up a forwarding table that correlates final destination tables with next hop addresses.</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; route -n</dt>
+<dd><p>~&gt; ip route : (show current routing table)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; route add -net address</dt>
+<dd><p>~&gt; ip route add : (add a static route)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; route del -net address</dt>
+<dd><p>~&gt; ip route del : (delete a static route)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"traceroute" is used to inspect the route the data packet takdes to reach the destination host</dt>
+<dd><ul>
+<li>: ~&gt; traceroute &lt;address&gt;</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>You can monitor and debug network problems using networking tools</dt>
+<dd><ul>
+<li>"ethtool" queries network interfaces and can also set various parameters such as the speed</li>
+<li>"netstat" displays all active connections and routing tables. Useful for monitoring performance and troubleshooting</li>
+<li>"nmap" scans open ports on a network. Important for security analysis</li>
+<li>"tcpdump" dumps network traffic for analysis</li>
+<li>"iptraf" monitors network traffic in text mode</li>
+<li>"mtr" combines functionality of ping and traceroute and gives a continuously updated display</li>
+<li>"dig" test DNS workings. A good replacement for host and nslookup</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Use graphical and non-graphical browsers, such as Lynx, w3m, Firefox, Chrome and Epiphany</dt>
+<dd><ul>
+<li>Firefox, Chrome, Chromium, Brave, and Epiphay are the main graphical browsers used in Linux</li>
+<li><dl>
+<dt>Lynx, Links, w3m are non-graphical / text-browsers used in Linux</dt>
+<dd><ul>
+<li>: ~&gt; w3m &lt;url&gt;</li>
+<li>: ~&gt; tldr w3m</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Transfer files to and from clients and servers using both graphical and text mode applications such as Filezilla, ftp, sftp, curl, and wget</dt>
+<dd><ul>
+<li><dl>
+<dt>"wget" is used to download webpages</dt>
+<dd><ul>
+<li><dl>
+<dt>it can handle large file downloads, passwd-required downloads, multiple-file and recursive downloads</dt>
+<dd><ul>
+<li>: ~&gt; wget &lt;url&gt;</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"curl" is used to obtain information about URLs</dt>
+<dd><ul>
+<li><dl>
+<dt>"curl" allows you to save the contents of a web page to a file, as does "wget"</dt>
+<dd><ul>
+<li>: ~&gt; curl &lt;url&gt;</li>
+<li>: ~&gt; curl -o saved.html <a href="http://www.mysite.com">http://www.mysite.com</a> : (Contents of main index file at the website will be saved in saved.html)</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>FTP (File Transfer Protocol) is used to transfer files over a network</dt>
+<dd><ul>
+<li>ftp, sftp, ncftp, and yafc are command line FTP clients used in Linux</li>
+<li>FTP clients enable you to transfer files with remote computer using the FTP protocol</li>
+<li><dl>
+<dt>All web browsers support FTP, all you have to do is to give a URL like</dt>
+<dd><ul>
+<li>: ~&gt; <a href="ftp://ftp.example.com">ftp://ftp.example.com</a> : (the usual <a href="http://">http://</a> becomes <a href="ftp://">ftp://</a>)</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>FTP has fallen into disfavor on modern systems, as it is insecure</dt>
+<dd><ul>
+<li>It was removed in favor of "rsync" and web browser "https" access</li>
+<li>sftp is very secure, it uses the ssh protocol (It encrypts its data. However it does not work with "anonymous FTP")</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>SSH is used to run commands on remote systems</dt>
+<dd><ul>
+<li><dl>
+<dt>SSH is a cryptographic network protocol used for secure data communication</dt>
+<dd><dl>
+<dt>~&gt; ssh some_system</dt>
+<dd><p>(login to a remote system)</p>
+</dd>
+<dt>~&gt; ssh <a href="mailto:someone@some_system">someone@some_system</a></dt>
+<dd><p>(run as another user) same as: ~&gt; ssh -l someone some_system</p>
+</dd>
+<dt>~&gt; ssh some_system my_command</dt>
+<dd><p>(run a command on a remote system via SSH)</p>
+</dd>
+</dl>
+</dd>
+</dl></li>
+<li><dl>
+<dt>SCP (Secure Copy) can be used to move files securely between two networked hosts using SSH protocol</dt>
+<dd><p>: ~&gt; scp &lt;localfile&gt; &lt;<a href="mailto:usr@remotesystem">usr@remotesystem</a>&gt;:/home/user</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+<h1 id="chapter-15-summary">Chapter 15 Summary</h1>
+<ul>
+<li><dl>
+<dt>Scripts are a sequence of statements and commands stored in a file that can be executed by a shell. (most common is "bash")</dt>
+<dd><ul>
+<li><dl>
+<dt>As a script executes, one can check for a specific value or conditon or failure as the result</dt>
+<dd><ul>
+<li>success: 0</li>
+<li>failure: non-zero</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Basic Syntax and Special Chars</dt>
+<dd><ul>
+<li><dl>
+<dt>#</dt>
+<dd><p>(used to add comments, except when used as # or as #! when starting a script)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt></dt>
+<dd><p>(used at the end of a line to indicate continuation on the next line)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>;</dt>
+<dd><p>(used to interpret what follows as a new command to be executed next)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>$</dt>
+<dd><p>(indicates what follows is an environment variable)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>&gt;</dt>
+<dd><p>(redirect output)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>&lt;</dt>
+<dd><p>(redirect input)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>&gt;&gt;</dt>
+<dd><p>(Append output)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>|</dt>
+<dd><p>(used to pipe the result to the next command)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Multiple Commands on a Single Line</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; make ; make install ; make clean</dt>
+<dd><p>(the three commands will all execute, even if the ones preceding them fail)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; make &amp;&amp; make install &amp;&amp; make clean</dt>
+<dd><p>(subsequent commands are aborted when an earlier one fails - when using &amp;&amp; operator)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; make || make install || make clean</dt>
+<dd><p>(here, you proceed until something succeeds, and then further steps are aborted)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li>Chaining commands is not the same as piping them. In chaining, each step exits before the next one starts. In piping, commands can operate simultaneously.</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Scripts behave differently based on the parameters (values) passed to them</dt>
+<dd><ul>
+<li><dl>
+<dt>Shell scripts execute sequences of commands and other types of statements. These commands can be:</dt>
+<dd><ul>
+<li>Complied applications : (ie, rm, ls, df, vi, gzip, ... complied from lower level languages such as C)</li>
+<li>Built-in "bash" commands : (ie, cd, pwd, echo, read, logout, printf, let, ulimit, ...) (: ~&gt; help to get full list)</li>
+<li>Other scripts : (shell scripts, or scripts from other interpreted languages, such as perl and Python)</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Script Parameters</dt>
+<dd><ul>
+<li><dl>
+<dt>$0</dt>
+<dd><p>(Script name)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>$1</dt>
+<dd><p>(First parameter)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>$2, $3, etc</dt>
+<dd><p>(Second, third parameter, etc)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>$*</dt>
+<dd><p>(All parameters)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>$#</dt>
+<dd><p>(Number of arguments)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Command substitution allows you to substitute the result of a command as a portion of another command</dt>
+<dd><ul>
+<li><dl>
+<dt>This can be done in two ways: by enclosing the inner command in: ~&gt; $( ) or with backticks: ~&gt; (`)</dt>
+<dd><ul>
+<li>: ~&gt; ls /lib/modules/$(uname -r)/ :the $( ) method allows command nesting, the other one is deprecated</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Environment variables are quantities either preassigned by the shell or defined and modified by the user</dt>
+<dd><ul>
+<li><dl>
+<dt>As covered earlier, some standard enviroment variables are HOME, PATH, and HOST.</dt>
+<dd><p>: ~&gt; echo $PATH</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>No prefix is required when setting or modifying the variable value</dt>
+<dd><p>: ~&gt; MYCOLOR=blue</p>
+</dd>
+</dl></li>
+<li>A list of environment variables can be obtained using : ~&gt; env :: ~&gt; set :: ~&gt; printenv</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>To make environment variables visible to child processes, they need to be exported</dt>
+<dd><ul>
+<li>by default, the varialbes created withing a cript are available only to the subsequent steps of that script.</li>
+<li><dl>
+<dt>To make them available to child processes (sub-shells), they need to be exported:</dt>
+<dd><ul>
+<li>: ~&gt; export VAR=value</li>
+<li>: ~&gt; VAR=value ; export VAR</li>
+</ul>
+</dd>
+</dl></li>
+<li>While child processes are allowed to modify the value of exported variables, the parent will not see any changes; exported variables are not shared, they are only copied and inherited</li>
+<li>Trying to export with no arguments will give a list of all currently exported environemnt varialbes</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Functions or routines are groups of commands that are used for execution</dt>
+<dd><ul>
+<li><dl>
+<dt>The proper syntax is:</dt>
+<dd>: ~&gt; function_name () {
+<ul>
+<li>command...</li>
+<li>}</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li>Output redirection is the process of writing the output to a file</li>
+<li>Input redirection is the process of reading the input from a file</li>
+<li><dl>
+<dt>"if" statement is used to select an action based on a condition</dt>
+<dd><ul>
+<li><dl>
+<dt>A general definition is:</dt>
+<dd>: ~&gt; if condition ; then
+<ul>
+<li>statements</li>
+<li>elif othercondition ; then</li>
+<li>statements</li>
+<li>else</li>
+<li>statements</li>
+<li>fi</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>A more compact form of the "if" statement is:</dt>
+<dd><p>: ~&gt; if TEST-COMMANDS; then CONSEQUENT-COMMANDS; fi</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Testing for files</dt>
+<dd><ul>
+<li><dl>
+<dt>Bash provides a set of file conditionals, that can be used with the "if" statement to test</dt>
+<dd><ul>
+<li>File or directory existence</li>
+<li>Read or write permissions</li>
+<li>Executable permission</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Docs</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; man 1 test</dt>
+<dd><p>(View all of them here) [IMPORTANT for fundamentals of bash scripting!]</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Basics</dt>
+<dd><ul>
+<li><dl>
+<dt>-e file</dt>
+<dd><p>(Checks if file exists)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-d file</dt>
+<dd><p>(checks if file is a directory)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-f file</dt>
+<dd><p>(checks if file is a regular file ; ie, NOT a symbolic link, node, dir, etc)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-s file</dt>
+<dd><p>(checks if file is of non-zero size)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-g file</dt>
+<dd><p>(checks if file has "sgid" set)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-u file</dt>
+<dd><p>(checks if file has "suid" set)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-r file</dt>
+<dd><p>(checks if file is readable)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-w file</dt>
+<dd><p>(checks if file is writable)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-x file</dt>
+<dd><p>(checks if file is executable)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Arithmetic expressions consists of numbers and arithmetic operators, such as +,-,*,/</dt>
+<dd><ul>
+<li><dl>
+<dt>Numerical Test</dt>
+<dd><ul>
+<li><dl>
+<dt>Basics</dt>
+<dd><ul>
+<li><dl>
+<dt>-eq</dt>
+<dd><p>(Equal to)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-ne</dt>
+<dd><p>(Not equal to)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-gt</dt>
+<dd><p>(greater than)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-lt</dt>
+<dd><p>(less than)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-ge</dt>
+<dd><p>(greater or equal to)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>-le</dt>
+<dd><p>(less or equal to)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"expr" utility</dt>
+<dd><ul>
+<li>"expr" is a standard but deprecated utility used to evaluate numerical expressions</li>
+<li>: ~&gt; expr 8 + 8</li>
+<li>: ~&gt; echo $(expr 8+8)</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+<h1 id="chapter-16-summary">Chapter 16 Summary</h1>
+<ul>
+<li>This is an extension of Chapter 15</li>
+<li><dl>
+<dt>Strings can be manipulated to perform actions such as comparison, sorting, and finding length</dt>
+<dd><ul>
+<li><dl>
+<dt>Basic String Operators:</dt>
+<dd><ul>
+<li><dl>
+<dt>[[ string1 &gt; string2 ]]</dt>
+<dd><p>(compares the sorting order of string1 and string2)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>[[ string1 == string2 ]]</dt>
+<dd><p>(compares the characters of string1 and string2)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>myLen1=${#string1}</dt>
+<dd><p>(saves the length of "string1" in the variable "myLen1")</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Parts of a String</dt>
+<dd><ul>
+<li>: ~&gt; $(string:0:n} : ('0' is the offset of the string (where to begin), 'n' is the num of chars needed)</li>
+<li><dl>
+<dt>~&gt; $(string#*.}</dt>
+<dd><p>(Extract all the characters in the string after a dot '.')</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li>Boolean expressions can be used when working with multiple data types, like strings, num or even files</li>
+<li>Output of a Boolean is either true or false</li>
+<li>Boolean Opearotors include &amp;&amp; (AND), || (OR), and !(NOT) operators</li>
+<li><dl>
+<dt>"case" statements can be used in senarios where the value of a variable can lead to different execution paths</dt>
+<dd><ul>
+<li><dl>
+<dt>Basic structure of "case":</dt>
+<dd>: ~&gt; case expr in
+<ul>
+<li>pattern1) execute commands;;</li>
+<li>pattern2) execute commands;;</li>
+<li>pattern3) execute commands;;</li>
+<li><ul>
+<li>) execute default_command or nothing ;;</li>
+</ul></li>
+<li>esac</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Looping Constructs</dt>
+<dd><ul>
+<li><dl>
+<dt>3 most often types of loops</dt>
+<dd><ul>
+<li><dl>
+<dt>for loop</dt>
+<dd><ul>
+<li>Basic Syntax</li>
+<li>: ~&gt; for var in list</li>
+<li>do</li>
+<li>execute one iteration for each item in list until end of list</li>
+<li>finished</li>
+<li>done</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>while loop</dt>
+<dd><ul>
+<li>Basic Syntax</li>
+<li>: ~&gt; while condition is true</li>
+<li>do</li>
+<li>commands</li>
+<li>done</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>until</dt>
+<dd><ul>
+<li>Basic Syntax</li>
+<li>: ~&gt; until condition is false</li>
+<li>do</li>
+<li>commands</li>
+<li>done</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Script debugging methods help troubleshoot and resolve erros</dt>
+<dd><ul>
+<li><dl>
+<dt>Script Debug Mode</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; bash -x ./script_file</dt>
+<dd><p>(Run a bash script in debug mode) (IMPORTANT)</p>
+</dd>
+</dl></li>
+<li>Another way is to bracket parts of the script with "set -x" and "set +x"</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The standard and error output from a script or shell commands can easily be redirected into the same file or separate files to aid in debugging, and saving results</dt>
+<dd><ul>
+<li>: stdin 0</li>
+<li>: stdout 1</li>
+<li>: stderr 2</li>
+<li><dl>
+<dt>Using Redirection, we can redirect the 'error output' to an : ~&gt; error.log file and then use "cat" to display contents to aid in debugging</dt>
+<dd><ul>
+<li>: ~&gt; ./some_script 2&gt; error.log</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Creating Temporary Files and Directories</dt>
+<dd><ul>
+<li>Linux allows you to create temporary files and directories, which store data for a short duration, both saving space and increasing security</li>
+<li>The best practice is to create random and unpredictable filenames for temporary storage</li>
+<li><dl>
+<dt>"mktemp" utility allows us to do the above</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; TEMP=$(mktemp /tmp/tempfile.XXXXXXXX)</dt>
+<dd><p>(To create a temporary file)</p>
+</dd>
+</dl></li>
+</ul>
+- : ~&gt; TEMP=$(mktemp -d /tmp/tempfile.XXXXXXXX) : (To create a temporary directory) Important
+<ul>
+<li><dl>
+<dt>Sloppiness in creation of temporary files can lead to real damage, either by accident or if there is a malicious actor</dt>
+<dd><ul>
+<li><dl>
+<dt>For example, if someone were to create a symbolic link from a known tmp file used by root to "/etc/passwd" like this:</dt>
+<dd><ul>
+<li>: ~&gt; ln -s /etc/passwd /tmp/tempfile</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>There could be a big problem if the script run by root has a line like this:</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; echo $VAR &gt; /tmp/tempfile</dt>
+<dd><p>(The passwd file wlll be overwritten by temporary file contents)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>To prevent such a situation, make sure you randomize your temporary files by replacing the two above lines with:</dt>
+<dd><ul>
+<li>: ~&gt; TEMP=$(mktemp /tmp/tempfile.XXXXXXXX)</li>
+<li>: ~&gt; echo $VAR &gt; $TEMP</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>/dev/null</dt>
+<dd><ul>
+<li>Certain commands (like "find") produce large amounts of outpout, which can overwhelm the console</li>
+<li>To avoid this, we can redirect the large outpout to a special file (a device node) called "/dev/null"</li>
+<li>This pseudofile is also called the bit bucket or black hole</li>
+<li><dl>
+<dt>All data written in it is discarded and write operations never return a failure condiiton</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; ls -lR /tmp &gt; /dev/null</dt>
+<dd><p>(Ignore entire output stream, errors will stil display)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; ls -lR /tmp &gt;&amp; /dev/null</dt>
+<dd><p>(Both "stdout" and "stderr" will be dumpted into the black hole)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Random Numbers and Data</dt>
+<dd><ul>
+<li><dl>
+<dt>Linus provides several different ways of generating random numbers, which are widely used</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; $RANDOM</dt>
+<dd><p>(Generates a random number between 0 - 99999)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The Kernel generates random numbers by using an entropy pool</dt>
+<dd><ul>
+<li><dl>
+<dt>Two device nodes namely "/dev/random" &amp;&amp; "/dev/urandom" draw on the entropy pool to provide random numbers which are drawn from the estimated bits of noise in the entropy pool</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; /dev/random</dt>
+<dd><p>(used where very high quality randomness is required, such as one-time pad or key generation, but is relatively slow)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /dev/urandom</dt>
+<dd><p>(faster and good enough for most cryptographic purposes)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li>When the entropy pool is empty, "/dev/random" is blocked and does not generate any number until additonal env noise is gathered</li>
+<li>Whereas "/dev/urandom" reuses the internal pool to produce more pseudo-random bits</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+<h1 id="chapter-17-summary">Chapter 17 Summary</h1>
+<ul>
+<li><dl>
+<dt>CUPS provides two command-line interfaces: the System V and BSD</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; Ctrl-P</dt>
+<dd><p>(Access printer options)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The CUPS interface is available at <a href="http://localhost:631">http://localhost:631</a></dt>
+<dd><ul>
+<li><dl>
+<dt>Managing the CUPS daemon:</dt>
+<dd><ul>
+<li>: ~&gt; systemctl status cups</li>
+<li>: ~&gt; systemctl [enablestartrestart] cups</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"lp" (System V) and "lpr" (BSD) are used to submit a document to CUPS directly from the command line</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; lp &lt;filename&gt;</dt>
+<dd><p>(print to default printer)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; lp -d printer &lt;filename&gt;</dt>
+<dd><p>(print to specific printer)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; program | lp</dt>
+<dd><p>(pipe output of program to lp)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; lp -n number &lt;filename&gt;</dt>
+<dd><p>(print multiple copies)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"lpoptions" can be used to set printer options and defaults</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; lpoptions -d printer</dt>
+<dd><p>(set the default printer) (use : ~&gt; lpoptions help)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; lpq -a</dt>
+<dd><p>(show the queue status)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; lpadmin</dt>
+<dd><p>(configure printer queues)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Managing Print Jobs</dt>
+<dd><ul>
+<li>Command line print job management commands allow you to monitor the job state as well as managing the listing of all printers</li>
+<li><dl>
+<dt>and checking their status, and canceling or moving print jobs to another printer</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; lpstat -p -d</dt>
+<dd><p>(Get a list of available printers, along with their status)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; lpstat -a</dt>
+<dd><p>(check the status of all connected printers, including job numbers)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; lprm job-id</dt>
+<dd><p>(Cancel a print job, same as: ~&gt; cancel job-id)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; lpmove job-id newprinter</dt>
+<dd><p>(Move a print job to a new printer)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li>PostScript effectively manages scaling of fonts and vector graphics to provide quality prints</li>
+<li><dl>
+<dt>"enscript" is used to convert a text file to PostScript and other formats, like rich Text Format (RTF), and HTML</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; enscript -p psfile.ps textfile.txt</dt>
+<dd><p>(Convert a text file to PostScript, saved to psfile.ps)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; enscript -n -p psfile.ps textfile.txt</dt>
+<dd><p>(Convert a text file to n columns where n = 1-9, saved in psfile.ps)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; enscript textfile.txt</dt>
+<dd><p>(print a text file directly to a default printer)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Converting between PDF and PostScript</dt>
+<dd><dl>
+<dt>~&gt; pdf2ps file.pdf</dt>
+<dd><p>(convert file.pdf to file.ps, can also use: ~&gt; pdftops file.pdf)</p>
+</dd>
+<dt>~&gt; ps2pdf file.ps</dt>
+<dd><p>(convert file.ps to file.pdf, can also use: ~&gt; pstopdf file.ps)</p>
+</dd>
+</dl>
+<p>: ~&gt; convert input.ps output.pdf : ~&gt; convert input.pdf output.ps</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Portable Document Viewer (PDF) is the standard format to exchange documents while ensuring a certain level of consistency in the way the documents are viewed</dt>
+<dd><ul>
+<li>Viewing PDF content can be done with "evince", "okular", "ghostView", and "xpdf"</li>
+<li><dl>
+<dt>Manipulating PDF</dt>
+<dd><ul>
+<li>At times, you may want to merge, split or rotate PDF files.</li>
+<li><dl>
+<dt>Programs that enables these tasks are:</dt>
+<dd><ul>
+<li><dl>
+<dt>"qpdf" is widely avaialble on Linux distros and very full-featured</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; qpdf --empty --pages 1.pdf 2.pdf -- 12.pd</dt>
+<dd><p>(Merge 1.pdf and 2.pdf, save output in 12.pdf)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; qpdf --empty --pages 1.pdf 1-2 -- new.pdf</dt>
+<dd><p>(Write only pages 1, and 2 of "1.pdf", save output to new.pdf)</p>
+</dd>
+</dl></li>
+<li>: ~&gt; qpdf --rotate=+90:1 1.pdf 1r.pdf : (Rotate 1 of "1.pdf" 90 degress clockwise and save to "1r.pdf")</li>
+<li>: ~&gt; qpdf --rotate=+90:1-z 1.pdf 1r-all.pdf : (Rotate all pages of "1.pdf" 90 degrees clockwise and save it "1r-all.pdf")</li>
+<li><dl>
+<dt>~&gt; qpdf --encrypt mypw mypw 128 -- public.pdf private.pdf</dt>
+<dd><p>(Encrypt with 128 bits "public.pdf" using the passwd "mypw" with output as "private.pdf")</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; qpdf --decrypt --password=mypw private.pdf decrypted.pdf</dt>
+<dd><p>(Decrypt "private.pdf" as "decrypted.pdf". You will be prompted for password)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"pdftk" was once very popular, but is now starting to be obsolete as it depends on unmaintained package (libgcj)</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; pdftk public.pdf output private.pdf user_pw PROMPT</dt>
+<dd><p>(Apply a paswd PROMPT to the PDF file)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"Ghostscript", invoked with "gs" is widely available and well maintained but can be a little complex</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=all.pdf file1.pdf file2.pdf file3.pdf</dt>
+<dd><p>(combine 3 pdfs into one)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dDOPDFMARKS=false -dFirstPage=10 -dLastPage=20 -sOutputFile=split.pdf file.pdf</dt>
+<dd><p>(split pg 10-20 out of pdf)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"pdfinfo" can extract information about PDF documents</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; pdfinfo /usr/share/doc/readme.pdf</dt>
+<dd><p>(collect the details of a document)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li>"flpsed" can add data to a PostScript document</li>
+<li>"pdfmod" is a simple application with a Graphical Interface that you can use to modify PDF documents</li>
+</ul>
+<h1 id="chapter-18-summary">Chapter 18 Summary</h1>
+<ul>
+<li><dl>
+<dt>The root account has authority over the entire system</dt>
+<dd><ul>
+<li>By default, Linux distinguishes between several account types in order to isolate processes and workloads</li>
+<li><dl>
+<dt>The four types of accounts are:</dt>
+<dd><ul>
+<li>root (#)</li>
+<li>system</li>
+<li>normal : (can use SUID -Set User ID upon execution, same as Window's "run as" can grant temporary elevated permissions to the account)</li>
+<li>network</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"last" utility shows the last time each user logged into the system</dt>
+<dd><ul>
+<li>: ~&gt; last</li>
+<li>: ~&gt; last -F -a</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"sudo" &amp; "su"</dt>
+<dd><ul>
+<li>In order to perform any privileged operations such as system-wide changes, you need to use either "su" or "sudo"</li>
+<li>"su" requires root passwd whereas "sudo" requires user's passwd(which may or may not also be root passwd in case of single user systems)</li>
+<li>"su" does not require to retype the passwd again whereas "sudo" requires the passwd to be retyped (this can be avoided for a configured amount of time)</li>
+<li>"su" has limited logging features whereas "sudo" has detailed logging features</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Calls to "sudo" trigger a lookup in "/etc/sudoers" or "/etc/sudoers.d", which first validates that the calling user is allowed to use sudo and that it is being used within the permitted scope</dt>
+<dd><ul>
+<li><dl>
+<dt>"sudo" keeps track of unsuccessful attempts at gaining root access</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; /etc/sudoers</dt>
+<dd><p>(config file)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /etc/sudoers.d</dt>
+<dd><p>(config file)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The basic structure of entries in these files is:</dt>
+<dd><p>: ~&gt; who where = (as_whom) what</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"visudo" is used to safely edit "sudoers" file</dt>
+<dd><dl>
+<dt>~&gt; visudo /etc/sudoers</dt>
+<dd><p>(Edit)</p>
+</dd>
+<dt>~&gt; visudo -f /etc/sudoers.d/username</dt>
+<dd><p>(Check for errors)</p>
+</dd>
+</dl>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>A message such as the following would appear in the system log file (/var/log/secure) when trying to execute "sudo bash" without successful authentication</dt>
+<dd><ul>
+<li>: ~&gt; authentication failure; logname ...... auth could not identify password for [op]....command=/bin/bash</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>One of the most powerful features of "sudo" is its ability to log unsuccessful attempts at gaining root access.</dt>
+<dd><ul>
+<li><dl>
+<dt>By default, "sudo" commands and failures are logged in "/var/log/auth.log" under the Debian family and "/var/log/messages" in other distribution families</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; /var/log/auth.log</dt>
+<dd><p>(Debian family)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /var/log/messages</dt>
+<dd><p>(Other)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /var/log/secure</dt>
+<dd><p>(Other)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>This is an important safeguard to allow for tracking and accountability of "sudo" usage</dt>
+<dd><ul>
+<li>Using : ~&gt; sudo whoami would generate in /var/log/auth.log:</li>
+<li>: ~&gt; Jun 6 00:54:21 nx-computer0 sudo: nx : TTY=pts/0 ; PWD=/etc/sudoers.d ; USER=root ; COMMAND=/usr/bin/whoami</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Process Isolation</dt>
+<dd><ul>
+<li>Linux is considered more secure than other many other OS because processes are naturally isolated from each other</li>
+<li>One process cannot access another person's resources, even when that person is running with the same user priviledges</li>
+<li><dl>
+<dt>Recent security mechanisms that limit risks further include:</dt>
+<dd><ul>
+<li>cgroups : (control groups - allows system admins to group processes and associate finite resources to each group)</li>
+<li>containers : (makes it possible to run multiple isolated Linux systems (containers) on a single system by relying on cgroups)</li>
+<li>virtualization: (hardware is emulated in such a way that not only processes can be isolated, but entire systems can run simultaneously at isolated and insulated guests (VMs) on one physical host</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Hardware Device Access</dt>
+<dd><ul>
+<li>Linux limits user access to non-networking hardware devices in a way that is very similar to regular file access</li>
+<li>Applications interact with the filesystem layer (which is independent of the actual device or hardware the file resides on)</li>
+<li>This layer then opens a device special file (also known as device node) under the "/dev" dir that corresponds to the file being accessed</li>
+<li>Each device special file has a standard owner, group and world permission fields - enforcing security naturally</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Using the user credentials, the system verifies the authenticity and identity</dt>
+<dd><ul>
+<li>Originally encrypted passwds were stored in : ~&gt; /etc/passwd which was readable by everyone. This made it rather easy to crack passwds</li>
+<li>On modern systems, passwds are stored in an encrypted format under : ~&gt; /etc/shadow Only those with root access can modify this file</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>The SHA-512 algorithm is typically used to encode passwords. Deterministic one-way hash function.</dt>
+<dd><ul>
+<li>: ~&gt; sha512sum &lt;filename&gt;</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Pluggable Authentication Modules (PAM) can be configured to automatically verify that passwords created or modified using "passwd" are strong enough (that notion of strongness is configurable)</dt>
+<dd><ul>
+<li><dl>
+<dt>"passwd" utility can be combined with PAM to check if a pasword is sufficiently strong</dt>
+<dd><ul>
+<li>: ~&gt; passwd</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>"chage" utility can be used to remind users to change or update their passwds after a set period of time</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; chage -l &lt;username&gt;</dt>
+<dd><p>(list passwd information, not passwd itself, for user)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; sudo chage -N 10 &lt;username&gt;</dt>
+<dd><p>(set passwd to expire in 10 days)</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Password cracking programs, such as "John the Ripper" can be used to secure the passwd file and detect weak passwd entries</dt>
+<dd><ul>
+<li>It is recommended to obtain written authorizations before installing such tools on any system that you do not own</li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Requiring Boot loader passwords</dt>
+<dd><ul>
+<li><dl>
+<dt>Securing the boot process with a secure password to prevent someone from bypassing the user authentication step</dt>
+<dd><ul>
+<li>Note: while using a bootloader passwd alone will stop a user from editing the bootloader config file, it will NOT prevent a user from booting from an altenative boot media</li>
+<li><dl>
+<dt>Thus, using a bootloader passwd together with a BIOS password should be used for "full" protection.</dt>
+<dd><ul>
+<li><dl>
+<dt>~&gt; grub.cfg</dt>
+<dd><p>(can never be edited directly)</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>~&gt; /etc/grub.d</dt>
+<dd><p>(have to modify this config file) then run : ~&gt; update-grub or: ~&gt; grub2-mkconfig to save new config file</p>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Basic IT security policy should start with requirements on how to properly secure physical access to servers and workstations</dt>
+<dd><ul>
+<li><dl>
+<dt>Hardware Vulnerability</dt>
+<dd><ul>
+<li><dl>
+<dt>When a harware is physically acessible, security can be compromised by :</dt>
+<dd><ul>
+<li>key logging : (record real time activity of a computer, including keys they press - recorded data is then transmitted to remote machines)</li>
+<li>network sniffing : (cpaturing and viewing the network packet level data on your network)</li>
+<li>booting with a live or rescue disk</li>
+<li>remounting and modifying disk content</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Security Guidelines</dt>
+<dd><ul>
+<li><dl>
+<dt>Phystical access to a system makes it possible for attackers to easily leverage several attack vectors, in a way that makes all OS level recommendations irrelevant</dt>
+<dd><ul>
+<li>Lock down workstations and servers</li>
+<li>Protect your network links such that it cannot be accessed by people you do not trust</li>
+<li>Protect your keyboard where passwords are entered to ensure the keyboards cannot be tampered with</li>
+<li>Ensure a passowrd protects the BIOS in such a way that the system cannot be booted with a live or rescue DVD or USB key</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</dd>
+</dl></li>
+<li>Keeping systems updated is an important step in avoiding security attacks</li>
+</ul>
