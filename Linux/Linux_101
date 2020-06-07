@@ -212,7 +212,7 @@ Chapter 7 Summary
     - Wildcard and Matching File names
         - : Simple answer: use regex
     - The "find" is an extremy useful utility program for a Linux sys admin. It recurses down the filesystem tree for dir(s) and locates files with matched conditions.
-        - : ~> find /usr =name gcc            : (searching for files and directories named gcc)
+        - : ~> find /usr -name gcc            : (searching for files and directories named gcc)
         - : ~> find /usr -type d -name gcc    : (searching only for directories named gcc)
         - : ~> find /usr -type f -name gcc    : (searching only for files named gcc)
         Adv "find" options
@@ -396,7 +396,7 @@ Chapter 10 Summary
 - "gzip", "bzip2", "xz", and "zip" are used to compress files
     - : ~> gzip             : Most frequently used Linux compression utility
         : ~> gzip *         : Compresseses all files in the pwd, each file is compressed and renamed a .gz extension
-        : ~> zgzip -r testX : Compresses all files in the "testX" dir, along recursively with all files in all dirs under "testX"
+        : ~> gzip -r testX : Compresses all files in the "testX" dir, along recursively with all files in all dirs under "testX"
         : ~> gunzip foo     : De-compresses foo found in the file foo.gz, same as : ~> gzip -d foo
     - : ~> bzip2            : Produces files significantly smaller than those produced by gzip
         : ~> bzip2 *        : Compresses all files in pwd, and replaces each one with a .bz2 extension
@@ -437,7 +437,7 @@ Chapter 12 Summary
         - : ~> /etc/passwd     : ( ie, george:x:1002:1002:George Smith:/home/george:/bin/zsh )
         - : ~> /etc/group      : ( ie, george:x:1002 )
     - Adding and Removing Users
-        - : ~> sudo useradd username1  : (: ~> sudo useradd -m -c "Elizer Jio" -s /bin/bash ejio )
+        - : ~> sudo useradd username1  : (: ~> sudo useradd -m -c "Elizer Jio" -s /bin/bash ejio )  : (We can now use: ~> adduser    , more modern)
         *                              : (: ~> sudo passwd ejio )
         *                              : (: ~> grep ejio /etc/passwd /etc/group )
         *                              : The home directory for newuser "ejio' inherits from : ~>ls -la /etc/skel )
@@ -456,7 +456,7 @@ Chapter 12 Summary
     - External attacks often contain tricks to elevate to the root account
 - "sudo" is used to assign root priviledges to a regular user on a temporary basis
     - : ~> sudo <command>
-    - : ~> /etc/sudoers  &&  etc/sudoers.d   : (contains "sudo" config files) (
+    - : ~> /etc/sudoers  &&  etc/sudoers.d   : (contains "sudo" config files)
 - The shell program (bash) uses multiple starup files to create the user environment. Global settings are found at : ~> cd /etc/profile
     - : ~> ~/.bash_profile || ~/.bashrc  : ("~/.bashrc" is triggered and if not then the others are triggerd in order, stopped when first is found)
     - : ~> ~/.bash_login
@@ -610,10 +610,10 @@ Chapter 13 Summary
     Basics
         - : ~> tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ : (Convert lower case to upper case) : reverse to (Convert lower case to upper case)
         - : ~> tr '{}' '()' < inputfile > outputfile                    : (Translates braces into parenthesis)
-        - : ~> echo "This is for testing" | tr [:space] '\t'            : (Translate white-space into tabs)
-        - : ~> echo "This   is    for    testing" | tr -s [:space:]     : (Squeeze repetition of charactes using -s)
+        - : ~> echo "This is for testing" | tr '[:space:]' '\t'         : (Translate white-space into tabs)
+        - : ~> echo "This   is    for    testing" | tr -s '[:space:]'   : (Squeeze repetition of charactes using -s)
         - : ~> echo "the geek stuff" | tr -d 't'                        : (Delete specified characters using the -d option)
-        - : ~> echo "my username is 432234" | tr -cd [:digit:]          : (Complement the sets using -c option)
+        - : ~> echo "my username is 432234" | tr -cd '[:digit:]'        : (Complement the sets using -c option)
         - : ~> tr -c [:print:] < file.txt                               : (Remove all non-printable character from a file)
         - : ~> tr -s '\n' ' ' < file.txt                                : (Join all the lines in a file into a single line)
 - "tee" saves a copy of stdout to a file while still displaying at the terminal
