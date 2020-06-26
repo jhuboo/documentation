@@ -7,3 +7,172 @@ Github cheatsheet 101: https://github.github.com/training-kit/downloads/github-g
 Gittutorial_1 : https://git-scm.com/docs/gittutorial
 Gittutorial_2 : https://git-scm.com/docs/gittutorial-2
 Giteveryday   : https://git-scm.com/docs/giteveryday
+
+---------------------------------------
+           Git Commands
+---------------------------------------
+
+- Setup and Config
+    ~> git config <command>
+        - customize git for yourself, like setup name, email, editor preference
+        - customize global git aliases, embed 'flags' in git commands, and more
+    ~> git help <command>
+        - help on git command
+        - also use :~> tldr git-<command>   or :~> man git <command>
+
+- Getting and Creating Projects
+    ~> git init
+        - take a directory and turn it into a new Git repo to version control it
+    ~> git clone
+        - Creates a new directory, goes into it, adds a remote (git remote add)
+        - to the URL that you pass to it (by default named origin), runs a git fetch
+        - then checks out the latest commit into your working directory with git checkout
+
+- Basic Snapshotting
+    ~> git add
+        - Add files from working directory to staging area
+        - Enables us to track files to craft exactly how we would like commit snapshot to look like
+    ~> git status
+        - Shows the different states of files in your working dir and staging area
+        - Which files are modified, and unstaged and which are unstaged but not yet committed
+    ~> git diff
+        - Used to see differences between any two trees
+        - Like diff between working dir & staging dir & last commit (git diff --staged)
+        - Or even between two commits (git diff master nextbranch)
+    ~> git difftool
+        - Launches external tool to show diff between two trees
+        - Useful for larger trees
+    ~> git commit
+        - Takes all the file contents that have been staged and records a new permanent snapshot
+        - in the database and then moves the branch pointer on the current branch up to it
+    ~> git reset
+        - Primarily used to undo things
+        - Moves around the HEAD pointer and optionally changes the index or staging area
+        - And optinally change the working directory if used with --hard
+    ~> git rm
+        - Used to remove files from staging area and working directory for Git
+        - Similar to git add in that it stages a removal of a file for the next commit
+    ~> git mv
+        - A convenience command to move a file
+        - And then run git add on the new file and git rm on the old file
+    ~> git clean
+        - Used to remove unwanted files from your working directory
+        - Like removing temporary builds, or merge conflicts
+
+- Branching and Merging
+    ~> git branch
+        - Branch Management tool
+        - Can list branches available, create new branch, delete branch, rename branch
+    ~> git checkout
+        - Used to switch branches and check content out of your working directory
+    ~> git merge
+        - Used to merge one or more branches into the branch you checked out
+        - It will then advance the current branch to the result of the merge
+    ~> git mergetool
+        - Launches an external helper in case you have issues with a merge in Git
+    ~> git log
+        - Shows the recorded history of a project from the most recent commit snapshot backwards
+        - Often used to show differences between two or more branches at the commit level
+    ~> git stash
+        - Temporarily store uncommitted work in order to clean out your working dir
+        - without having to commit unfinished work on a branch
+    ~> git tag
+        - Give a permanent bookmark to a specific point in the code history
+        - Generally used to add some order and for releases
+
+- Sharing and Updating Projects
+    ~> git fetch
+        - Communicates with remote repository and fetches down all the information that is in
+        - that repo that is not in your current one and stores it in your local database
+    ~> git pull
+        - A combination of git fetch and git merge, Git will fetch from the specified remote
+        - and then immediately try to merge it into current branch
+    ~> git push
+        - Communicates with another repo, calculates what local database has that remote does not
+        - Then pushes the difference into the other repository, requires write access
+    ~> git remote
+        - Management tool for your record of remote repos, like add, change, and delete them
+        - Allows you to save long URLs as short handles such as "origin"
+    ~> git archive
+        - Create an archive file of a specific snapshot of the project
+    ~> git submodule
+        - Used to manage external repos within a normal repo, like libraries or shared resources
+        - Has several sub-commands (add, update, sync, etc) for managing these resources
+
+- Inspection and Comparison
+    ~> git show
+        - Shows a Git object in a simple and humand readable way
+        - Normally used to show the information about a tag or a commit
+    ~> git shortlog
+        - Summarizes the output of a git log
+        - Somewhat like git log, but instead of listing out all the commit it will present
+        - a summary of the commits grouped by author
+    ~> git describe
+        - Used to take anything that resolves to a commit and produces a string that is
+        - somewhat human-readable and will not change. It's a way to get a description of a commit
+        - that is unambiguous as a commit SHA but more understandable
+
+- Debugging
+    ~> git bisect
+        - Incredibly helpful debugging tool used to find which specific commit was the first one
+        - to introduce a bug or problem by doing an automatic binary search
+    ~> git blame
+        - Annotates the lines of any file with which commit was the last one to introduce a change
+        - to each line of the file and what person authored that commit
+        - Helpful in order to find the person to ask more info aobut a specific section of code
+    ~> git grep
+        - Helps you find any string or regular expression in any of the files in your secure code
+        - And even older versions of your project. (Ken Thompson is a god!)
+
+- Patching
+    ~> git cherry-pick
+        - Used to take the change introduced in a single Git commit and try to re-introduce it
+        - as a new commit on the branch you're currently on
+    ~> git rebase
+        - Basically an automated cherry-pick
+        - It determines a series of commits, and then cherry-picks them one by one in the same
+        - order somwhere else
+    ~> git revert
+        - A reverse git cherry-pick
+        - Creates a new commit that applies the exact opposite of the change introduced in the
+        - commit you're targeting essentially undoing or reverting it
+
+- Email
+    ~> git apply
+        - Applies a patch creates with the git diff or GNU diff command
+        - Similar to git patch with a few small differences
+    ~> git am
+        - Applies patches from an email inbox, specially one that is mbox formatted
+        - Useful for receiving patches over email and applying them to one's project with ease
+    ~> git format-patch
+        - Used to generate a series of patches in mbox format that you can use to send to 
+        - a mailing list properly formatted
+    ~> git send-email
+        - Used to send patches that are generated with git format-patch over email
+    ~> git request-pull
+        - Used to generate an example message body to email to someone
+        - If you have a branch on a public server, and want to let someone know how to integrate
+        - those changes without sending the patches over email, you can run this command
+        - and send the outpu to the person you want to pull the changes in
+
+- External Systems
+    ~> git svn
+        - Used to communicate with Subversion version control system as a client
+        - Means you can use Git to checkout and commit to a Subversion server
+    ~> git fast-import
+        - For other vcs or importing from nearly any format, you can use this command
+        - to quickly map the other format to something Git can easily record
+
+- Adminstration
+    ~> git gc
+        - Runs "garbage colletion" on you repo, removing unncessary files in your database
+        - and packing up the remaining files into a more efficient format
+    ~> git fsck
+        - Used to check internal database for problems or inconsistencies
+    ~> git reflog
+        - Goes through a log of where all the heads of your branches have been as you work
+        - to find commits you may have lost through rewriting histories
+    ~> git filter-branch
+        - Used to rewrite loads of commits according to certain patterns, like removing
+        - a file everywhere or filtering the entire repo down to a single subdir for extracting
+        - a project
