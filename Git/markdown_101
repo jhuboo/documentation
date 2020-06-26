@@ -1,0 +1,90 @@
+
+__author__ = Anvesh G. Jhuboo
+__github__ = @neuralx7
+__gitlab__ = @neuralx
+__twitter__ = @anveshjhuboo
+
+--------------------------
+  The Basics of Markdown
+--------------------------
+
+- Headings
+    ~> # h1/largest heading
+    ~> ##  h2 heading
+    ~> ###### h6/smallest heading
+
+- Styling Text
+    ~> **This is bold text**
+    ~> *This text is italicized*
+    ~> ~~This is strikethrough text~~
+    ~> **This text is _italicized here_ and bold everywhere else**
+    ~> ***This text is both bold and italicized***
+
+- Quoting Text
+    ~> > This is a quote
+
+- Quoting Code
+    ~> ``` The text in here is quoted and can be used as multiline ```
+
+- Links
+    ~> This is a [my page](https://anveshjhuboo.com).
+
+- Section Links
+    - We can also link over sections within the text by hovering over the section heading
+    - to expose the link
+
+- Relative Links
+    - A relative link is a link that is relative to the current file
+
+- Lists
+    ~> - Person A 
+    ~> - Person B 
+    ~> - Person C
+    
+    ~> 1. Person D
+    ~> 2. Person E
+    ~> 3. Person F
+
+- Nested lists
+    ~> 1. First list item
+        - First nested list item
+            - Second nested list item
+
+- Task lists
+    ~> - [x] Marked changes
+    ~> - [ ] Unmarked changes
+
+- Mentoining People and Teams
+    ~> @neuralx7 What do you think of these updates?
+
+- Using emoji
+    ~> @neuralx7 :+1: This looks great! :shipit:
+
+- Paragraph
+    - You can create a new paragraph by leaving a blank line between lines of text
+
+- Ignore Markdown formatting
+    - You can ignore/escape Markdown formatting by using \ before the Markdown character
+    ~> Ignore this \*markdown character\* in this project
+
+
+- Organizing information with tables
+    ~> | First Header | Second Header | Third Header |
+    ~> | :--          |     :--:      |          --: |
+    ~> | Content Cell | Content Cell  | Content Cell |
+    ~> | Left-Align   |   Centered    | Right-Align  |
+    ~> | Content Cell | Content Cell  | Content Cell |
+
+- Creating and highlighting code blocks
+    ```
+    function test() {
+        console.log("notice the blank line before this function?");
+    }
+    ````
+
+- Syntax highlighting
+    ```ruby
+    require 'redcarpet`
+    markdown = Redcarpet.new("Hello world!")
+    puts markdown.to_html
+    ``` 
