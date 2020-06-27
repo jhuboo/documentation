@@ -2,7 +2,7 @@ Massive thanks to the Linux Foundation for offering: LFS101x
 (Introduction to Linux) // Date: 02 June 2020 // LinuxFoundation
 (credits to them) in partnership with edX //
  \_\_author\_\_ = Anvesh G. Jhuboo
- Twitter: @anveshjhuboo // Gitlab : @neuralx // Github : @neuralx7
+ Twitter: @anveshjhuboo // Gitlab : @neuralx // Github : @jhuboo
 
 Chapter 1 Summary
 =================
