@@ -1,0 +1,16 @@
+Massive thanks to the Linux Foundation for offering: LFS201 (Essentials of Linux System Adminstration)
+// Latest Updated Date: 27 August 2020
+// LinuxFoundation (credits to them) in partnership with edX
+// __author__ = Anvesh G. Jhuboo
+// Twitter: @anveshjhuboo
+// Gitlab : @neuralx
+// Github : @jhuboo
+
+-----------------
+Chapter 2 Summary
+-----------------
+- Why need organization of one big filesystem? What are major considerations for how it's done?
+- Linux consists of one big filesystem, with root dir(/) being at the top of the inverted tree.
+- Explain role of the FHS
+- Describe what is available at boot in the root(/) dir, and what can be available only once the system has started
+- Explore each of the main subdirectories trees, explain their purposes, and examine their contents 
