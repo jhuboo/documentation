@@ -9,8 +9,45 @@ Massive thanks to the Linux Foundation for offering: LFS201 (Essentials of Linux
 -----------------
 Chapter 2 Summary
 -----------------
-- Why need organization of one big filesystem? What are major considerations for how it's done?
 - Linux consists of one big filesystem, with root dir(/) being at the top of the inverted tree.
-- Explain role of the FHS
+    - Within this large logical filesystem, there may be different distinct filesystems, mounted at various points, which appear as subdirs.
+        - Regardless of how things are joined together, it all looks just as one big cohesive filesystem.
+        - Applications do not usually care on what physical device the files actually reside on.
+        - This standardization allows the Linux ecosystem to make it easier to write and manage system adminstration tasks, among others.
+- Data Distinctions (How data is organized and classifed with the FHS) 
+    - Shareable vs. non-shareable
+        - Shareable data is that which can be shared between different hosts. 
+        - Non-shareable data is that which must be specific to a particular host.
+    - Variable vs. static
+        - Static data include binaries, libraries, documentation, and anything that does not change without a SysAdmin assistance. 
+        - Variable data is anything tha may change even without a SysAdmin help.
+- The Filesystem Hierachy Standard (FHS)
+    - Original document: refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf
+    - By specifying a standard layout, the FHS simplifies predictions of file locations.
+- FHS Linux Standard Dir Tree
+    Dir     In FHS?     Purpose
+    /       yes         Primary dir of entire filesystem hierachy
+    /bin    yes         Essential exe program that must be available in single user mode 
+    /boot   yes         File needed to boot the system such as kernel, initrd and boot config files and bootloader programs
+    /dev    yes         Device Nodes, used to interact with hardware and software devices
+    /etc    yes         System-wide config files
+    /home   yes         User home directories, including personal files, files,etc
+    /lib    yes         Libraries required by exe binaries in /bin and /sbin
+    /lib64  no          64-bit libaries required "" for systems which can run both 32-bit and 64-bit programs
+    /media  yes         mount points for removable media such as CDs, DVDs, USB sticks, etc
+    /mnt    yes         Temporarily mounted filesystems
+    /opt    yes         Optional application software packages
+    /proc   yes         Virtual pseudo-filesystem giving info about system/processes running. Can be used to alter system parameters
+    /sys    no          Virtual pseudo-filesystem "". Similar to a device tree and is part of the Unifed Device Model
+    /root   yes         Home dir for the root user
+    /sbin   yes         Essential system binaries
+    /srv    yes         Site-specific data served by the system. Seldom used
+    /tmp    yes         Temporary files; on many distros lost across a reboot and may be a ramdisk in memory
+    /usr    yes         Multi-user applications, utitiles and data; theoritically read-only
+    /var    yes         Variable data that changes during system operation
+
+    - There may be additional distro specific dirs under root, such as /misc and /tfpboot. 
+    - NOTE: it is not a violation to have other directories in the FHS. 
+    - However, it does violate it to have components in dirs other than those dictated by the standard.
 - Describe what is available at boot in the root(/) dir, and what can be available only once the system has started
 - Explore each of the main subdirectories trees, explain their purposes, and examine their contents 
