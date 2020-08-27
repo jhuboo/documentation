@@ -9,6 +9,7 @@ Massive thanks to the Linux Foundation for offering: LFS201 (Essentials of Linux
 -----------------
 Chapter 2 Summary
 -----------------
+
 - Linux consists of one big filesystem, with root dir(/) being at the top of the inverted tree.
     - Within this large logical filesystem, there may be different distinct filesystems, mounted at various points, which appear as subdirs.
         - Regardless of how things are joined together, it all looks just as one big cohesive filesystem.
@@ -49,5 +50,19 @@ Chapter 2 Summary
     - There may be additional distro specific dirs under root, such as /misc and /tfpboot. 
     - NOTE: it is not a violation to have other directories in the FHS. 
     - However, it does violate it to have components in dirs other than those dictated by the standard.
-- Describe what is available at boot in the root(/) dir, and what can be available only once the system has started
-- Explore each of the main subdirectories trees, explain their purposes, and examine their contents 
+- Refer to LFS101 for more details
+
+
+-----------------
+Chapter 2 Summary
+-----------------
+
+- Describe a process and the resources associated with it
+- Describe the role of the init process
+- Distinguish between processes, programs,and threads
+- Understand process attributes, permissions, and states, and know how to control limits.
+- Explain the difference between running in user and kernel modes.
+- Describe daemon processes.
+- Understand how new processes are forked (created)
+- Use nice and renice to set and modify priorites
+- Understand how shared and static libraries are used.
