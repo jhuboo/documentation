@@ -54,15 +54,115 @@ Chapter 2 Summary
 
 
 -----------------
-Chapter 2 Summary
+Chapter 3 Summary
 -----------------
 
-- Describe a process and the resources associated with it
-- Describe the role of the init process
-- Distinguish between processes, programs,and threads
-- Understand process attributes, permissions, and states, and know how to control limits.
-- Explain the difference between running in user and kernel modes.
-- Describe daemon processes.
-- Understand how new processes are forked (created)
-- Use nice and renice to set and modify priorites
-- Understand how shared and static libraries are used.
+- Programs, Processes, & Threads
+    - A program is a set of instructions, along with any internal data used while carrying the instructions out. Programs may also use external data.
+    - A process is an executing program and associated resources, including environment, open files, signal handlers, etc.
+    - A thread, or threads of execution, can share various resources, such as their entire memory spaces (or just particular memory spaces), open files, etc. When there is an everything shared circumstance, one speaks of multi-threaded process.
+- A Process (Expanded)
+    - A process is an instance of a program in execution.
+    - Every process has a pid (Process ID), a ppid (Parent Process ID), and a pgid (Process Group ID).
+a    - In addition, each process has program code, data, variables, file descriptors, and an environment.
+- The 'init' process
+    - init is usually the first user process run on a system, and thus becomes the ancestor of all subsequent processes running on the system, except for those initiated directly from the kernel (which show up with [] around their name in a ps listing)
+    - If the parent process dies before the child, the ppid of the child is set to 1; the process is adopted by init. (NOTE: in recent Linux systesm using systemd, the ppid will be set to 2, which corresponds to an internal kernel thread known as 'kthreadd', which has taken over from init the role of adopter of orphaded children.)
+    - A child process which terminates before its parent, which has not waited for it and examined its exit code, is known as a zombie/defunct process. Zombies have released almost all resources, and remain only to convey their exit status. One function of the init process is to checked on its adopted children, and let those who have terminated die gracefully. (Hence it is known as the zombie killer/child reaper).
+    - Processes are controlled by scheduling, which is completely preemptive. Only the kernel has the right to preempt a process; they cannot do it to each other.
+- For historical reasons, the largest PID has been limited to 16-bit number, or 32768. It is possible to alter this value by changing /proc/sys/kernel/pid_max, since it may be inadequatefor larger servers. As processes are created, eventually they will reach pid_max, at which point they will start again at PID = 300.
+- Process Attributes
+    - All processes have certain attributes:
+        - The program being executed
+        - Context (state)
+        - Permissions
+        - Associated resources
+    - Every Process is executing some program. The context of the processis a snapshot of itself, which includes the state of its CPU registers, where it is executing in the program, what is in the process' memory, and other information.
+    - Since processes can be scheduled in and out when sharing CPU time with others, being able to store the entire context when swapping out the process and being able to restore it upon execution resumption is critical to the kernel's ability to do context switching.
+    - Every process has permissions based on which user has called it to execute. I may also have permissions based on who owns its program file. Programs which are marked with an "s" execute bit have adiffernt "effective" user id than their "real" user id. These programs are referred to as setuid programs. They run wiht the user-id of the user who owns the program, where a non-setuid program runs with the permissions of the user who starts it. 'setuid' programs owned by root can be a security problem.
+- Process Resource Isolation
+    - When a process is started, it is isolated in its own user space to protect it from other processes. This promotes security and creates greater stability.
+    - Processes do not directly access hardware. Hardware is managed by the kernel, so a process must use system calls to indirectly access hardware. System calls are the fundamental interface between an application and the kernel.
+- Controlling Processes with ulimit
+    - : ~> ulimit  (is a built-in bash command that displays or resets a number of resource limits assocaited with processes running under a shell.)
+    - A sysadmin may need to change some of these values in either direction:
+        - To restrict capabilities so an individual user and/or process cannot exhaust system resources, such as memory, cpu time or the max number of processes on the system.
+        - To expand capabilites so a process does not run into resource limits.
+    - There are two kinds of limits:
+        - Hard
+            - The max value, set only by the root user, that a user can raise the resource limit to. (: ~> ulimit -H -n)
+        - Soft
+            - The current limiting value, which a user can modify, but cannot exceed the hard limit. (: ~> ulimit -S -n)
+    - One can set any particular limit by doing:
+        - : ~> ulimit [options] [limit]
+    - NOTE: the changes only affect the current shell. To make changes that are effective for all logged-in users, :~> /etc/security/limits.conf needs to be modified, before rebooting.
+- Process States
+    - Processes can be in one of several possible states:
+        - Running
+            - The process is either currently executing on a CPU or CPU core or sitting in the run queue, waiting for a new time slice. It will resume running when the scheduler decides it is now deserving to occupy the CPU, or when another CPU becomes idle, and the scheduler migrates the process to that CPU.
+        - Sleeping
+            - The process is waiting on a request (usually I/O) that it has made and cnnot proceed further until the request is completed. When the request is completed, the kernel will wake up the process and put it back on the run queue, and it will be given a time slice on a CPU when the scheduler decides to do do so.
+        - Stopped
+            - The process has been suspended. This state is commonly experienced when a programmer wnats to examine the executing program's memory, CPU registers, flags, or other attributes. Done via Ctrl-Z
+        - Zombie
+            - The process enters this state when it terminates, and no other process (usually the parent) has inquired about its exit state, ie, reaped it. Also called a defunct process, a zombie process has released all of its resources, except its exit state and its entry in the process table. If the parent of any process dies, the process is adopted by init (PID = 1) or kthreadd (PID = 2).
+- Execution Modes
+    - User Mode vs System Mode / Kernel Mode
+        - User Mode
+            - Except when executing a system call, processes execute in user mode, where they have lesser privileges than in the kernl mode.
+            - When a process is started, it is isolated in its won user space to protect it from other processes. This is called process resource isolation.
+            - Even a process run by the root user or as 'setuid' program runs in user mode, expect when jumping into a system call, and has only limited ability to access hardware.
+        - System (Kernel) Mode
+            - Here, the CPU has full access to all hardware on the system, including peripherals, memory, disks, etc. If an application needs access to these resources, it must issue a system call, which causes a context switch from user mode to kernel mode. This procedure must be follwed when reading and writing from files, creating a new process, etc.
+            - Application never runs in kernel mode, only the system call itself which is kernel code. When the system call is complete, a return value is produced and the process returns to user mode with the inverse context switch.
+            - There are other times when the system is in kernel mode that have nothing to do with processes, such as when handling hardware interrupts or running the scheduling routines and other management tasks for the system.
+- Daemons
+    - A daemon process is a background process whose sole purpose is to provide some specific service to users of the system:
+        - Daemons can be efficient because they only operate when needed.
+        - Many daemons are started at boot time.
+        - Daemons names often (but not always) end with d.
+        - Some examples are httpd and systemd-udevd
+        - Daemons may respond to external events (systemd-udevd) or elapsed time(crond)
+        - Daemons genereally have no controlling terminal and no standard input/output devices.
+        - Daemons sometimes provide better security control.
+- Creating Processes / Forking
+    - An average Linux system is always creating new processes/forking. The original parent process keeps running while the new child process starts.
+    - 'fork and exec' is where the parent process terminates, and the child process inherits the process ID of the parent.
+    - Older UNIX system often used a program called 'spawn', which is somewhat similar to 'fork and exec'.
+    - : ~> ps [flags]
+- Creating Processes in a Command Shell
+    - What happens when a user executes a command in a command shell interpreter, such as bash/zsh?
+        - A new process is creates (forked from the user's login shell)
+        - A wait system call puts the parent shell process to sleep.
+        - The command is loaded onto the child procss's space via the exec system call. ie, the code for the command replaces the bash program in the child's process memory space.
+        - The command completes executing, and the child process dies via the exit system call.
+        - The parent shell is re-awakened by the death of the childprocess and proceeds to issue a new shell prompt.
+        - The parent shell then waits for the next command request from the user, at which time the cycle will be repeated.
+    - If a command is issued for background processing (&), the parent shell skips the waiting time and is free to issue a new shell prompt immediately, allowing the background process to execute in parallel. Otherwise, for foreground requests, the shell waits until the child process has completed or is stopped via a signal.
+    - Some shell commands, such as echo or kill, are built into the shell itself, and do not involve loading of program files. For these commands, no fork or exec are issued for execution.
+- Using 'nice' to set Priorities
+    - process priority can be controlled through the nice and renice commands. The higher the nicesses, the lower the priority.
+    - The niceness value can range from -20 (highest priority) to +19 (lowest priority).
+        - : ~> nice -n 5 command [ARGS]
+        - : ~> nice -5 command [ARGS]
+        - The default is to increase by '10' if no value is given.
+- Renice
+    - renice is used to raise or lower the nice value of an already running process.
+    - : ~> renice --help
+      : ~> renice [-n] [-p|--pid] <pid> ...
+    - by default, only a superuser can decrease the niceness, increase the priority. However it is possible to give normal users the ability to decrease the niceness withing a predetermied range, by editing : ~> /etc/security/limits.conf
+- Static and Shared Libraries
+    - Programs are built using libraries of code, developed for multiple purposes and uses and reused in many contexts.
+        - Static
+            - The code for the library functions is inserted in the program at compile time, and does not change thereafter, even if the library is updated.
+        - Shared
+            - The code for the library functions is loaded into the program at run time, and if the library is changed later, the running program runs with the new library modifications.
+    - Using shared libraries is more efficient because they can be used by many appliations at once; memory usage, executables sizes, and application load times are reduced.
+    - Shared Libraries are also alled Dynamic Link Libraries (DLLs).
+- Shared Libary Versions
+    - Shared libaries need to be carefully versioned. If there is a significant change to the library and a program is not equipped to handle it, serious problems can be expected. This is sometimes known as DLL Hell.
+    - Therefore programs can request a specific 'major' library version, rather than the latest one on the system. However, usually the program will always use the latest 'minor' version available. Some applications providers will use static libraries bundled into the program to avoid these problems.
+- Finding Shared Libraries (DLLs)
+    -  A program which uses shared libraries has to be able to find them at runtime.
+    - : ~> ldd  (can be used to find which shared libraries an executable requires. It shows the 'soname' of the library and what file it actually points to)
+    - : ~> ldconfig (lists the directories that will be searched fro shared libraries)
