@@ -239,3 +239,36 @@ Chapter 4 Summary
 -----------------
 Chapter 5 Summary
 -----------------
+
+- Software Packaging Concepts
+    - Package management systems supply the tools that allow sysadmins to automate installing, upgrading, configuring, and removing software packages in a known, predictable, and consistent manner.
+- Software package management systems enable installation processes to scale to thousands of systems without requiring manual work on each individual system. Features include:
+    - Automation: No need for manual installs and upgrades.
+    - Scalability: Install packages on one system, or 10,000 systems.
+    - Repeatability and predictability
+    - Security and auditing
+- Package Types
+    - Binary Packages
+        - contain file ready for deployment, including executable files and libraries. Are architecture-dependent, and must be compiled for each type of machine.
+    - Source Packages
+        - are used to generate binary packages; it's always possible to rebuild a binary package from the source package. Can be used on multiple architectures.
+        - Rebuilding binary packages from their source packages (RPM systems)
+        - : ~> rpmbuild --rebuild -rb p7zip-16.02-16.e18.src.rpm
+        - which will place the results in /root/rpmbuild
+        - : ~> root/rpmbuild>find . -name "*rpm"
+        - with the exact location depending on the Linux distro and version
+- Available Package Management Systems
+    - RPM (Red Hat Package Manager)
+        - used by all Red Hat derived distros, such as Red Hat Entreprise Linux, CentOs, Scientific Linux, and CentOs, as well as SUSE and openSUSE
+    - dpkg (Debian Package)
+        - used by all Debian-derived distributions, including Debian, Ubuntu, and Linux Mint.
+    - There are other package management systems such as 'portage/emerge' used by Gentoo, 'pacman' used by Arch, and specialized ones used by Embedded Linux systesm and Android.
+- Packaging Tool Levels and Varieties
+    - Low Level Utilities
+        - This simply installs or removes a single package, or list of packages, each one of whihc is individually and specifically named. dependencies are not fully handled, only warned about.
+    - High Level Utilities
+        - This solves the dependency problem.
+        - For RPM, we have 'yum', 'dnf', 'zypper' and Package Kit utilites
+        - For dpkg systems, we have 'apt', 'apt-cache'
+- Creating Software Packages
+    - Building your own package allwos you to control exacktly what goes in the software
