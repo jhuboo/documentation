@@ -416,6 +416,10 @@ Chapters 8-10 Summary
 - DNF
     - intented to be a next-gen replacement for yum, and will underline yum in RHEL 8.
     - accepts the subset of yum commands in most day-to-day cases.
+- Zypper
+    - higher-level command line tool for installing and managing packages on SUSE and OpenSUSE.
+    - very similar to yum
+    - also works on rpm packages
 
 
 
