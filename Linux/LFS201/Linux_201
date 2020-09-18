@@ -361,7 +361,24 @@ Chapter 6 Summary
 Chapter 7 Summary
 -----------------
 
-
+- DPKG Essentials
+    - is the packaging system used to install, remove, and manage software packages under Debian Linux, and the likes.
+    - like RPM, not designed to directly retrieve packages in day-to-day use, but to install and remove them locally.
+    - :~> /var/lib/dpkg     (where DPKG database resides; files have .dev suffix)
+- Package File Names
+    - For binary package:
+        - <name>_<version>_<revision_number>_<architecture>.deb
+    - Source Package:
+        - consists of at least 3 files:
+            - upstream tarball, ending with .tar.gz     (unmodified source as it comes from package maintainers)
+            - description file, ending with .dsc        (contains package name, and other metadata, such as architecture and dependencies)
+            - second tarball, ending with .debian.tar.gz | .diff.gz (contains patches to the upstream source)
+- DPKG Queries
+    - :~> dpkg -l   (list all packages installed)
+    - :~> dpkg -V package   (verify the installed package's integrity)
+    - :~> sudo dpkg -i foobar.deb   (install or upgrade foobar package)
+    - :~> sudo dpkg -r package  (removes package, except config files)
+    - :~> sudo dpkg -P package  (removes package, purging config files)
 
 -----------------
 Chapter 8 Summary
