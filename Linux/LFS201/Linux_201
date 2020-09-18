@@ -381,15 +381,41 @@ Chapter 7 Summary
     - :~> sudo dpkg -P package  (removes package, purging config files)
 
 -----------------
-Chapter 8 Summary
+Chapters 8-10 Summary
 -----------------
 
-
-
------------------
-Chapter 10 Summary
------------------
-
+- Higher-lvl package management systems (such as ym, dnf, apt, zypper) work with databases of available software and incorporate the tools needed to find, install, update, and uninstall software. They:
+    - can use both local and remote repos as a source to install and update binary, as well as source software packages.
+    - are used to automate the install, upgrade and removal of software packages
+    - resolve dependencies automatically
+    - save time because there is no need to either download packages manually or search out dependency info separately.
+ - YUM
+    - provides a frontend to rpm
+    - primary task to fetch packages from multiple remote repos and resolve dependencies amonga packages.
+    - used by majority of distros that use rpm, including RHEL, CentOs, Scientific Linux, and Fedora
+    - caches info and databases to speed up performance.
+        - yum clean [pkgs | metadata | expire-cache | rpmdb | plugins | all ]   (to remove some or all cached information)
+    - :~> /usr/bin/yum*     (modular extensions|plugins and companion programs)
+    - :~> /etc/yum.repos.d/     (repos config files)
+    - Queries
+        - :~> sudo yum search keyword   (search for packages with keyword in name)
+        - :~> sudo yum list "*keyword*" ("")
+        - :~> sudo yum info package     (display info about package)
+        - :~> sudo yum list [installed | updates | available]   (list all packages, or just those installed, available, or updates not yet installed)
+        - :~> sudo yum grouplist [group1] [group2]  (show info about package groups installed or available, etc)
+        - :~> sudo yum /path/to/file    (show packages that contain a certain file name) [Note: need to use at least one / in the file name]
+        - :~> sudo yum verify [package]     (verify package)
+        - :~> sudo yum verify-rpm [package]  (mimic rpm -V)
+        - :~> sudo yum verify-all [package]  (list all diffs, including config files)
+        - :~> sudo yum install package1 [package2]
+        - :~> sudo yum localinstall package-file
+        - :~> sudo yum groupinstall group-name
+        - :~> sudo yum install @group-name  (same as above)
+        - :~> sudo yum remove package1 [package2]
+        - :~> sudo yum update [package]
+- DNF
+    - intented to be a next-gen replacement for yum, and will underline yum in RHEL 8.
+    - accepts the subset of yum commands in most day-to-day cases.
 
 
 
