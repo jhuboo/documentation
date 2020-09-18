@@ -272,3 +272,111 @@ Chapter 5 Summary
         - For dpkg systems, we have 'apt', 'apt-cache'
 - Creating Software Packages
     - Building your own package allwos you to control exacktly what goes in the software
+
+
+-----------------
+Chapter 6 Summary
+-----------------
+
+- Advantages of Using RPM
+    - All files related to a specific taks or a subsystem are packages into a single file, which also contains information about how and where to install and uninstall the files.
+    - Makes software packages easy to manage. EAsy to find out wihc package a particular file comes form, which verson of teh package is installed, and whether it is installed correctly. FTP or HTTP can be used to install packages. Easy to remove complete packages to free up disk space.
+    - RPM also distinguishes documentation files from the rest of a package, allowing you to choose whether to install documentation on a system.
+    - RPM makes software devs job easier. Often, devs have to change the code to get it to compile and execute directly on another OS. RPM allows builders to keep the changes necessary for a building on a Linux separate from the original source. This facilitates incorporating new versions of the code, because build-related changes are all in one place. It also facilitates building versions of Linux for different architectures.
+- Package File Names
+    - The standard format for a binary RPM package is:
+        - <name>-<version>-<release>.<distro>.<architecture>.rpm
+    - The standard format for source RPM package is:
+        - <name>-<version>-<release>.<distro>.src.rpm
+- RPM Database and Helper Programs
+    - :~> /var/lib/rpm  (default sys dir which holds RPM database files in the form of Berkeley DB hash files.)
+        - use --dbpath to specify alternative database dir
+        - use --rebuilddb to rebuild database indices from installed package headers
+    - :~> /usr/lib/rpm  (helper programs and scripts used by RPM)
+    - 'rpmrc' file can be created to specify default settings for rpm:
+        - :~> /usr/lib/rpm/rpmrc
+        - :~> /etc/rpmrc
+        - :~> ~/.rpmrc
+- Queries
+    - All rpm inquires include the '-q' option which can be combined with other sub-options
+        - :~> rpm -q bash   (Version of package installed)
+        - :~> rpm -qf /bin/bash     (which package file came from)
+        - :~> rpm -ql bash  (what files were installed by this package)
+        - :~> rpm -qi bash  (show info about the package)
+        - :~> rpm -qip foo-1.0.0-1.noarch.rpm   (show info about package from the package file, not the package db)
+        - :~> rpm -qa       (list all installed packages on this system)
+        - :~> rpm -qp --requires foo-1.0.0-1.noarch.rpm (--requires option will return a list of prerequisites for a package)
+        - :~> rpm -q --whatprovides libc.so.6       (--whatprovides option will show what installed package provides a particular requisite pkg)
+- Verifying Packages
+    - :~> rmp -Va       (No output is generated when everything is ok)
+        - s: file size differs
+        - M: file permission or type differs
+        - 5: MD5 checksum differs
+        - D: device major/minor num mismatch
+        - L: symbolic link path mismatch
+        - U: user ownership differs
+        - G: group ownership differs
+        - T: modification time differs
+        - P: capabilities differ
+- Installing Packages
+    - :~> sudo rpm -ivh bash-4.4.19-8.e18_0.x86_64
+        - where -i = install, -v = verbose, -h = print out hash marks while doing to show progress
+    - Tasks performed by RPM when installing a package
+        - dependency checks
+        - conflict checks
+        - executes commands required before installation
+        - deals intelligently with config files
+        - unpacks files from packages and installs them with correct attributes
+        - executes commands required after installation
+        - updates the system RPM database
+- Uninstalling Packages
+    - :~> sudo rpm -e system-config-lvm
+        - where -e = erase(uninstall) package
+- Updating Packages
+    - :~> rpm -Uvh bash-4.4.19-10.e18.x86_64.rpm
+        - where -U = upgrade
+        - use --oldpackage option to downgrade with rpm -U
+- Freshening Packages
+    - :~> sudo rpm -Fvh *.rpm
+        - if old version of package is installed, it is upgraded
+        - if same version, nothing happens
+        - if no version is installed, it is ignored
+    - useful when applying patches
+- Grasp why new kernels should be installed, rather than upgraded
+    - :~> sudo rpm -ivh kernel-{version}.{arch}.rpm
+    - allows to boot from old kernel if error happens during upgrade
+- Using rpm2cpio
+    - converts RPM packages to cpio archives
+        - :~> rpm2cpio foobar.rpm > foobar.cpio
+    - lists files in an RPM package file
+        - :~> rpm2cpio bash-XXXX.rpm | cpio -t
+    - better way to do same thing:
+        - :~> rpm -qlp bash-XXXX.rpm
+    - extract one or more files from an RPM package file into the system
+        - :~> rpm2cpio bash-XXXX.rpm | cpio -ivd bin/bash
+        - :~> rpm2cpio logrotate-XXXX.rpm | cpio --extract --make-directories 
+
+
+-----------------
+Chapter 7 Summary
+-----------------
+
+
+
+-----------------
+Chapter 8 Summary
+-----------------
+
+
+
+-----------------
+Chapter 10 Summary
+-----------------
+
+
+
+
+-----------------
+Chapter 11 Summary
+-----------------
+
