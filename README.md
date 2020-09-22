@@ -8,8 +8,3 @@ Languages
 3. C | C++      : (Low-level | Fundamentals)
 4. Haskell      : (Functional Programming)
 5. Web Dev      : (Everything front-end related | some backend)
-
-Frameworks:
-1. Django
-
-Linux Sysadmin | Engineer
