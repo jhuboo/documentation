@@ -57,7 +57,7 @@ Sub: ~> :%s/old/new/gc  // substitute with confirmation each time
 Copy : ~> y // yank, Start Visual Mode with 'v' and move cursor, press y to copy highlighted text
 Paste: ~> p // put, type p to paste the text
 More : ~> yy // yank a whole line without going into visual mode
-More : ~> yw // yank a whole word, remembe motion operator!
+More : ~> yw // yank a whole word, remember motion operator!
 
 Undo: ~> u // undo previous actions
 Undo: ~> U // Undo all changes on a line
