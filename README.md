@@ -10,8 +10,8 @@ Languages
 5. Web Dev      : (Everything front-end related | some backend)
 
 Goals
-1. Complete Cloud Engineer Bootcamp (Linux Foundation) by October 2020
-2. Complete Codecademy Web Development Path by October 2020
-3. Complete AppAcademy Path by December 2020
-4. Complete Rust Path by December 2020
+1. Complete Cloud Engineer Bootcamp (Linux Foundation) by end of 2020
+2. Complete Codecademy Full Stack & Backend Path by end of 202-
+3. Complete AppAcademy Path by end of 2020
+4. Complete Rust Path by end of 2020
 5. Build one project per month from ideas list
